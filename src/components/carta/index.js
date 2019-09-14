@@ -14,12 +14,11 @@ class Carta extends Component{
     }
     
     render(){
-        debugger;
         console.log(this.props);
        const pozoId = this.props.match.params.pozoId;
         console.log(pozoId);
-        const{ cartas, golpeGas, golpeFluido } = this.props;
-      
+        const{ cartas, golpeGas, golpeFluido} = this.props;
+        debugger;
         return(
             <Page golpeFluido={golpeFluido}
                 golpeGas={golpeGas}

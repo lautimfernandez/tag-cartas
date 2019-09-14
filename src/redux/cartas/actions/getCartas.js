@@ -5,10 +5,10 @@ export const type = 'getCartas';
 const getCartas =  () => async dispatch => {
    const cartas = await getCartasService()
    debugger
-   if(cartas.ok){
+   if(cartas){
    dispatch({
         type,
-        cartas: cartas.data
+        cartas: cartas
    })
    }
 };

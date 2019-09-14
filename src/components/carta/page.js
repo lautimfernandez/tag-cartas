@@ -8,16 +8,17 @@ import './styles.css';
 import { Link } from 'react-router-dom';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
+import Highchart from "../highchart";
 
 
 function Page(props) {
     
    
    debugger;
-   const {golpeFluido,golpeGas, cartas, pozoId} = props;
+   const {golpeFluido,golpeGas, cartas} = props;
   
+   const cartasXy = cartas.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
 
-   let cartasPozoId = cartas.filter(c => c.pozoid === 1);
   
     return (
         <Fragment>
@@ -32,24 +33,24 @@ function Page(props) {
                             
             <Slider>             
            
-            {cartasPozoId.map(carta => (<Paper
+            {cartasXy.map(carta => (<Paper
                     elevation={1}
                     className="paper-container"
                 >
-                
+                    
                     {carta ?
                         <Fragment>
                             
-
-                            <div
-                                className="item-image"
-                                style={{
-                                    backgroundImage: `url(${carta.image})`,
-                                }}
-                            />
-
+                        <Highchart options={({title: {
+                                            text: 'Pump Cards'
+                                                },series: 
+                          [{data : carta}]})
+                        }/>
+                       
                            
                         </Fragment>
+                      
+
                         :
                         <CircularProgress className="item-loader" />
                     }

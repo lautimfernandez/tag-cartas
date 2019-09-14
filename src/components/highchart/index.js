@@ -2,18 +2,10 @@ import React, { Component } from 'react'
 import Page from "./page";
 class Highchart extends Component{
 
-    render(){ 
-        const options = {
-            title: {
-              text: 'My chart'
-            },
-            series: [{
-              data: [[1, 2],[3,4],[5,9]]
-            }]
-          }
-
+    render(){
+        
         return(
-            <Page options={options}/>
+            <Page options={this.props.options}/>
         )
     }
 }
