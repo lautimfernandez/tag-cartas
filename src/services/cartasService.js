@@ -1,4 +1,3 @@
-import cartas from "../data/cartas.js"
 import axios from 'axios';
 
 const getCartasService = () =>

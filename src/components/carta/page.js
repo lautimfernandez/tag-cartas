@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
-
+import Checkboxes from "../checkboxes";
 
 function Page(props) {
     
@@ -30,46 +30,61 @@ function Page(props) {
             <Typography gutterBottom variant="h5" component="h2">
                               Pozo X
                             </Typography>
-                            
-            <Slider>             
+            <Link to="/pozos">Pozos</Link>
+             
+            <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+            <div style={{height:100+'%', width:50+'%'}}>
+             <Slider >             
            
-            {cartasXy.map(carta => (<Paper
-                    elevation={1}
+            {cartasXy.map((carta,index) => (<Paper
+                    elevation={0}
                     className="paper-container"
                 >
-                    
+                      
+                
+                <div className="checks" align="center">
+                    <Checkboxes  />
+                </div>
+                <div className="next" align="center">
+                    <Button color="primary" onClick={()=> {golpeGas(cartas[index]);}}>Golpe de gas</Button>
+                    <Button color="primary" onClick={()=> {golpeFluido(cartas[index]);}} >Golpe de fluido</Button>   
+                </div>
+
                     {carta ?
-                        <Fragment>
+                      
+                            
                             
                         <Highchart options={({title: {
                                             text: 'Pump Cards'
-                                                },series: 
+                                                }
+                                        
+                                                ,series: 
                           [{data : carta}]})
                         }/>
                        
                            
-                        </Fragment>
+                        
                       
 
                         :
                         <CircularProgress className="item-loader" />
                     }
-                    <div classname="botones" align="center">
-                        
-                        <Button color="primary" onClick={()=> {golpeGas(carta);}}>Golpe de gas</Button>
-                        <Button color="primary" onClick={()=> {golpeFluido(carta);}} >Golpe de fluido</Button>
-                    </div>
-                   
                   
-
+                    
                 </Paper>))}
                 
           
             </Slider>   
-            
-                <Link to="/pozos">Pozos</Link>
+            </div>
+            </div>
+
         </Fragment>
     );
 }
 
 export default Page;
+/*
+<div classname="botones" align="center">
+                       
+                    
+                </div>*/

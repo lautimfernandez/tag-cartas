@@ -10,7 +10,7 @@ const updateState = (c,type,action) =>{
     if(action.carta.id === c.id){
         return{
             ...c,
-            diagnose : type 
+            diagnose : c.diagnose.concat(type) 
         }
     }
     return c
