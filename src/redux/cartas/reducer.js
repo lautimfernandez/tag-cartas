@@ -7,7 +7,6 @@ const initialState = {
 }
 
 const updateState2 = (c,action) =>{
-    debugger;
     
     
     let newState=[];

@@ -1,4 +1,4 @@
-import getCartasService from "../../../services/cartasService"
+import {getCartasService} from "../../../services/cartasService"
 export const type = 'getCartas';
 
 

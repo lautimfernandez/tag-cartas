@@ -10,4 +10,7 @@ const getCartasService = () =>
         }
 )
 
-export default getCartasService;
+const updateCartas = ({id}, diagnose) =>
+  axios.put(`https://dynacards.herokuapp.com/cards/${id}`, {diagnose})
+
+export {getCartasService, updateCartas};
