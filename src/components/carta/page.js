@@ -53,7 +53,8 @@ function Page(props) {
                             
                             
                         <Highchart options={({title: {
-                                            text: 'Pump Cards'
+                                         text: 'Carta dinamométrica '+JSON.parse(cartas[index].id)
+                                         +' - Pozo '+JSON.parse(cartas[index].well)
                                                 }
                                         
                                                 ,series: 
