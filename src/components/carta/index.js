@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import Page from "./page";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import golpeFluido from "../../redux/cartas/actions/golpeFluido";
-import golpeGas from "../../redux/cartas/actions/golpeGas";
 import getCartas from "../../redux/cartas/actions/getCartas";
+import updateState from "../../redux/cartas/actions/updateState";
 
 class Carta extends Component{
     
@@ -15,15 +14,14 @@ class Carta extends Component{
     
     render(){
         
-       const pozoId = this.props.match.params.pozoId;
+       //const pozoId = this.props.match.params.pozoId;
         
-        const{ cartas, golpeGas, golpeFluido} = this.props;
+        const{ cartas, updateState} = this.props;
         debugger;
         return(
-            <Page golpeFluido={golpeFluido}
-                golpeGas={golpeGas}
+            <Page 
                 cartas={cartas}
-                pozoId={pozoId}
+                updateState={updateState}
             />
         );
     }
@@ -31,15 +29,12 @@ class Carta extends Component{
 
 
 const mapStateToProps = state => ({
-    cartas : state.carta.cartas,
-    cartasGolpeFluido: state.carta.cartasGolpeFluido,
-    cartasGolpeGas : state.carta.cartasGolpeGas
+    cartas : state.carta.cartas
 });
 
 const mapDispatchToProps  = dispatch =>( {
-   golpeFluido: (carta) => dispatch(golpeFluido(carta)),
-   golpeGas : (carta) => dispatch(golpeGas(carta)),
-   getCartas : () => dispatch(getCartas())
+   getCartas : () => dispatch(getCartas()),
+   updateState : (carta,state) => dispatch(updateState(carta,state))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Carta))

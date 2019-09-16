@@ -15,7 +15,7 @@ function Page(props) {
     
    
    debugger;
-   const {golpeFluido,golpeGas, cartas} = props;
+   const { cartas, updateState} = props;
   
    const cartasXy = cartas.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
 
@@ -29,7 +29,7 @@ function Page(props) {
                 
             <Typography gutterBottom variant="h5" component="h2">
                               Pozo X
-                            </Typography>
+            </Typography>
             <Link to="/pozos">Pozos</Link>
              
             <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
@@ -39,16 +39,14 @@ function Page(props) {
             {cartasXy.map((carta,index) => (<Paper
                     elevation={0}
                     className="paper-container"
-                >
+                > 
+
                       
                 
                 <div className="checks" align="center">
-                    <Checkboxes  />
+                    <Checkboxes carta={cartas[index]} updateState={updateState} />
                 </div>
-                <div className="next" align="center">
-                    <Button color="primary" onClick={()=> {golpeGas(cartas[index]);}}>Golpe de gas</Button>
-                    <Button color="primary" onClick={()=> {golpeFluido(cartas[index]);}} >Golpe de fluido</Button>   
-                </div>
+                
 
                     {carta ?
                       
