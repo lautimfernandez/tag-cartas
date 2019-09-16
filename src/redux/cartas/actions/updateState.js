@@ -1,10 +1,11 @@
 import {updateCartas} from "../../../services/cartasService"
 export const type = 'updateState';
 
-const constructDiagnose = ({golpeFluido, golpeGas}) => {
+const constructDiagnose = ({golpeFluido, golpeGas,golpeBomba}) => {
     const diagnose = [];
     if (golpeFluido) diagnose.push("fluidStroke");
     if (golpeGas) diagnose.push("gasStroke");
+    if (golpeBomba) diagnose.push("bombStroke");
     return  diagnose.join(",");
 }
 
