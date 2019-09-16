@@ -6,11 +6,11 @@ import Button from '@material-ui/core/Button';
 
 export default function CheckboxLabels(props) {
   const [state, setState] = React.useState({
-    golpeGas: false,
-    golpeFluido: false,
-    golpeBomba : false,
-    
-    
+    gasInterference: false,
+    fluidStroke: false,
+    bombStroke : false,
+    flowingWell : false,
+    fishingRodRods : false
   });
 
   
@@ -30,20 +30,20 @@ export default function CheckboxLabels(props) {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.golpeGas}
-            onChange={handleChange("golpeGas")}
-            value="golpeGas"
+            checked={state.gasStroke}
+            onChange={handleChange("gasInterference")}
+            value="gasInterference"
             color="primary"
           />
         }
-        label="Golpe de gas"
+        label="Interferencia de gas"
       />
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.golpeFluido}
-            onChange={handleChange("golpeFluido")}
-            value="golpeFluido"
+            checked={state.fluidStroke}
+            onChange={handleChange("fluidStroke")}
+            value="fluidStroke"
             color="primary"
           />
         }
@@ -52,13 +52,35 @@ export default function CheckboxLabels(props) {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.golpeBomba}
-            onChange={handleChange("golpeBomba")}
-            value="golpeBomba"
+            checked={state.bombStroke}
+            onChange={handleChange("bombStroke")}
+            value="bombStroke"
             color="primary"
           />
         }
         label="Golpe de bomba"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.flowingWell}
+            onChange={handleChange("flowingWell")}
+            value="flowingWell"
+            color="primary"
+          />
+        }
+        label="Pozo fluyente"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.fishingRodRods}
+            onChange={handleChange("fishingRodRods")}
+            value="fishingRodRods"
+            color="primary"
+          />
+        }
+        label="Pesca de varillas de bombeo"
       />
       <Button color="primary" onClick={()=> {updateState(carta,state);}}>Update</Button>    
     </FormGroup>

@@ -1,12 +1,16 @@
 import {updateCartas} from "../../../services/cartasService"
 export const type = 'updateState';
 
-const constructDiagnose = ({golpeFluido, golpeGas,golpeBomba}) => {
+const constructDiagnose = (state) => {
     const diagnose = [];
-    if (golpeFluido) diagnose.push("fluidStroke");
-    if (golpeGas) diagnose.push("gasStroke");
-    if (golpeBomba) diagnose.push("bombStroke");
-    return  diagnose.join(",");
+    for (var key in state) {
+        if (state.hasOwnProperty(key)) {
+          if(state[key]===true)  
+          diagnose.push(key);
+        }
+      };
+      return diagnose.join(",");
+    
 }
 
 const updateState = (carta,state) => async dispatch => {
@@ -16,7 +20,7 @@ const updateState = (carta,state) => async dispatch => {
     debugger
     dispatch({
          type,
-         cartadiag : {carta,state}
+         cartadiag : {carta,diagnose}
     });
  };
 

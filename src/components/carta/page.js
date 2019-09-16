@@ -4,7 +4,6 @@ import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import './styles.css';
-import { Link } from 'react-router-dom';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";

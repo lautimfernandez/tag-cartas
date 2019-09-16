@@ -1,4 +1,3 @@
-
 import {type as getCartasType} from "../cartas/actions/getCartas";
 import {type as updateStateType} from "../cartas/actions/updateState";
 
@@ -7,26 +6,18 @@ const initialState = {
 }
 
 const updateState2 = (c,action) =>{
+    debugger;
     
     
-    let newState=[];
     if(action.cartadiag.carta.id === c.id){
-       
-        for (var key in action.cartadiag.state) {
-            if (action.cartadiag.state.hasOwnProperty(key)) {
-              if(action.cartadiag.state[key]===true)  
-              newState.push(key);
-            }
-          }
-          ;
+        
         return{
             ...c,
-            diagnose : c.diagnose.concat(newState),
-            
+            diagnose : c.diagnose.concat(action.cartadiag.diagnose)    
         }
        
     }
-    newState=[];
+    
     return c
 }
 
