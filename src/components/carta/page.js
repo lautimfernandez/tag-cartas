@@ -3,7 +3,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Button from '@material-ui/core/Button';
 import './styles.css';
 import { Link } from 'react-router-dom';
 import Slider from 'react-animated-slider';
@@ -15,11 +14,12 @@ function Page(props) {
     
    
    debugger;
-   const { cartas, updateState} = props;
+   const { cartas, updateState,pozoId} = props;
   
-   const cartasXy = cartas.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
+   const cartasNoDiag = cartas.filter(c => (c.diagnose ===""));
+   const cartasXy = cartasNoDiag.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
 
-  
+    
     return (
         <Fragment>
             
@@ -28,9 +28,9 @@ function Page(props) {
             
                 
             <Typography gutterBottom variant="h5" component="h2">
-                              Pozo X
+                              Pozo {pozoId}
             </Typography>
-            <Link to="/pozos">Pozos</Link>
+            
              
             <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
             <div style={{height:100+'%', width:50+'%'}}>

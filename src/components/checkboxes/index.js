@@ -7,24 +7,16 @@ import Button from '@material-ui/core/Button';
 export default function CheckboxLabels(props) {
   const [state, setState] = React.useState({
     golpeGas: false,
-    golpeFluido: false
+    golpeFluido: false,
+    golpeBomba : false,
+    
+    
   });
 
   
 
   const handleChange = name => event => {
-   
     setState({ ...state, [name]: event.target.checked });
-  /*if(event.target.checked===true){
-    
-        newState.push(name)
-        console.log(newState)
-    }
-   else {
-    if(event.target.checked===false)
-        newState.filter(s => (s !== name))
-        console.log(newState)
-    }*/
   };
   
  
@@ -34,7 +26,7 @@ export default function CheckboxLabels(props) {
 
   return (
       
-    <FormGroup row>
+    <FormGroup row >
       <FormControlLabel
         control={
           <Checkbox
@@ -56,6 +48,17 @@ export default function CheckboxLabels(props) {
           />
         }
         label="Golpe de fluido"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.golpeBomba}
+            onChange={handleChange("golpeBomba")}
+            value="golpeBomba"
+            color="primary"
+          />
+        }
+        label="Golpe de bomba"
       />
       <Button color="primary" onClick={()=> {updateState(carta,state);}}>Update</Button>    
     </FormGroup>

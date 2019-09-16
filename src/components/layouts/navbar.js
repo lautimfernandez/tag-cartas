@@ -5,7 +5,7 @@ import "./styles.css";
 function navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">
+  <a className="navbar-brand" href="/">
   <img src="https://drive.google.com/uc?export=view&id=1QaJuS0yYfCgCu0I76xBOMS7qhwTUdcNM" height="60" alt="DYNACARDS" /> DYNACARDS
     </a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@ function navbar() {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
-        <a className="nav-link" href="#">POZOS</a>
+        <a className="nav-link" href="/pozos">POZOS</a>
       </li>
       <li className="nav-item">
         <a className="nav-link" href="#">CONFIGURACIÓN</a>
