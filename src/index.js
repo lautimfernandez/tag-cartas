@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import store from './redux/store';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PozosTable from "./components/pozosTable";
 import Pozo from "./components/pozo";
 import Carta from "./components/carta";
 import Login from "./components/login";
 import Higchart from "./components/highchart";
+import Navbar from './components/layouts/navbar';
+
+//import Footer from './components/layouts/footer';
 
 const Root = (
     <Provider store={store}>
         <BrowserRouter>
+        <Navbar />
             <Switch>
                 <Route exact path="/pozos/:pozoId/cartas" component={Carta} />
                 <Route path="/pozos" component={PozosTable} />
