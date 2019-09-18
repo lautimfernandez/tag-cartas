@@ -13,6 +13,8 @@ import Profile from "./components/profile";
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import store from './redux/store';
+import PrivateRoute from "./components/privateRoute";
+import { useAuth0 } from "./react-auth0-wrapper";
 
 function App() {
   return (
@@ -23,13 +25,13 @@ function App() {
         <BrowserRouter>
         <Navbar />
             <Switch>
-                <Route exact path="/pozos/:pozoId/cartas" component={Carta} />
-                <Route path="/pozos" component={PozosTable} />
-                <Route path="/pozos/:pozoId" component={Pozo} />
+                <PrivateRoute exact path="/pozos/:pozoId/cartas" component={Carta} />
+                <PrivateRoute path="/pozos" component={PozosTable} />
+                <PrivateRoute path="/pozos/:pozoId" component={Pozo} />
                 <Route path="/login" exact component={Login} />
-                <Route path="/high" component={Higchart}/>
-                <Route path="/" exact />
-                <Route path="/profile" component={Profile} />
+                <PrivateRoute path="/high" component={Higchart}/>
+                <PrivateRoute path="/" exact />
+                <PrivateRoute path="/profile" component={Profile} />
                 <Redirect from="/" to="/pozos" />
             </Switch>
         </BrowserRouter>
