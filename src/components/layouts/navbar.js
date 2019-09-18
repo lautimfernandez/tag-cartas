@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout, loading } = useAuth0();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div>
-      {!isAuthenticated && (
+      {loading === false && !isAuthenticated && (
         <button
           onClick={() =>
             loginWithRedirect({})
