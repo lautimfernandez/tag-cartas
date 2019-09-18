@@ -1,10 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import "./styles.css";
+import { useAuth0 } from "../../react-auth0-wrapper";
+import { Link } from "react-router-dom";
 
-function navbar() {
+
+const NavBar = () => {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div>
+      {!isAuthenticated && (
+        <button
+          onClick={() =>
+            loginWithRedirect({})
+          }
+        >
+          Log in
+        </button>
+      )}
+
+      {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+    </div>
   <a className="navbar-brand" href="/">
   <img src="https://drive.google.com/uc?export=view&id=1QaJuS0yYfCgCu0I76xBOMS7qhwTUdcNM" height="60" alt="DYNACARDS" /> DYNACARDS
     </a>
@@ -35,10 +53,17 @@ function navbar() {
       </li>
     </ul>
   </div>
+  {isAuthenticated && (
+      <span>
+        <Link to="/">Home</Link>&nbsp;
+        <Link to="/profile">Profile</Link>
+      </span>
+    )}
 </nav>
   );
-}
-export default navbar;
+};
+
+export default NavBar;
 
 const FooterContainer = styled.footer`
   .footer-middle {
