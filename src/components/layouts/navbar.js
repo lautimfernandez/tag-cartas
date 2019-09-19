@@ -7,13 +7,15 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const { isAuthenticated, loginWithRedirect, logout, loading, user } = useAuth0();
- debugger;
- let imagen="";
- /*if(isAuthenticated){
-   if(Array.isArray(user.picture)&&user.picture.length){
-     imagen = user.picture
-   }
- }*/
+
+
+ if (loading || !user) {
+   return (
+     <div>Loading...</div>
+   );
+ }
+
+
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -47,9 +49,9 @@ const NavBar = () => {
       </li>
 
       <li class="nav-item avatar dropdown">
-        <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle" href="/profile"  id="navbarDropdownMenuLink-55" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-              <img src="" height="50" class="rounded-circle z-depth-0"
+              <img src={user.picture} height="50" class="rounded-circle z-depth-0"
             alt="avatar image"/>
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
