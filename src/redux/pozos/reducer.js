@@ -1,11 +1,20 @@
-import pozos from "../../data/pozos";
+import {type as getPozosType} from "../pozos/actions/getPozos";
 
 const initialState = { 
-    pozos : pozos   
+    pozos : [] 
 }
 
 const reducer = (state = initialState, action) => {
-    return state;
+    switch(action.type){
+        case(getPozosType):{
+            return{
+                ...state,
+                pozos : state.pozos.concat(action.pozos)
+            }
+        }
+        default:
+            return state;
+    }
 }
 
 

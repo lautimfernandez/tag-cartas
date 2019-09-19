@@ -36,10 +36,10 @@ export default function Page(props) {
         </TableHead>
         <TableBody>
           {pozos.map(p => (
-            <TableRow key={p.id}>
+            <TableRow key={p}>
               <TableCell component="th" scope="row">
-                <Link to={"/pozos/"+p.id+"/cartas"}>
-                {p.id}
+                <Link to={"/pozos/"+p+"/cartas"}>
+                {p}
                 </Link>
               </TableCell>
               <TableCell align="left">{p.nombre}</TableCell>
