@@ -13,7 +13,8 @@ const updateState2 = (c,action) =>{
         
         return{
             ...c,
-            diagnose : c.diagnose.concat(action.cartadiag.diagnose)    
+            diagnose : action.cartadiag.diagnose,
+            diagnosedBy : action.cartadiag.nombre    
         }
        
     }

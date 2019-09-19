@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import getCartas from "../../redux/cartas/actions/getCartas";
 import updateState from "../../redux/cartas/actions/updateState";
+import { useAuth0 } from "../../react-auth0-wrapper";
 
 class Carta extends Component{
     
@@ -35,7 +36,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps  = dispatch =>( {
    getCartas : () => dispatch(getCartas()),
-   updateState : (carta,state) => dispatch(updateState(carta,state))
+   updateState : (carta,state,nombre) => dispatch(updateState(carta,state,nombre))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Carta))

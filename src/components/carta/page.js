@@ -9,12 +9,14 @@ import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import Checkboxes from "../checkboxes";
 
+
 function Page(props) {
     
    
-   debugger;
+  
    const { cartas, updateState,pozoId} = props;
   
+   
    const cartasNoDiag = cartas.filter(c => (c.diagnose ===""));
    const cartasXy = cartasNoDiag.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
 

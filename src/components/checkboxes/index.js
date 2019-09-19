@@ -3,6 +3,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from '@material-ui/core/Button';
+import { useAuth0 } from "../../react-auth0-wrapper";
 
 export default function CheckboxLabels(props) {
   const [state, setState] = React.useState({
@@ -12,17 +13,23 @@ export default function CheckboxLabels(props) {
     flowingWell : false,
     fishingRodRods : false
   });
-
-  
+  debugger;
+   
 
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked });
   };
-  
- 
-
   const{carta,updateState} = props;
-
+ 
+  const {user,loading} = useAuth0();
+  if (loading || !user) {
+    return (
+      <div>Loading...</div>
+    );
+  }
+  debugger;
+  const nombre = user.nickname;
+  
 
   return (
       
@@ -82,7 +89,7 @@ export default function CheckboxLabels(props) {
         }
         label="Pesca de varillas de bombeo"
       />
-      <Button color="primary" onClick={()=> {updateState(carta,state);}}>Update</Button>    
+      <Button color="primary" onClick={()=> {updateState(carta,state,nombre);}}>Update</Button>    
     </FormGroup>
     
   );

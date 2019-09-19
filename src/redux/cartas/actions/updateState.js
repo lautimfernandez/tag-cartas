@@ -1,5 +1,8 @@
 import {updateCartas} from "../../../services/cartasService"
+
 export const type = 'updateState';
+
+
 
 const constructDiagnose = (state) => {
     const diagnose = [];
@@ -13,14 +16,14 @@ const constructDiagnose = (state) => {
     
 }
 
-const updateState = (carta,state) => async dispatch => {
+const updateState = (carta,state,nombre) => async dispatch => {
     const diagnose = constructDiagnose(state);
     debugger
-    await updateCartas(carta, diagnose);
+    await updateCartas(carta, diagnose,nombre);
     debugger
     dispatch({
          type,
-         cartadiag : {carta,diagnose}
+         cartadiag : {carta,diagnose,nombre}
     });
  };
 

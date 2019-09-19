@@ -6,7 +6,14 @@ import { Link } from "react-router-dom";
 
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout, loading } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout, loading, user } = useAuth0();
+ debugger;
+ let imagen="";
+ /*if(isAuthenticated){
+   if(Array.isArray(user.picture)&&user.picture.length){
+     imagen = user.picture
+   }
+ }*/
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,7 +49,7 @@ const NavBar = () => {
       <li class="nav-item avatar dropdown">
         <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdownMenuLink-55" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" height="50" class="rounded-circle z-depth-0"
+              <img src="" height="50" class="rounded-circle z-depth-0"
             alt="avatar image"/>
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
@@ -51,14 +58,15 @@ const NavBar = () => {
           <a class="dropdown-item" href="#">Cerrar sesión</a>
         </div>
       </li>
-    </ul>
-  </div>
+   
   {isAuthenticated && (
       <span>
         <Link to="/">Home</Link>&nbsp;
         <Link to="/profile">Profile</Link>
       </span>
     )}
+    </ul>
+  </div>
 </nav>
   );
 };
