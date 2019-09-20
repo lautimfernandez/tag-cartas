@@ -35,7 +35,7 @@ const NavBar = () => {
         )
       }
     </div>
-
+      
   <a className="navbar-brand" href="/">
     <img src="https://drive.google.com/uc?export=view&id=1QaJuS0yYfCgCu0I76xBOMS7qhwTUdcNM" height="60" alt="DYNACARDS" /> DYNACARDS
   </a>
