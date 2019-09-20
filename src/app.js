@@ -14,7 +14,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import store from './redux/store';
 import PrivateRoute from "./components/privateRoute";
-import { useAuth0 } from "./react-auth0-wrapper";
+
 
 function App() {
   return (
@@ -26,8 +26,8 @@ function App() {
         <Navbar />
             <Switch>
                 <PrivateRoute exact path="/pozos/:pozoId/cartas" component={Carta} />
+                <PrivateRoute exact path="/pozos/:pozoId" component={Pozo} />
                 <PrivateRoute path="/pozos" component={PozosTable} />
-                <PrivateRoute path="/pozos/:pozoId" component={Pozo} />
                 <Route path="/login" exact component={Login} />
                 <PrivateRoute path="/high" component={Higchart}/>
                 <PrivateRoute path="/" exact />

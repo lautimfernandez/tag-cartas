@@ -17,7 +17,7 @@ class PozosTable extends Component{
 }
 
 const mapStateToProps = state => ({
-    pozos : state.pozo.pozos
+    pozos : state.pozos.pozos
 });
 
 const mapDispatchToProps ={

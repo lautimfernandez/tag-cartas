@@ -8,7 +8,7 @@ import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import Checkboxes from "../checkboxes";
-
+import {cartaFondo} from "../../cartaXY";
 
 function Page(props) {
     
@@ -18,8 +18,8 @@ function Page(props) {
   
    
    const cartasNoDiag = cartas.filter(c => (c.diagnose ===""));
-   const cartasXy = cartasNoDiag.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
-
+   //const cartasXy = cartasNoDiag.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
+   const cartasXy = cartasNoDiag.map(c => cartaFondo(c))
     
     return (
         <Fragment>

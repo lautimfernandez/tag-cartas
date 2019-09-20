@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import getCartas from "../../redux/cartas/actions/getCartas";
 import updateState from "../../redux/cartas/actions/updateState";
-import { useAuth0 } from "../../react-auth0-wrapper";
+
 
 class Carta extends Component{
     

@@ -1,2 +1,2 @@
 export default 
-[{id:1, nombre:"c140"},{id:2, nombre:"c143"}];
+[{id:140, nombre:"c140"},{id:143, nombre:"c143"}];

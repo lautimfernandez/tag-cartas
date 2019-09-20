@@ -56,7 +56,7 @@ const NavBar = () => {
         <a class="nav-link dropdown-toggle" href="/profile"  id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
         <img src={user.picture} height="50" class="rounded-circle z-depth-0"
-          alt="avatar image"/>
+          alt="avatar"/>
         </a>
 
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"

@@ -38,7 +38,7 @@ export default function Page(props) {
           {pozos.map(p => (
             <TableRow key={p.id}>
               <TableCell component="th" scope="row">
-                <Link to={"/pozos/"+p.id+"/cartas"}>
+                <Link to={"/pozos/"+p.id}>
                 {p.id}
                 </Link>
               </TableCell>

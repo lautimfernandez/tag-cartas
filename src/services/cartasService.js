@@ -5,7 +5,7 @@ const getCartasService = () =>
     .then(response => 
         {
             debugger;
-            console.log(response)
+          
             return response.data.cards
         }
 )
