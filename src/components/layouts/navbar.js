@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import "./styles.css";
 import { useAuth0 } from "../../react-auth0-wrapper";
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -45,10 +46,13 @@ const NavBar = () => {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
-        <a className="nav-link" href="/pozos">WELLS</a>
+        <Link to={"/pozos"}>WELLS</Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/pozos">CONFIGURATION</a>
+        <Link to={"/pozos"}>CONFIGURACION</Link>
+      </li>
+      <li className="nav-item">
+        <Link to={"/diagnose"}>DIAGNOSE</Link>
       </li>
 
       <li class="nav-item avatar dropdown"> 

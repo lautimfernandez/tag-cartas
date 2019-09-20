@@ -5,7 +5,7 @@ import PozosTable from "./components/pozosTable";
 import Pozo from "./components/pozo";
 import Carta from "./components/carta";
 import Login from "./components/login";
-import Higchart from "./components/highchart";
+
 import Navbar from './components/layouts/navbar';
 
 // New - import the React Router components, and the Profile page component
@@ -25,13 +25,12 @@ function App() {
         <BrowserRouter>
         <Navbar />
             <Switch>
-                <PrivateRoute exact path="/pozos/:pozoId/cartas" component={Carta} />
+                <PrivateRoute path="/diagnose" component={Carta} />
                 <PrivateRoute exact path="/pozos/:pozoId" component={Pozo} />
                 <PrivateRoute path="/pozos" component={PozosTable} />
-                <Route path="/login" exact component={Login} />
-                <PrivateRoute path="/high" component={Higchart}/>
+                
                 <PrivateRoute path="/" exact />
-                <PrivateRoute path="/profile" component={Profile} />
+                
                 <Redirect from="/" to="/pozos" />
             </Switch>
         </BrowserRouter>
