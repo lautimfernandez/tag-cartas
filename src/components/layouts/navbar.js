@@ -46,13 +46,13 @@ const NavBar = () => {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
-        <Link to={"/pozos"}>WELLS</Link>
+        <Link className="nav-link" to={"/pozos"}>WELLS</Link>
       </li>
       <li className="nav-item">
-        <Link to={"/pozos"}>CONFIGURACION</Link>
+        <Link className="nav-link" to={"/pozos"}>CONFIGURACION</Link>
       </li>
       <li className="nav-item">
-        <Link to={"/diagnose"}>DIAGNOSE</Link>
+        <Link className="nav-link" to={"/diagnose"}>DIAGNOSE</Link>
       </li>
 
       <li class="nav-item avatar dropdown"> 

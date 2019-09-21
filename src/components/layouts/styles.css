@@ -3,18 +3,27 @@
     color:#030303;
 }
   
-    .navbar-brand {
-      display: inline-block;
-      padding-top: .3125rem;
-      padding-bottom: .3125rem;
-      margin-right: 1rem;
-      font-size: 50px;
-      line-height: inherit;
-      white-space: nowrap;
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; 
-  }
+  
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 50px;
+    line-height: inherit;
+    white-space: nowrap;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; 
+}
 
- #spinner{
+.nav-link {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+}
+
+  #spinner{
     position: fixed;
     left: 50%;
     top: 50%;
@@ -22,6 +31,5 @@
     height: 31px;
     width: 31px;
 }
-
 
 }
