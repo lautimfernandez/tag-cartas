@@ -31,33 +31,33 @@ function Page(props) {
            
                     {cartasXy.map((carta,index) => (
 
-                        <div className='title'>
+                        <Paper elevation={0} className="paper-container"> 
+                            <div className='title'>
                             Pozo {JSON.parse(cartas[index].well)}  
-                        
-                            <Paper elevation={0} className="paper-container"> 
-                                {carta ?
-                                    <Highchart options={({
-                                            title: {
-                                                text: 'Carta dinamométrica '+JSON.parse(cartas[index].id)
-                                            },
-                                            chart: {
-                                                style: {
-                                                    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
-                                                }
-                                            },                         
-                                            series: [{data : carta}]
+                            </div> 
+                            {carta ?
+                                <Highchart options={({
+                                        title: {
+                                            text: 'Carta dinamométrica '+JSON.parse(cartas[index].cardNumber)  
+                                        },
+                                        chart: {
+                                            style: {
+                                                fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
                                             }
-                                        )}
-                                    />
-                                    :
-                                    <CircularProgress className="item-loader" />
-                                }
+                                        },                         
+                                        series: [{data : carta}]
+                                        }
+                                    )}
+                                />
+                                :
+                                <CircularProgress className="item-loader" />
+                            }
 
-                                <div className="checks" align="center">
-                                <Checkboxes carta={cartas[index]} updateState={updateState} />
-                                </div>
-                            </Paper> 
-                        </div>                   
+                            <div className="checks" align="center">
+                            <Checkboxes carta={cartas[index]} updateState={updateState} />
+                            </div>
+                        </Paper> 
+                                          
                             )
                         )
                     }

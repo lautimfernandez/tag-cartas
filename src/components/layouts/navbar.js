@@ -37,7 +37,7 @@ const NavBar = () => {
     </div>
       
   <Link to={"/pozos"} className="navbar-brand" >
-    <img src="https://drive.google.com/uc?export=view&id=1QaJuS0yYfCgCu0I76xBOMS7qhwTUdcNM" height="60" alt="DYNACARDS" /> DYNACARDS
+    <img className="logo" src="https://drive.google.com/uc?export=view&id=1QaJuS0yYfCgCu0I76xBOMS7qhwTUdcNM" height="40" alt="DYNACARDS" /> DYNACARDS
   </Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
@@ -59,7 +59,7 @@ const NavBar = () => {
 
         <a class="nav-link dropdown-toggle" href="/profile"  id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-        <img src={user.picture} height="50" class="rounded-circle z-depth-0"
+        <img src={user.picture} height="40" class="rounded-circle z-depth-0"
           alt="avatar"/>
         </a>
 
