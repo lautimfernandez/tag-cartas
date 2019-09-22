@@ -9,7 +9,7 @@ class Pozo extends Component{
     componentDidMount(){
        debugger
         const {getCartasPozo} = this.props;
-        getCartasPozo();
+        getCartasPozo(this.props.match.params.pozoId);
     }
     
     render(){
@@ -34,7 +34,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps  = dispatch =>( {
-   getCartasPozo : () => dispatch(getCartasPozo())
+   getCartasPozo : (pozoId) => dispatch(getCartasPozo(pozoId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Pozo))

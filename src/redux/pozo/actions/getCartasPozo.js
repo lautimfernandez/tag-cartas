@@ -1,10 +1,10 @@
-import {getCartasService} from "../../../services/cartasService"
+import {getCartaByIdPozo} from "../../../services/cartasService"
 export const type = 'getCartasPozo';
 
 
-const getCartasPozo =  () => async dispatch => {
+const getCartasPozo =  (pozoId) => async dispatch => {
    
-   const cartasPozo = await getCartasService()
+   const cartasPozo = await getCartaByIdPozo(pozoId)
    if(cartasPozo){
    dispatch({
         type,
