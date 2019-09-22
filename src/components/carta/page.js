@@ -33,16 +33,20 @@ function Page(props) {
 
                         <Paper elevation={0} className="paper-container"> 
                             <div className='title'>
-                            Pozo {JSON.parse(cartas[index].well)}  
+                            WELL {JSON.parse(cartas[index].well)}  
                             </div> 
                             {carta ?
                                 <Highchart options={({
                                         title: {
-                                            text: 'Carta dinamométrica '+JSON.parse(cartas[index].cardNumber)  
+                                            style: {
+                                                fontSize: 15+'px',
+                                                fontFamily: 'barlow,sans-serif'
+                                            },
+                                            text: 'CARD '+JSON.parse(cartas[index].cardNumber)  
                                         },
                                         chart: {
                                             style: {
-                                                fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
+                                                fontFamily: 'barlow,sans-serif'
                                             }
                                         },                         
                                         series: [{data : carta}]

@@ -20,7 +20,7 @@ function Page(props) {
             <CssBaseline />
             
             <div className='title'>
-                Pozo {pozoId}  </div>     
+                WELL {pozoId}  </div>     
              
             <div style={
                 {marginRight:'auto',
@@ -33,12 +33,15 @@ function Page(props) {
  
                 <Highchart options={({
                     title: {
-                        text: "Carta de fondo"
+                        style: {
+                            fontSize: 15+'px',
+                            fontFamily: 'barlow,sans-serif'
+                        },
+                        text: "PUMP CARD",
                     },
                     chart: {
                         style: {
-                            
-                            fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
+                            fontFamily: 'barlow,sans-serif'
                         }
                     },
                     series: 
@@ -53,11 +56,15 @@ function Page(props) {
  
                 <Highchart options={({
                     title: {
-                        text: "Carta de superficie"
+                        style: {
+                            fontSize: 15+'px',
+                            fontFamily: 'barlow,sans-serif'
+                        },
+                        text: "SURFACE CARD",
                     },
                     chart: {
                         style: {
-                            fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
+                            fontFamily: 'barlow,sans-serif'
                         }
                     },                   
                     series: 
