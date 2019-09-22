@@ -20,14 +20,14 @@ function Page(props) {
         <Fragment>
             <CssBaseline />
             
-                
-            <Typography gutterBottom variant="h5" component="h2">
-                              Pozo {pozoId}
-            </Typography>
-            
+            <div className='title'>
+                Pozo {pozoId}  </div>     
              
-            
-            <div style={{height:100+'%', width:50+'%'}}>
+            <div style={
+                {marginRight:'auto',
+                marginLeft:'auto',
+                height:100+'%', 
+                width:50+'%'}}>
                          
            
             <Paper elevation={0} className="paper-container"> 
@@ -43,10 +43,8 @@ function Page(props) {
             </Paper>
                 
           
-              
-            </div>
+            <br/> 
             
-            <div style={{height:100+'%', width:50+'%'}}>
                          
            
             <Paper elevation={0} className="paper-container"> 
