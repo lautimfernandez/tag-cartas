@@ -11,7 +11,9 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
+    width: '80%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
     marginTop: theme.spacing(3),
     overflowX: 'auto',
   },

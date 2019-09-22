@@ -36,9 +36,9 @@ const NavBar = () => {
       }
     </div>
       
-  <a className="navbar-brand" href="/">
+  <Link to={"/pozos"} className="navbar-brand" >
     <img src="https://drive.google.com/uc?export=view&id=1QaJuS0yYfCgCu0I76xBOMS7qhwTUdcNM" height="60" alt="DYNACARDS" /> DYNACARDS
-  </a>
+  </Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
