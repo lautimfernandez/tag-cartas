@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './styles.css';
 import 'react-animated-slider/build/horizontal.css';
@@ -32,30 +31,39 @@ function Page(props) {
            
             <Paper elevation={0} className="paper-container"> 
  
-                <Highchart options={({title: {
-                                         text: "Carta de fondo"
-                                                }
-                                        
-                                                ,series: 
-                          [{data : pumpCard}]})
-                        }/>
+                <Highchart options={({
+                    title: {
+                        text: "Carta de fondo"
+                    },
+                    chart: {
+                        style: {
+                            
+                            fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
+                        }
+                    },
+                    series: 
+                          [{data : pumpCard}]
+                    })
+                }/>
                             
             </Paper>
                 
-          
             <br/> 
-            
-                         
-           
             <Paper elevation={0} className="paper-container"> 
  
-                <Highchart options={({title: {
-                                         text: "Carta de superficie"
-                                                }
-                                        
-                                                ,series: 
-                          [{data : surfaceCard}]})
-                        }/>
+                <Highchart options={({
+                    title: {
+                        text: "Carta de superficie"
+                    },
+                    chart: {
+                        style: {
+                            fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
+                        }
+                    },                   
+                    series: 
+                          [{data : surfaceCard}]
+                    })
+                }/>
                             
             </Paper>
                 
