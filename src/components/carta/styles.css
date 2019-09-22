@@ -1,6 +1,11 @@
+.slider {
+    height:100%;
+    width: 100%;
+}
+
 .details-page {
     padding: 3rem 1rem;
-    display: flex;
+    display: flex; 
     justify-content: center;
 }
 
@@ -24,3 +29,4 @@
 .item-loader {
     padding: 1rem;
 }
+

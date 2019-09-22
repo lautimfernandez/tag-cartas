@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import './styles.css';
@@ -21,18 +20,21 @@ function Page(props) {
     
     return (
     <Fragment>
-        <CssBaseline />
-        <Typography gutterBottom variant="h5" component="h2">
-                              Pozo {pozoId}     </Typography>
-             
+        <CssBaseline />        
+         
+
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
             <div style={{height:100+'%', width:50+'%'}}>
-                <Slider >             
+            
+                <Slider className="slider">             
            
-            {cartasXy.map((carta,index) => 
-
-                (<Paper elevation={0}
+            {cartasXy.map((carta,index) => (
+                
+                <Paper elevation={0}
                     className="paper-container"> 
+
+                <div className='title'>
+                Pozo {JSON.parse(cartas[index].well)}  </div>
 
                 <div className="checks" align="center">
                     <Checkboxes carta={cartas[index]} updateState={updateState} />
@@ -40,8 +42,7 @@ function Page(props) {
 
                     {carta ?
                         <Highchart options={({title: {
-                                         text: 'Carta dinamométrica '+JSON.parse(cartas[index].id)
-                                         +' - Pozo '+JSON.parse(cartas[index].well)}                          
+                                         text: 'Carta dinamométrica '+JSON.parse(cartas[index].id)}                          
                                             ,series: [{data : carta}]})
                                         }
                         />
