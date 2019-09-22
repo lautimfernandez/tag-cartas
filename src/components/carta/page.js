@@ -7,7 +7,7 @@ import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import Checkboxes from "../checkboxes";
-import {cartaFondo} from "../../cartaXY";
+import {cartaFondo, cartaSuperficie} from "../../cartaXY";
 import { charts } from 'highcharts';
 
 function Page(props) {
@@ -15,26 +15,32 @@ function Page(props) {
    const { cartas, updateState,pozoId} = props;
   
    
-   const cartasNoDiag = cartas.filter(c => (c.diagnose ===""));
-   //const cartasXy = cartasNoDiag.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
-   const cartasXy = cartasNoDiag.map(c => cartaFondo(c))
+   const undiagnosedCards = cartas.filter(c => (c.diagnose ===""));
+   //const pumpCards = cartasNoDiag.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
+   const pumpCards = undiagnosedCards.map(c => cartaFondo(c))
+   const surfaceCards = undiagnosedCards.map(c => cartaSuperficie(c))
     
     return (
     <Fragment>
         <CssBaseline />        
          
 
-        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '175vh'}}>
             <div style={{height:100+'%', width:50+'%'}}>
             
                 <Slider className="slider">             
            
-                    {cartasXy.map((carta,index) => (
+                    {undiagnosedCards.map((carta,index) => (
+                        <div>
+                        <div className='title'>
+                        WELL {JSON.parse(cartas[index].well)} - CARD {JSON.parse(cartas[index].cardNumber)} 
+                        </div> 
+
+                        <div className="sub-title" > 
+                            DATE
+                        </div>
 
                         <Paper elevation={0} className="paper-container"> 
-                            <div className='title'>
-                            WELL {JSON.parse(cartas[index].well)}  
-                            </div> 
                             {carta ?
                                 <Highchart options={({
                                         title: {
@@ -42,26 +48,53 @@ function Page(props) {
                                                 fontSize: 15+'px',
                                                 fontFamily: 'barlow,sans-serif'
                                             },
-                                            text: 'CARD '+JSON.parse(cartas[index].cardNumber)  
+                                            text: 'PUMP CARD'
                                         },
                                         chart: {
                                             style: {
                                                 fontFamily: 'barlow,sans-serif'
                                             }
                                         },                         
-                                        series: [{data : carta}]
+                                        series: [{data : cartaFondo(carta)}]
                                         }
                                     )}
                                 />
                                 :
-                                <CircularProgress className="item-loader" />
-                            }
+                                <CircularProgress className='item-loader'/>
+                            } 
+                             
+                            </Paper> 
+                            <br/>
+
+                            <Paper elevation={0} className="paper-container"> 
+                            {carta ?
+                                <Highchart options={({
+                                        title: {
+                                            style: {
+                                                fontSize: 15+'px',
+                                                fontFamily: 'barlow,sans-serif'
+                                            },
+                                            text: 'SURFACE CARD' 
+                                        },
+                                        chart: {
+                                            style: {
+                                                fontFamily: 'barlow,sans-serif'
+                                            }
+                                        },                         
+                                        series: [{data : cartaSuperficie(carta)}]
+                                        }
+                                    )}
+                                />
+                                : 
+                                <CircularProgress className='item-loader'/>
+                            } 
+                            </Paper>
 
                             <div className="checks" align="center">
                             <Checkboxes carta={cartas[index]} updateState={updateState} />
                             </div>
-                        </Paper> 
-                                          
+                        
+                            </div>           
                             )
                         )
                     }

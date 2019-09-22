@@ -37,3 +37,7 @@
     font-family: barlow,sans-serif; 
     letter-spacing: 1.5px;
 }
+
+.sub-title {
+    text-align: right
+}
