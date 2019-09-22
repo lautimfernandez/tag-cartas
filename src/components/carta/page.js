@@ -12,8 +12,6 @@ import {cartaFondo} from "../../cartaXY";
 
 function Page(props) {
     
-   
-  
    const { cartas, updateState,pozoId} = props;
   
    
@@ -22,63 +20,42 @@ function Page(props) {
    const cartasXy = cartasNoDiag.map(c => cartaFondo(c))
     
     return (
-        <Fragment>
-            
-            
-            <CssBaseline />
-            
-                
-            <Typography gutterBottom variant="h5" component="h2">
-                              Pozo {pozoId}
-            </Typography>
-            
+    <Fragment>
+        <CssBaseline />
+        <Typography gutterBottom variant="h5" component="h2">
+                              Pozo {pozoId}     </Typography>
              
-            <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
             <div style={{height:100+'%', width:50+'%'}}>
-             <Slider >             
+                <Slider >             
            
-            {cartasXy.map((carta,index) => (<Paper
-                    elevation={0}
-                    className="paper-container"
-                > 
+            {cartasXy.map((carta,index) => 
 
-                      
-                
+                (<Paper elevation={0}
+                    className="paper-container"> 
+
                 <div className="checks" align="center">
                     <Checkboxes carta={cartas[index]} updateState={updateState} />
                 </div>
-                
 
                     {carta ?
-                      
-                            
-                            
                         <Highchart options={({title: {
                                          text: 'Carta dinamométrica '+JSON.parse(cartas[index].id)
-                                         +' - Pozo '+JSON.parse(cartas[index].well)
-                                                }
-                                        
-                                                ,series: 
-                          [{data : carta}]})
-                        }/>
-                       
-                           
-                        
-                      
-
+                                         +' - Pozo '+JSON.parse(cartas[index].well)}                          
+                                            ,series: [{data : carta}]})
+                                        }
+                        />
                         :
                         <CircularProgress className="item-loader" />
                     }
-                  
-                    
-                </Paper>))}
-                
-          
-            </Slider>   
-            </div>
-            </div>
+                    </Paper>))}
 
-        </Fragment>
+
+                </Slider>   
+            </div>
+        </div>
+
+    </Fragment>
     );
 }
 
