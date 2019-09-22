@@ -26,6 +26,10 @@
     overflow: hidden;
 }
 
+.dropdown-item {
+    line-height: 20px;
+}
+
   #spinner{
     position: fixed;
     left: 50%;
