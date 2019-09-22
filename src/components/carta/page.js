@@ -8,6 +8,7 @@ import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import Checkboxes from "../checkboxes";
 import {cartaFondo} from "../../cartaXY";
+import { charts } from 'highcharts';
 
 function Page(props) {
     
@@ -28,34 +29,41 @@ function Page(props) {
             
                 <Slider className="slider">             
            
-            {cartasXy.map((carta,index) => (
-                
-                <Paper elevation={0}
-                    className="paper-container"> 
+                    {cartasXy.map((carta,index) => (
 
-                <div className='title'>
-                Pozo {JSON.parse(cartas[index].well)}  </div>
+                        <div className='title'>
+                            Pozo {JSON.parse(cartas[index].well)}  
+                        
+                            <Paper elevation={0} className="paper-container"> 
+                                {carta ?
+                                    <Highchart options={({
+                                            title: {
+                                                text: 'Carta dinamométrica '+JSON.parse(cartas[index].id)
+                                            },
+                                            chart: {
+                                                style: {
+                                                    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
+                                                }
+                                            },                         
+                                            series: [{data : carta}]
+                                            }
+                                        )}
+                                    />
+                                    :
+                                    <CircularProgress className="item-loader" />
+                                }
 
-                <div className="checks" align="center">
-                    <Checkboxes carta={cartas[index]} updateState={updateState} />
-                </div>
-
-                    {carta ?
-                        <Highchart options={({title: {
-                                         text: 'Carta dinamométrica '+JSON.parse(cartas[index].id)}                          
-                                            ,series: [{data : carta}]})
-                                        }
-                        />
-                        :
-                        <CircularProgress className="item-loader" />
+                                <div className="checks" align="center">
+                                <Checkboxes carta={cartas[index]} updateState={updateState} />
+                                </div>
+                            </Paper> 
+                        </div>                   
+                            )
+                        )
                     }
-                    </Paper>))}
-
-
                 </Slider>   
             </div>
         </div>
-
     </Fragment>
     );
 }
