@@ -35,7 +35,7 @@ const reducer = (state = initialState, action) => {
         case(getCartasType):{
             return{
                 ...state,
-                cartas : state.cartas.concat(action.cartas)
+                cartas : (action.cartas)
             }
         }
         default:

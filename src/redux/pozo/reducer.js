@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
         case(getCartasPozoType):{
             return{
                 ...state,
-                cartasPozo : state.cartasPozo.concat(action.cartasPozo)
+                cartasPozo : (action.cartasPozo)
             }
         }
         default:
