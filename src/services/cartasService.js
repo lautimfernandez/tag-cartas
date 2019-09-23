@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const getCartasService = () =>
-  axios.get('https://dynacards.herokuapp.com/cards')
+  axios.get('https://dynacards.herokuapp.com/cards',{params :{
+    diagnose : ""
+  }})
     .then(response => 
         {
             debugger;

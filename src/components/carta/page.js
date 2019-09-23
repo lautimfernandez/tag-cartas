@@ -14,11 +14,9 @@ function Page(props) {
     
    const { cartas, updateState,pozoId} = props;
   
-   
+   debugger;
    const undiagnosedCards = cartas.filter(c => (c.diagnose ===""));
-   //const pumpCards = cartasNoDiag.map(c => JSON.parse(c.pumpCardxDots).map((dot,index)=>[dot,JSON.parse(c.pumpCardyDots)[index]]))
-   const pumpCards = undiagnosedCards.map(c => cartaFondo(c))
-   const surfaceCards = undiagnosedCards.map(c => cartaSuperficie(c))
+   
     
     return (
     <Fragment>
@@ -31,9 +29,10 @@ function Page(props) {
                 <Slider className="slider">             
            
                     {undiagnosedCards.map((carta,index) => (
+                        
                         <div>
                         <div className='title'>
-                        WELL {JSON.parse(cartas[index].well)} - CARD {JSON.parse(cartas[index].cardNumber)} 
+                        WELL {JSON.parse(carta.well)} - CARD {JSON.parse(carta.cardNumber)} 
                         </div> 
 
                         <div className="sub-title" > 
@@ -91,7 +90,7 @@ function Page(props) {
                             </Paper>
 
                             <div className="checks" align="center">
-                            <Checkboxes carta={cartas[index]} updateState={updateState} />
+                            <Checkboxes carta={carta} updateState={updateState} />
                             </div>
                         
                             </div>           
