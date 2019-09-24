@@ -1,6 +1,7 @@
+
 .slider {
     height:100%;
-    width: 100%;
+    width: 80%;
 }
 
 .details-page {
@@ -11,7 +12,8 @@
 
 .paper-container {
     padding: 1rem;
-    width: 100%;
+    width: 50%;
+    align-self: center;
 }
 
 .content {

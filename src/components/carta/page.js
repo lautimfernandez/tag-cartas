@@ -24,13 +24,14 @@ function Page(props) {
          
 
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '175vh'}}>
-            <div style={{height:105+'%', width:50+'%'}}>
+            
+
             
                 <Slider className="slider">             
            
                     {undiagnosedCards.map((carta,index) => (
                         
-                        <div>
+                        <div align="center">
                         <div className='title'>
                         WELL {JSON.parse(carta.well)} - CARD {JSON.parse(carta.cardNumber)} 
                         </div> 
@@ -103,8 +104,7 @@ function Page(props) {
                             )
                         )
                     }
-                </Slider>   
-            </div>
+                </Slider> 
         </div>
     </Fragment>
     );
