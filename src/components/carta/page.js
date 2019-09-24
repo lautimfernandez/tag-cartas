@@ -25,6 +25,8 @@ function Page(props) {
 
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '175vh'}}>
             
+
+            
                 <Slider className="slider">             
            
                     {undiagnosedCards.map((carta,index) => (
@@ -49,10 +51,13 @@ function Page(props) {
                                             text: 'PUMP CARD'
                                         },
                                         chart: {
+                                            type: 'scatter',
                                             style: {
                                                 fontFamily: 'barlow,sans-serif'
                                             }
-                                        },                         
+                                        },   
+                                        plotOptions:
+                                        {   series: {lineWidth: 3}},                        
                                         series: [{data : cartaFondo(carta)}]
                                         }
                                     )}
@@ -75,10 +80,13 @@ function Page(props) {
                                             text: 'SURFACE CARD' 
                                         },
                                         chart: {
+                                            type: 'scatter',
                                             style: {
                                                 fontFamily: 'barlow,sans-serif'
                                             }
-                                        },                         
+                                        },   
+                                        plotOptions:
+                                        {   series: {lineWidth: 3}},                        
                                         series: [{data : cartaSuperficie(carta)}]
                                         }
                                     )}
