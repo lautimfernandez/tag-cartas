@@ -13,7 +13,7 @@ export default function CheckboxLabels(props) {
     flowingWell : false,
     fishingRodRods : false
   });
-  debugger;
+  
 
   const resetState = () => {
     setState({
@@ -41,7 +41,7 @@ export default function CheckboxLabels(props) {
       </div>
     );
   }
-  debugger;
+  
   const nombre = user.nickname;
   
 

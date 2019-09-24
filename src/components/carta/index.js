@@ -18,7 +18,7 @@ class Carta extends Component{
        const pozoId = this.props.match.params.pozoId;
         
         const{ cartas, updateState} = this.props;
-        debugger;
+        
         return(
             <Page 
                 cartas={cartas}

@@ -14,7 +14,7 @@ function Page(props) {
    
     const pumpCard = cartasPozo.length ? cartaFondo(cartasPozo[0]) : {};
     const surfaceCard = cartasPozo.length ? cartaSuperficie(cartasPozo[0]) : {};
-    debugger;
+    
     const numeroCarta = cartasPozo.length ? JSON.parse(cartasPozo[0].cardNumber) : "";
     console.log(pumpCard)
     return (

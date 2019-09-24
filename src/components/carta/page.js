@@ -14,7 +14,7 @@ function Page(props) {
     
    const { cartas, updateState,pozoId} = props;
   
-   debugger;
+   
    const undiagnosedCards = cartas.filter(c => (c.diagnose ===""));
    
     

@@ -7,13 +7,13 @@ import getCartasPozo from "../../redux/pozo/actions/getCartasPozo";
 class Pozo extends Component{
     
     componentDidMount(){
-       debugger
+       
         const {getCartasPozo} = this.props;
         getCartasPozo(this.props.match.params.pozoId);
     }
     
     render(){
-        debugger;
+        
        const pozoId = this.props.match.params.pozoId;
         
         const {cartasPozo} = this.props;

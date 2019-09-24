@@ -4,7 +4,7 @@ const getCartasService = () =>
   axios.get('https://dynacards.herokuapp.com/cards')
     .then(response => 
         {
-            debugger;
+            
           
             return response.data.cards
         }
@@ -15,7 +15,7 @@ const getCartaByIdPozo = (pozoId) =>
           }
         })
         .then(response => {
-          debugger
+          
           return response.data.cards
         })
 

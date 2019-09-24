@@ -6,7 +6,7 @@ const initialState = {
 }
 
 const updateState2 = (c,action) =>{
-    debugger;
+    
     
     
     if(action.cartadiag.carta.id === c.id){
@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
 
     switch(action.type){
         case(updateStateType):{
-            debugger;
+            
             return{
                 ...state,
                 cartas : state.cartas.map(c => updateState2(c,action))

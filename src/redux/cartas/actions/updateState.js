@@ -18,9 +18,9 @@ const constructDiagnose = (state) => {
 
 const updateState = (carta,state,nombre) => async dispatch => {
     const diagnose = constructDiagnose(state);
-    debugger
+    
     await updateCartas(carta, diagnose,nombre);
-    debugger
+    
     dispatch({
          type,
          cartadiag : {carta,diagnose,nombre}
