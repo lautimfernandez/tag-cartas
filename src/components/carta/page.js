@@ -24,7 +24,7 @@ function Page(props) {
          
 
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '175vh'}}>
-            <div style={{height:100+'%', width:50+'%'}}>
+            <div style={{height:105+'%', width:50+'%'}}>
             
                 <Slider className="slider">             
            
@@ -50,10 +50,13 @@ function Page(props) {
                                             text: 'PUMP CARD'
                                         },
                                         chart: {
+                                            type: 'scatter',
                                             style: {
                                                 fontFamily: 'barlow,sans-serif'
                                             }
-                                        },                         
+                                        },   
+                                        plotOptions:
+                                        {   series: {lineWidth: 3}},                        
                                         series: [{data : cartaFondo(carta)}]
                                         }
                                     )}
@@ -76,10 +79,13 @@ function Page(props) {
                                             text: 'SURFACE CARD' 
                                         },
                                         chart: {
+                                            type: 'scatter',
                                             style: {
                                                 fontFamily: 'barlow,sans-serif'
                                             }
-                                        },                         
+                                        },   
+                                        plotOptions:
+                                        {   series: {lineWidth: 3}},                        
                                         series: [{data : cartaSuperficie(carta)}]
                                         }
                                     )}
