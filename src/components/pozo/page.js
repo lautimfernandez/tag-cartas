@@ -45,8 +45,8 @@ function Page(props) {
                         }
                     },
                     series: 
-                          [{data : pumpCard}]
-                    })
+                          [{data : pumpCard}],
+                    updateArgs : [true,true,true]})
                 }/>
                             
             </Paper>
@@ -54,7 +54,7 @@ function Page(props) {
             <br/> 
             <Paper elevation={0} className="paper-container"> 
  
-                <Highchart options={({
+                <Highchart oneToOne="false" options={({
                     title: {
                         style: {
                             fontSize: 15+'px',
