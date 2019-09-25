@@ -38,7 +38,7 @@ function Page(props) {
 
                         <div className="sub-title" > 
                             <h5>
-                            DATE {JSON.stringify(carta.updatedAt).slice(9,11)}/{JSON.stringify(carta.updatedAt).slice(6,8)}/{JSON.stringify(carta.updatedAt).slice(1,5)}
+                            DATE {JSON.stringify(carta.date).slice(9,11)}/{JSON.stringify(carta.date).slice(6,8)}/{JSON.stringify(carta.date).slice(1,5)}
                             </h5>
                         </div>
 
