@@ -1,11 +1,22 @@
 import pozos from "../../data/pozos";
+import {type as getLastCardsType} from "../pozos/actions/getLastCards";
 
 const initialState = { 
-    pozos : pozos   
+    pozos : pozos, 
+    cartas : []  
 }
 
 const reducer = (state = initialState, action) => {
-    return state;
+    switch(action.type){
+        case(getLastCardsType):{
+            return{
+                ...state,
+                cartas : (action.cartas)
+            }
+        }
+        default:
+            return state;
+    }
 }
 
 

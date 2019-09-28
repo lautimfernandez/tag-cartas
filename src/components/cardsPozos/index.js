@@ -39,11 +39,9 @@ const useStyles = makeStyles(theme => ({
 
 function CardsPozos(props) {
   const classes = useStyles();
-  const {pozo} = props;
-
-
-
-
+  const {pozo, carta} = props;
+  const c = carta? carta : {};
+    debugger;
   return (
     <Link to={"/pozos/"+pozo.id} style={{ textDecoration: 'none' }}>
     <Card className={classes.card}>
@@ -56,7 +54,7 @@ function CardsPozos(props) {
           </IconButton>
         }
         title={"Pozo " + pozo.id}
-        subheader="Last update: 29/11/19"
+        subheader={"Last update: " + c.date}
       />
       <CardMedia
         className={classes.media}
