@@ -12,7 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Button from '@material-ui/core/Button'
-import { withRouter,Link   } from "react-router-dom";
+import { withRouter, Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -55,7 +55,7 @@ function CardsPozos(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={pozo.nombre}
+        title={"Pozo " + pozo.id}
         subheader="Last update: 29/11/19"
       />
       <CardMedia
