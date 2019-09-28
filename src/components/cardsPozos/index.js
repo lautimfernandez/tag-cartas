@@ -11,7 +11,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
+import { withRouter,Link   } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -36,12 +37,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CardsPozos(props) {
+function CardsPozos(props) {
   const classes = useStyles();
   const {pozo} = props;
+
+
+
+
   return (
+    <Link to={"/pozos/"+pozo.id} style={{ textDecoration: 'none' }}>
     <Card className={classes.card}>
-      <CardActionArea>
+      <CardActionArea >
       <CardHeader
         className={classes.problemColor}
         action={
@@ -67,5 +73,7 @@ export default function CardsPozos(props) {
       
       </CardActionArea>
     </Card>
+    </Link>
   );
 }
+export default withRouter(CardsPozos);
