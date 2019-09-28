@@ -41,6 +41,7 @@ export default function CardsPozos(props) {
   const {pozo} = props;
   return (
     <Card className={classes.card}>
+      <CardActionArea>
       <CardHeader
         className={classes.problemColor}
         action={
@@ -51,7 +52,6 @@ export default function CardsPozos(props) {
         title={pozo.nombre}
         subheader="Last update: 29/11/19"
       />
-      <CardActionArea>
       <CardMedia
         className={classes.media}
         image="/static/images/cards/paella.jpg"

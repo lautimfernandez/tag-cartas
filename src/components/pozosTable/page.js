@@ -9,19 +9,21 @@ import Paper from '@material-ui/core/Paper';
 //import pozos from '../../data/pozos';
 import { Link } from 'react-router-dom';
 import CardsPozos from "../cardsPozos";
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '80%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: theme.spacing(3),
-    overflowX: 'auto',
+    flexGrow: 1,
   },
-  table: {
-    minWidth: 650,
+  paper: {
+    height: 140,
+    width: 100,
+  },
+  control: {
+    padding: theme.spacing(2),
   },
 }));
+
 
 
 export default function Page(props) {
@@ -29,11 +31,18 @@ export default function Page(props) {
   const {pozos} = props;
 
   return(
-    <Paper className={classes.root}>
-    {pozos.map(p =>(
-      <CardsPozos pozo={p}/>
-    ))}
-    </Paper>
+
+    <Grid container className={classes.root} spacing={2}>
+      <Grid item xs={12}>
+        <Grid container justify="center" spacing={3}>
+          {pozos.map(value => (
+            <Grid key={value.id} item>
+              <CardsPozos pozo={value} />
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
+      </Grid>
   );
 
 
