@@ -8,6 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 //import pozos from '../../data/pozos';
 import { Link } from 'react-router-dom';
+import CardsPozos from "../cardsPozos";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,6 +28,17 @@ export default function Page(props) {
   const classes = useStyles();
   const {pozos} = props;
 
+  return(
+    <Paper className={classes.root}>
+    {pozos.map(p =>(
+      <CardsPozos pozo={p}/>
+    ))}
+    </Paper>
+  );
+
+
+
+  /*
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -50,5 +62,5 @@ export default function Page(props) {
         </TableBody>
       </Table>
     </Paper>
-  );
+  );*/
 }
