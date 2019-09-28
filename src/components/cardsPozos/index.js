@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function CardsPozos(props) {
   const classes = useStyles();
-  const pozo = props;
+  const {pozo} = props;
   return (
     <Card className={classes.card}>
       <CardHeader
