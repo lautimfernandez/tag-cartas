@@ -24,18 +24,11 @@ const useStyles = makeStyles(theme => ({
     alignContent: 'center',
     paddingTop: "10%" // 16:9
   },
-  expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest
-    })
-  },
-  expandOpen: {
-    transform: "rotate(180deg)"
-  },
   problemColor: {
     backgroundColor: red[400]
+  },
+  withoutProblemColor:{
+    backgroundColor: '#84c456'
   }
 }));
 
@@ -53,7 +46,7 @@ function CardsPozos(props) {
     <Card className={classes.card}>
       <CardActionArea >
       <CardHeader
-        className={classes.problemColor}
+        className={diagnose==="No hay inconvenientes" ? classes.withoutProblemColor : classes.problemColor}
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
