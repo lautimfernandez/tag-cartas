@@ -38,7 +38,8 @@ function CardsPozos(props) {
   const c = carta? carta : {};
   const diagnose = c.diagnose ? c.diagnose : "No hay inconvenientes";
   const fecha = c.date ? c.date : "";
-  debugger;
+  const porcentaje = c.diagnose ? "80%" : "100%";
+    debugger;
   //const fecha = JSON.parse(c.date).slice(9,11) ? JSON.parse(c.date).slice(9,11) : "";
     
   return (
@@ -52,7 +53,7 @@ function CardsPozos(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        subheader={"100%"}
+        subheader={porcentaje}
       />
       <CardContent 
       className={classes.media} >
