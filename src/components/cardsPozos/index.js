@@ -36,7 +36,7 @@ function CardsPozos(props) {
   const classes = useStyles();
   const {pozo, carta} = props;
   const c = carta? carta : {};
-  const diagnose = c.diagnose ? c.diagnose : "No hay inconvenientes";
+  const diagnose = c.diagnose ? c.diagnose : "Sin problemas";
   const fecha = c.date ? c.date : "";
   const porcentaje = c.diagnose ? "80%" : "100%";
   //const fecha = JSON.parse(c.date).slice(9,11) ? JSON.parse(c.date).slice(9,11) : "";
@@ -46,7 +46,7 @@ function CardsPozos(props) {
     <Card className={classes.card}>
       <CardActionArea >
       <CardHeader
-        className={diagnose==="No hay inconvenientes" ? classes.withoutProblemColor : classes.problemColor}
+        className={diagnose==="Sin problemas" ? classes.withoutProblemColor : classes.problemColor}
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
@@ -59,18 +59,18 @@ function CardsPozos(props) {
       <CardHeader 
       textAlign= 'center'
       titleTypographyProps={{ variant:'h2' }}
-      title={"Well " + pozo.id}
+      title={"Pozo " + pozo.id}
       />
       </CardContent>
       <CardContent 
       className={classes.media} >
         
         <Typography variant="subtitle1"  component="p">
-          {"Diagnose: " + diagnose }
+          {"Diagnóstico: " + diagnose }
         </Typography>
         
         <Typography variant="subtitle1" color='textPrimary' component="p">
-        Last Update: {JSON.stringify(fecha).slice(9,11)}/{JSON.stringify(fecha).slice(6,8)}/{JSON.stringify(fecha).slice(1,5)}
+        Última actualización: {JSON.stringify(fecha).slice(9,11)}/{JSON.stringify(fecha).slice(6,8)}/{JSON.stringify(fecha).slice(1,5)}
         </Typography>
 
       </CardContent>

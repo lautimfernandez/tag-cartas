@@ -33,12 +33,12 @@ function Page(props) {
                         
                         <div align="center">
                         <div className='title'>
-                        WELL {JSON.parse(carta.well)} - CARD {JSON.parse(carta.cardNumber)} 
+                        POZO {JSON.parse(carta.well)} - CARTA {JSON.parse(carta.cardNumber)} 
                         </div> 
 
                         <div className="sub-title" > 
                             <h5>
-                            DATE {JSON.stringify(carta.date).slice(9,11)}/{JSON.stringify(carta.date).slice(6,8)}/{JSON.stringify(carta.date).slice(1,5)}
+                            FECHA {JSON.stringify(carta.date).slice(9,11)}/{JSON.stringify(carta.date).slice(6,8)}/{JSON.stringify(carta.date).slice(1,5)}
                             </h5>
                         </div>
 
@@ -50,7 +50,7 @@ function Page(props) {
                                                 fontSize: 15+'px',
                                                 fontFamily: 'barlow,sans-serif'
                                             },
-                                            text: 'PUMP CARD'
+                                            text: 'CARTA DE FONDO'
                                         },
                                         chart: {
                                             type: 'scatter',
@@ -79,7 +79,7 @@ function Page(props) {
                                                 fontSize: 15+'px',
                                                 fontFamily: 'barlow,sans-serif'
                                             },
-                                            text: 'SURFACE CARD' 
+                                            text: 'CARTA DE SUPERFICIE' 
                                         },
                                         chart: {
                                             type: 'scatter',

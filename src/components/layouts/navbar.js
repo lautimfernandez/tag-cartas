@@ -46,10 +46,10 @@ const NavBar = () => {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
-        <Link className="nav-link" to={"/pozos"}>WELLS</Link>
+        <Link className="nav-link" to={"/pozos"}>POZOS</Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to={"/diagnose"}>DIAGNOSE</Link>
+        <Link className="nav-link" to={"/diagnose"}>DIAGNOSTICAR</Link>
       </li>
 
       <li class="nav-item avatar dropdown"> 
@@ -62,9 +62,9 @@ const NavBar = () => {
 
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
           aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/profile">Profile</a>
+          <a class="dropdown-item" href="/profile">Perfil</a>
           <a class="dropdown-item" href={isAuthenticated && 
-              <button onClick={() => logout()}>Log out</button>}>Log out
+              <button onClick={() => logout()}>Cerrar sesión</button>}>Cerrar sesión
           </a>
         </div>
         

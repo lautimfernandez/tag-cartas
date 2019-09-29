@@ -11,7 +11,8 @@ export default function CheckboxLabels(props) {
     fluidStroke: false,
     bombStroke : false,
     flowingWell : false,
-    fishingRodRods : false
+    fishingRodRods : false,
+    noProblem : false
   });
   
 
@@ -21,7 +22,8 @@ export default function CheckboxLabels(props) {
       fluidStroke: false,
       bombStroke : false,
       flowingWell : false,
-      fishingRodRods : false
+      fishingRodRods : false,
+      noProblem : false
     })
   };
 
@@ -48,6 +50,17 @@ export default function CheckboxLabels(props) {
   return (
       
     <FormGroup row >
+    <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.noProblem}
+            onChange={handleChange("noProblem")}
+            value="noProblem"
+            color="primary"
+          />
+        }
+        label="Sin problemas"
+      />
       <FormControlLabel
         control={
           <Checkbox
@@ -104,7 +117,7 @@ export default function CheckboxLabels(props) {
         label="Pesca de varillas de bombeo"
       />
       <Button color="primary" onClick={()=> {updateState(carta,state,nombre); 
-                                              resetState()}}>Update</Button>    
+                                              resetState()}}>Actualizar</Button>    
     </FormGroup>
     
   );
