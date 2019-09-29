@@ -37,9 +37,9 @@ function CardsPozos(props) {
   const {pozo, carta} = props;
   const c = carta? carta : {};
   const diagnose = c.diagnose ? c.diagnose : "Sin problemas";
-  const fecha = c.date ? c.date : "";
+  const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
   const porcentaje = c.diagnose ? "80%" : "100%";
-  //const fecha = JSON.parse(c.date).slice(9,11) ? JSON.parse(c.date).slice(9,11) : "";
+  
     
   return (
     <Link to={"/pozos/"+pozo.id} style={{ textDecoration: 'none' }}>
@@ -52,7 +52,7 @@ function CardsPozos(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        subheader={porcentaje}
+        subheader={"Última actualización: "+ fecha}
       />
       <CardContent 
       className={classes.media} >
@@ -68,11 +68,15 @@ function CardsPozos(props) {
         <Typography variant="subtitle1"  component="p">
           {"Diagnóstico: " + diagnose }
         </Typography>
-        
+
+        <Typography variant="subtitle1"  component="p">
+          {"Probabilidad de futuro problema: " + porcentaje }
+        </Typography>
+        {/*
         <Typography variant="subtitle1" color='textPrimary' component="p">
         Última actualización: {JSON.stringify(fecha).slice(9,11)}/{JSON.stringify(fecha).slice(6,8)}/{JSON.stringify(fecha).slice(1,5)}
         </Typography>
-
+        */}
       </CardContent>
         </CardActionArea>
     </Card>
