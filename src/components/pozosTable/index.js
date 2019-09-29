@@ -12,7 +12,6 @@ class PozosTable extends Component{
     }
 
     render(){
-        debugger;
         const {pozos, cartas}= this.props;
         return(
             <Page pozos={pozos} cartas={cartas} />

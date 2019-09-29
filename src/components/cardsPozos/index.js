@@ -39,7 +39,6 @@ function CardsPozos(props) {
   const diagnose = c.diagnose ? c.diagnose : "No hay inconvenientes";
   const fecha = c.date ? c.date : "";
   const porcentaje = c.diagnose ? "80%" : "100%";
-    debugger;
   //const fecha = JSON.parse(c.date).slice(9,11) ? JSON.parse(c.date).slice(9,11) : "";
     
   return (

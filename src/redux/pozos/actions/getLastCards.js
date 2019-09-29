@@ -1,32 +1,14 @@
 import pozos from "../../../data/pozos";
-import {getCartasService} from "../../../services/cartasService"
+import {getCartaByIdPozo} from "../../../services/cartasService"
 export const type = 'getLastCards';
 
 
-
-const obtenerUltimas = (c,p) =>{
-    const cartas = c.filter(c =>(c.well===p.id));
-    
-    var mostRecentDate = new Date(Math.max.apply(null, cartas.map( e => {
-        return new Date(e.date);
-     })));
-     var mostRecentObject = cartas.filter( e => { 
-         var d = new Date( e.date ); 
-         return d.getTime() == mostRecentDate.getTime();
-     })[0];
-    
-     return mostRecentObject;
-  
-}
-
 const getLastCards =  () => async dispatch => {
-   const cartas = await getCartasService()
-   const ultimas = pozos.map(p => obtenerUltimas(cartas,p));
-   debugger;
-   if(cartas){
+   const [card140, card143, card146, card147] = await Promise.all([getCartaByIdPozo(140, 1), getCartaByIdPozo(143, 1), getCartaByIdPozo(146, 1), getCartaByIdPozo(147, 1)]);
+   if(card140){
    dispatch({
         type,
-        cartas: ultimas
+        cartas: [...card140, ...card143, ...card146, ...card147]
    })
    }
 };
