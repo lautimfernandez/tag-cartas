@@ -19,8 +19,10 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 345
   },
   media: {
-    height: 0,
-    paddingTop: "56.25%" // 16:9
+    textAlign: 'center',
+    justify: 'center',
+    alignContent: 'center',
+    paddingTop: "10%" // 16:9
   },
   expand: {
     transform: "rotate(0deg)",
@@ -41,6 +43,7 @@ function CardsPozos(props) {
   const classes = useStyles();
   const {pozo, carta} = props;
   const c = carta? carta : {};
+  const diagnose = c.diagnose ? c.diagnose : "No hay inconvenientes";
     debugger;
   return (
     <Link to={"/pozos/"+pozo.id} style={{ textDecoration: 'none' }}>
@@ -53,19 +56,20 @@ function CardsPozos(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={"Pozo " + pozo.id}
         subheader={"Last update: " + c.date}
       />
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
+      <CardContent 
+      className={classes.media} >
+      <CardHeader 
+      textAlign= 'center'
+      titleTypographyProps={{ variant:'h2' }}
+      title={"Well " + pozo.id}
       />
-      <CardContent>
+      </CardContent>
+      <CardContent 
+      className={classes.media} >
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {"Diagnose: " + diagnose }
         </Typography>
       </CardContent>
       
