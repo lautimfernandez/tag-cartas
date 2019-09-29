@@ -44,7 +44,9 @@ function CardsPozos(props) {
   const {pozo, carta} = props;
   const c = carta? carta : {};
   const diagnose = c.diagnose ? c.diagnose : "No hay inconvenientes";
-    debugger;
+  debugger;
+  //const fecha = JSON.stringify(c.date).slice(9,11);
+    
   return (
     <Link to={"/pozos/"+pozo.id} style={{ textDecoration: 'none' }}>
     <Card className={classes.card}>
@@ -56,7 +58,7 @@ function CardsPozos(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        subheader={"Last update: " + c.date}
+        subheader={"100%"}
       />
       <CardContent 
       className={classes.media} >
@@ -68,8 +70,11 @@ function CardsPozos(props) {
       </CardContent>
       <CardContent 
       className={classes.media} >
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="subtitle1"  component="p">
           {"Diagnose: " + diagnose }
+        </Typography>
+        <Typography variant="subtitle1" color='textPrimary' component="p">
+        { "Last Update: 10/11/2019"}
         </Typography>
       </CardContent>
       
