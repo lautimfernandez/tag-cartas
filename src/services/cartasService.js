@@ -27,7 +27,6 @@ const getCartaEspecificaByIdPozo = (pozoId,cartaId) =>
   axios.get(`https://dynacards.herokuapp.com/cards/${pozoId}/${cartaId}`)
     .then(response => 
         {
-          debugger
           return response.data
         }
 )

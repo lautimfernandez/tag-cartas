@@ -7,15 +7,11 @@ import getCarta from "../../redux/carta/actions/getCarta"
 class Card extends Component{
 
     componentDidMount(){
-        debugger;
         const {getCarta} = this.props;
         getCarta(this.props.match.params.pozoId, this.props.match.params.cartaId);
     }
 
     render(){
-        debugger;
-        const {getCarta} = this.props;
-        getCarta(this.props.match.params.pozoId, this.props.match.params.cartaId);
         const {carta} = this.props;
         return(
             <Page 
