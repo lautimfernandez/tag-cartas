@@ -4,11 +4,13 @@ import pozos from './pozos/reducer';
 import pozo from "./pozo/reducer"
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import card from "./carta/reducer"
 
 const reducer = combineReducers({
     pozos,
     carta,
-    pozo
+    pozo,
+    card
 });
 
 const store = compose(applyMiddleware(thunk))(createStore)(reducer, /* preloadedState, */ devToolsEnhancer(

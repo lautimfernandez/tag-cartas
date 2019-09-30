@@ -8,9 +8,10 @@ import {cartaFondo, cartaSuperficie} from "../../cartaXY";
 
 
 function Page(props) {
-    
+    debugger;
    const {carta} = props;
-    
+ 
+
     return (
     <Fragment>
         <CssBaseline />        

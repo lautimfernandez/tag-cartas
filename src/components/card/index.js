@@ -13,6 +13,7 @@ class Card extends Component{
     }
 
     render(){
+   
         const {carta} = this.props;
         return(
             <Page 
@@ -23,7 +24,7 @@ class Card extends Component{
 }
 
 const mapStateToProps = state => ({
-    carta : state.pozo.carta
+    carta : state.card.carta
 });
 
 const mapDispatchToProps  = dispatch =>( {

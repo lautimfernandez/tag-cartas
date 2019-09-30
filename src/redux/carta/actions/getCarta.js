@@ -4,10 +4,10 @@ export const type = 'getCarta';
 
 const getCarta =  (pozoId, cartaId) => async dispatch => {
    const carta = await getCartaEspecificaByIdPozo(pozoId, cartaId)
-   
+   debugger;
    if(carta){
    dispatch({
-        type,
+        type, 
         carta: carta
    })
    }
