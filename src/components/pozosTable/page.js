@@ -33,7 +33,6 @@ export default function Page(props) {
   const {pozos, cartas} = props;
 
   const obtenerCarta = (p, cartas) =>{
-    console.log(cartas);
     const aux =  cartas.filter(c => (c.well === p.id))[0];
     return aux;
   }

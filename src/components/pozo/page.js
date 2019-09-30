@@ -5,10 +5,9 @@ import './styles.css';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import { cartaFondo, cartaSuperficie } from "../../cartaXY";
+import { Link } from 'react-router-dom';
 
 function Page(props) {
-
-
 
     const { cartasPozo, pozoId } = props;
 
@@ -17,10 +16,14 @@ function Page(props) {
     const last5Cards = cartasPozo.length ? cartasPozo.slice(0, 5) : [];
 
     const numeroCarta = cartasPozo.length ? JSON.parse(cartasPozo[0].cardNumber) : "";
-    console.log(pumpCard)
+
     return (
         <Fragment>
             <CssBaseline />
+
+            <button className="nav-item">
+                <Link to={"/pozos/"+ pozoId + "/cartas/" + numeroCarta }>Ultima carta</Link>
+            </button>
 
             <div className='title' id='titlePozo'>
                 WELL {pozoId} </div>

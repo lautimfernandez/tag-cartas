@@ -14,7 +14,7 @@ class Pozo extends Component{
     
     render(){
         
-       const pozoId = this.props.match.params.pozoId;
+        const pozoId = this.props.match.params.pozoId;
         
         const {cartasPozo} = this.props;
 

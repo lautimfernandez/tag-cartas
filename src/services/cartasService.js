@@ -23,4 +23,11 @@ const getCartaByIdPozo = (pozoId, limit = 50) =>
 const updateCartas = ({id}, diagnose,diagnosedBy) =>
   axios.put(`https://dynacards.herokuapp.com/cards/${id}`, {diagnose,diagnosedBy} )
 
-export {getCartasService, updateCartas,getCartaByIdPozo};
+const getCartaEspecificaByIdPozo = (pozoId,cartaId) =>
+  axios.get(`https://dynacards.herokuapp.com/cards/${pozoId}/${cartaId}`)
+    .then(response => 
+        {
+          return response.data
+        }
+)
+export {getCartasService, updateCartas,getCartaByIdPozo, getCartaEspecificaByIdPozo};
