@@ -2,9 +2,10 @@ import { createStore, combineReducers,applyMiddleware, compose } from 'redux';
 import carta from './cartas/reducer';
 import pozos from './pozos/reducer';
 import pozo from "./pozo/reducer"
+import card from "./carta/reducer"
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import card from "./carta/reducer"
+
 
 const reducer = combineReducers({
     pozos,
