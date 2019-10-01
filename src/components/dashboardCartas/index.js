@@ -14,7 +14,6 @@ class DashboardCartas extends Component{
 
     render(){
         const pozo = this.props.match.params.pozoId;
-        debugger;
         const {cartas}= this.props;
         return(
             <Page pozo={pozo} cartas={cartas} />
