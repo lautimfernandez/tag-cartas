@@ -11,7 +11,7 @@ function Page(props) {
    
     const {carta} = props;
     debugger;
-    const card = typeof carta !== "undefined" ? carta : {};
+    const card = carta? carta : {};
     
     return (
         
@@ -22,10 +22,79 @@ function Page(props) {
          
             <div align="center">
             <div className='title'>
-            WELL  
+            WELL  {card.well}
             </div> 
-
             
+            <div style={
+                {
+                    marginRight: 'auto',
+                    marginLeft: 'auto',
+                    height: 100 + '%',
+                    width: 50 + '%'
+                }}>
+
+
+                <Paper elevation={0} className="paper-container">
+
+                    <Highchart options={({
+                        title: {
+                            style: {
+                                fontSize: 15 + 'px',
+                                fontFamily: 'barlow,sans-serif'
+                            },
+                            text: "PUMP CARD " + card.cardNumber,
+                        },
+                        colors: ['#64B5A4'],
+                        chart: {
+                            type: 'scatter',
+                            style: {
+                                fontFamily: 'barlow,sans-serif'
+                            }
+                        },
+                        plotOptions:
+                            { series: { lineWidth: 1.5 } },
+                        series:
+                            [{
+                                data: cartaFondo(card),
+                                name: 'Card'
+                            }],
+                        updateArgs: [true, true, true]
+                    })
+                    } />
+
+                </Paper>
+
+                <br />
+                <Paper elevation={0} className="paper-container">
+
+                    <Highchart oneToOne="false" options={({
+                        title: {
+                            style: {
+                                fontSize: 15 + 'px',
+                                fontFamily: 'barlow,sans-serif'
+                            },
+                            text: "SURFACE CARD " + card.cardNumber,
+                        },
+                        colors: ['#E78B50'],
+                        chart: {
+                            type: 'scatter',
+                            style: {
+                                fontFamily: 'barlow,sans-serif'
+                            }
+                        },
+                        plotOptions:
+                            { series: { lineWidth: 1.5 } },
+                        series:
+                            [{
+                                data: cartaSuperficie(card),
+                                name: 'Card'
+                            }]
+                    })
+                    } />
+
+                </Paper>
+
+            </div>
            
             </div>           
            

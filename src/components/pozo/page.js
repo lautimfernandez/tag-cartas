@@ -21,8 +21,8 @@ function Page(props) {
         <Fragment>
             <CssBaseline />
 
-            <button >
-                <Link to={"/pozos/"+ pozoId + "/cartas/" + numeroCarta }>Ultima carta</Link>
+            <button className="botonCartas" >
+                <Link className="botonTexto" to={"/pozos/"+ pozoId + "/cartas" }>Ver Cartas</Link>
             </button>
 
             <div className='title' id='titlePozo'>

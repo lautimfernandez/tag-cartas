@@ -1,0 +1,86 @@
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import { red } from "@material-ui/core/colors";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Button from '@material-ui/core/Button'
+import { withRouter, Link} from "react-router-dom";
+
+const useStyles = makeStyles(theme => ({
+  card: {
+    maxWidth: 345
+  },
+  media: {
+    textAlign: 'center',
+    justify: 'center',
+    alignContent: 'center',
+    paddingTop: "10%" // 16:9
+  },
+  problemColor: {
+    backgroundColor: red[400]
+  },
+  withoutProblemColor:{
+    backgroundColor: '#84c456'
+  }
+}));
+
+function DashboardCarta(props) {
+  const classes = useStyles();
+  const {pozo, carta} = props;
+  const c = carta? carta : {};
+  const diagnose = c.diagnose ? c.diagnose : "Sin problemas";
+  const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
+  const porcentaje = c.diagnose ? "80%" : "100%";
+  
+    
+  return (
+    <Link to={"/pozos/"+pozo+"/cartas/"+c.cardNumber} style={{ textDecoration: 'none' }}>
+    <Card className={classes.card}>
+      <CardActionArea >
+      <CardHeader
+        className={diagnose==="Sin problemas" ? classes.withoutProblemColor : classes.problemColor}
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        subheader={"Última actualización: "+ fecha}
+      />
+      <CardContent 
+      className={classes.media} >
+      <CardHeader 
+      textAlign= 'center'
+      titleTypographyProps={{ variant:'h2' }}
+      title={"Carta " + c.cardNumber}
+      />
+      </CardContent>
+      <CardContent 
+      className={classes.media} >
+        
+        <Typography variant="subtitle1"  component="p">
+          {"Diagnóstico: " + diagnose }
+        </Typography>
+
+        <Typography variant="subtitle1"  component="p">
+          {"Probabilidad de futuro problema: " + porcentaje }
+        </Typography>
+        {/*
+        <Typography variant="subtitle1" color='textPrimary' component="p">
+        Última actualización: {JSON.stringify(fecha).slice(9,11)}/{JSON.stringify(fecha).slice(6,8)}/{JSON.stringify(fecha).slice(1,5)}
+        </Typography>
+        */}
+      </CardContent>
+        </CardActionArea>
+    </Card>
+    </Link>
+  );
+}
+export default withRouter(DashboardCarta);

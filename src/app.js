@@ -5,6 +5,7 @@ import PozosTable from "./components/pozosTable";
 import Pozo from "./components/pozo";
 import Carta from "./components/carta";
 import Card from "./components/card";
+import DashboardCartas from "./components/dashboardCartas";
 
 
 import Navbar from './components/layouts/navbar';
@@ -25,8 +26,8 @@ function App() {
         <BrowserRouter>
         <Navbar />
             <Switch>
-              
-                <PrivateRoute exact path="/pozos/:pozoId/cartas/:cartaId" component={Card} />
+                <PrivateRoute path="/pozos/:pozoId/cartas/:cartaId" component={Card} />
+                <PrivateRoute path="/pozos/:pozoId/cartas" component={DashboardCartas} /> 
                 <PrivateRoute path="/diagnose" component={Carta} />
                 <PrivateRoute exact path="/pozos/:pozoId" component={Pozo} />
                 <PrivateRoute path="/pozos" component={PozosTable} />

@@ -1,4 +1,5 @@
 import {type as getCartasType} from "../cartas/actions/getCartas";
+import {type as getCartasByIdPozoType} from "../cartas/actions/getCartasByIdPozo";
 import {type as updateStateType} from "../cartas/actions/updateState";
 
 const initialState = { 
@@ -33,6 +34,12 @@ const reducer = (state = initialState, action) => {
             }
         }
         case(getCartasType):{
+            return{
+                ...state,
+                cartas : (action.cartas)
+            }
+        }
+        case(getCartasByIdPozoType):{
             return{
                 ...state,
                 cartas : (action.cartas)
