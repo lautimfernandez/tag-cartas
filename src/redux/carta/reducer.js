@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
             debugger;
             return{
                 ...state,
-                carta : (action.carta)
+                carta : action.carta
             }
         }
         default:

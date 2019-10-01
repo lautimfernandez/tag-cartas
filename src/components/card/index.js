@@ -8,12 +8,16 @@ class Card extends Component{
 
     componentDidMount(){
         const {getCarta} = this.props;
+        const pozoId = this.props.match.params.pozoId;
+        const cartaId = this.props.match.params.cartaId;
         debugger;
-        getCarta(this.props.match.params.pozoId, this.props.match.params.cartaId);
+        getCarta(pozoId, cartaId);
     }
 
     render(){
         debugger;
+        const pozoId = this.props.match.params.pozoId;
+        const cartaId = this.props.match.params.cartaId;
         const {carta} = this.props;
         return(
             <Page 
