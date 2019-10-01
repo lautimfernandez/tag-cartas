@@ -10,6 +10,9 @@ import {cartaFondo, cartaSuperficie} from "../../cartaXY";
 function Page(props) {
    
     const {carta} = props;
+    debugger;
+    const card = typeof carta !== "undefined" ? carta : {};
+    
     return (
         
     <Fragment>
@@ -19,62 +22,10 @@ function Page(props) {
          
             <div align="center">
             <div className='title'>
-            WELL {JSON.parse(carta.well)} - CARD {JSON.parse(carta.cardNumber)} 
+            WELL  
             </div> 
 
-            <div className="sub-title" > 
-                <h5>
-                DATE {JSON.stringify(carta.date).slice(9,11)}/{JSON.stringify(carta.date).slice(6,8)}/{JSON.stringify(carta.date).slice(1,5)}
-                </h5>
-            </div>
-
-            <Paper elevation={0} className="paper-container"> 
-                <Highchart options={({
-                        title: {
-                            style: {
-                                fontSize: 15+'px',
-                                fontFamily: 'barlow,sans-serif'
-                            },
-                            text: 'PUMP CARD'
-                        },
-                        chart: {
-                            type: 'scatter',
-                            style: {
-                                fontFamily: 'barlow,sans-serif'
-                            }
-                        },   
-                        plotOptions:
-                        {   series: {lineWidth: 3}},                        
-                        series: [{data : cartaFondo(carta)}]
-                        }
-                    )}
-                />
-                    
-            </Paper> 
-            <br/>
-
-            <Paper elevation={0} className="paper-container"> 
-                <Highchart options={({
-                        title: {
-                            style: {
-                                fontSize: 15+'px',
-                                fontFamily: 'barlow,sans-serif'
-                            },
-                            text: 'SURFACE CARD' 
-                        },
-                        chart: {
-                            type: 'scatter',
-                            style: {
-                                fontFamily: 'barlow,sans-serif'
-                            }
-                        },   
-                        plotOptions:
-                        {   series: {lineWidth: 3}},                        
-                        series: [{data : cartaSuperficie(carta)}]
-                        }
-                    )}
-                /> 
-            </Paper>
+            
            
             </div>           
            
