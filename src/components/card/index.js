@@ -10,12 +10,10 @@ class Card extends Component{
         const {getCarta} = this.props;
         const pozoId = this.props.match.params.pozoId;
         const cartaId = this.props.match.params.cartaId;
-        debugger;
         getCarta(pozoId, cartaId);
     }
 
     render(){
-        debugger;
         const pozoId = this.props.match.params.pozoId;
         const cartaId = this.props.match.params.cartaId;
         const {carta} = this.props;
