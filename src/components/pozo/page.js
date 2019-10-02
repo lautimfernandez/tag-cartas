@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 
 function Page(props) {
 
-    const { cartasPozo, pozoId } = props;
-
+    const { cartasPozo, pozoId, wells } = props;
+    const well = wells.find(w => w.number == pozoId);
     const pumpCard = cartasPozo.length ? cartaFondo(cartasPozo[0]) : {};
     const surfaceCard = cartasPozo.length ? cartaSuperficie(cartasPozo[0]) : {};
     const last5Cards = cartasPozo.length ? cartasPozo.slice(0, 5) : [];
@@ -24,6 +24,10 @@ function Page(props) {
             <button className="botonCartas" >
                 <Link className="botonTexto" to={"/pozos/"+ pozoId + "/cartas" }>Ver Cartas</Link>
             </button>
+
+            <div>
+                {well ? well.wellLengthInFile[0] : ''}
+            </div>
 
             <div className='title' id='titlePozo'>
                 WELL {pozoId} </div>

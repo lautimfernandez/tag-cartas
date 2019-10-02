@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import getLastCards from "../../redux/pozos/actions/getLastCards"
 
+
 class PozosTable extends Component{
     
     componentDidMount(){
@@ -27,6 +28,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps  = dispatch =>( {
     getLastCards : () => dispatch(getLastCards())
- });
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PozosTable))

@@ -12,7 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Button from '@material-ui/core/Button'
-import { withRouter, Link} from "react-router-dom";
+import { withRouter, Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   card: {
