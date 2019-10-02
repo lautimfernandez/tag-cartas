@@ -16,7 +16,8 @@ import { withRouter, Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345
+    maxWidth: 400,
+    maxHeight : 500
   },
   media: {
     textAlign: 'center',
