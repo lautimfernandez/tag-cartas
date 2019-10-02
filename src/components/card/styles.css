@@ -24,7 +24,8 @@
 .papers-container {
     margin-right: auto;
     height: 100%;
-    width: 500px;
+    width: 530px;
+    padding: 0px 0px 20px 40px;
 }
 
 .container {
@@ -72,6 +73,7 @@
     height: 200px;
     width: 350px;
     float: right;
+    color: black;
 }
 
 .problemColor {
