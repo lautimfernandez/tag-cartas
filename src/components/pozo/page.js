@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Typography } from 'react';
 import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './styles.css';
@@ -17,6 +17,10 @@ function Page(props) {
 
     const numeroCarta = cartasPozo.length ? JSON.parse(cartasPozo[0].cardNumber) : "";
 
+    const wellLengths = well ? well.wellLengthInFile.join(",") : "";
+    const race = well ? well.race : "";
+    const diameters = well ? well.wellDiameters.join(",") : "";
+
     return Object.keys(pozoId).length>0 ? (
         <Fragment>
             <CssBaseline />
@@ -34,7 +38,9 @@ function Page(props) {
 
 
             <div className="info-container" >
-                hola gon
+              Longitudes de tramos [m]: {wellLengths} <br/>
+              Diámetros de tramos: [m]: {diameters} <br/>
+              Carrera: {race} <br/>
             </div>
 
             <div className="papers-container">
