@@ -14,8 +14,6 @@ class Card extends Component{
     }
 
     render(){
-        const pozoId = this.props.match.params.pozoId;
-        const cartaId = this.props.match.params.cartaId;
         const {carta} = this.props;
         return(
             <Page 
