@@ -5,12 +5,21 @@ import './styles.css';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import {cartaFondo, cartaSuperficie} from "../../cartaXY";
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import Avatar from '@material-ui/core/Avatar';
 
 
 function Page(props) {
    
     const {carta} = props;
-
+    const c = carta ? carta : {};
+    const diagnose = c.diagnose ? c.diagnose : "Sin problemas";
+    const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
+    const porcentaje = c.diagnose ? "80%" : "100%";
     
     return Object.keys(carta).length>0 ?
         
@@ -28,6 +37,38 @@ function Page(props) {
             POZO  {carta.well}
                 </span>
             </div> 
+
+            <div className="info-container">
+                <Card className="card">
+                    <CardActionArea>
+                        <CardContent className="header">
+                            <CardHeader
+                                avatar={
+                                    <Avatar aria-label="recipe" className={diagnose==="Sin problemas" ? "withoutProblemColor" : "problemColor"}>
+                                    </Avatar>}
+                                title={<Typography variant="h5"  component="p" alignContent='right' textAlign='right'>
+                                {"Carta " + c.cardNumber}</Typography>}
+                            />
+                        </CardContent>
+
+                        <CardContent className="media">
+                            
+                            <Typography variant="body2"  component="p">
+                            {"Diagnóstico: " + diagnose }
+                            </Typography>
+
+                            <Typography variant="body2"  component="p">
+                            {"Probabilidad: " + porcentaje }
+                            </Typography>
+
+                            <Typography variant="body2"  component="p">
+                            {"Última actualización: "+ fecha}
+                            </Typography>
+
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+            </div>
         
             <div className="papers-container" >
 
