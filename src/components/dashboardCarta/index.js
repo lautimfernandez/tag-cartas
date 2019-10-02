@@ -49,7 +49,7 @@ function DashboardCarta(props) {
   const c = carta ? carta : {};
   const diagnose = c.diagnose ? c.diagnose : "Sin problemas";
   const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
-  const porcentaje = c.diagnose ? "80%" : "100%";
+  const porcentaje = c.percentage;
   
     
   return (
