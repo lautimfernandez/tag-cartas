@@ -10,12 +10,11 @@ import {cartaFondo, cartaSuperficie} from "../../cartaXY";
 function Page(props) {
    
     const {carta} = props;
-    debugger;
 
     
     return Object.keys(carta).length>0 ?
         
-        (
+    (
                 
     <Fragment>
     <CssBaseline />        
@@ -109,8 +108,3 @@ function Page(props) {
 }
 
 export default Page;
-/*
-<div classname="botones" align="center">
-                       
-                    
-                </div>*/
