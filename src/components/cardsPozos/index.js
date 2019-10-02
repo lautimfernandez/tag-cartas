@@ -116,7 +116,7 @@ function CardsPozos(props) {
         </Typography>
 
         <Typography variant="subtitle1"  component="p">
-          {"Probabilidad de futuro problema: " + porcentaje.toFixed(2) }
+          {"Probabilidad de futuro problema: " + porcentaje.toFixed(2) + "%" }
         </Typography>
         {/*
         <Typography variant="subtitle1" color='textPrimary' component="p">
