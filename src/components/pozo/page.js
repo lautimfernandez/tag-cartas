@@ -17,7 +17,7 @@ function Page(props) {
 
     const numeroCarta = cartasPozo.length ? JSON.parse(cartasPozo[0].cardNumber) : "";
 
-    return (
+    return Object.keys(pozoId).length>0 ? (
         <Fragment>
             <CssBaseline />
 
@@ -30,16 +30,14 @@ function Page(props) {
             </div>
 
             <div className='title' id='titlePozo'>
-                WELL {pozoId} </div>
+                POZO {pozoId} </div>
 
-            <div style={
-                {
-                    marginRight: 'auto',
-                    marginLeft: 'auto',
-                    height: 100 + '%',
-                    width: 50 + '%'
-                }}>
 
+            <div className="info-container" >
+                hola gon
+            </div>
+
+            <div className="papers-container">
 
                 <Paper elevation={0} className="paper-container">
 
@@ -49,7 +47,7 @@ function Page(props) {
                                 fontSize: 15 + 'px',
                                 fontFamily: 'barlow,sans-serif'
                             },
-                            text: "PUMP CARD " + numeroCarta,
+                            text: "CARTA DE FONDO " + numeroCarta,
                         },
                         colors: ['#64B5A4'],
                         chart: {
@@ -63,7 +61,7 @@ function Page(props) {
                         series:
                             [{
                                 data: pumpCard,
-                                name: 'Card'
+                                name: 'Carta'
                             }],
                         updateArgs: [true, true, true]
                     })
@@ -80,7 +78,7 @@ function Page(props) {
                                 fontSize: 15 + 'px',
                                 fontFamily: 'barlow,sans-serif'
                             },
-                            text: "SURFACE CARD " + numeroCarta,
+                            text: "CARTA DE SUPERFICIE " + numeroCarta,
                         },
                         colors: ['#E78B50'],
                         chart: {
@@ -94,7 +92,7 @@ function Page(props) {
                         series:
                             [{
                                 data: surfaceCard,
-                                name: 'Card'
+                                name: 'Carta'
                             }]
                     })
                     } />
@@ -104,7 +102,7 @@ function Page(props) {
                 <br />
 
                 <div className='title' id='titlePozo'>
-                    LAST 5 CARDS </div>
+                    ULTIMAS 5 CARTAS </div>
 
                 <Paper elevation={0} className="paper-container">
 
@@ -129,7 +127,7 @@ function Page(props) {
                         series:
                             last5Cards.map((card) => (
                                 {
-                                    name: 'Card ' + card.cardNumber,
+                                    name: 'Carta ' + card.cardNumber,
                                     data: cartaFondo(card),
                                     shadow: false
                                 })
@@ -140,6 +138,14 @@ function Page(props) {
                 </Paper>
             </div>
         </Fragment>
+    ) 
+    : 
+    ( 
+    <div id="spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
     );
 }
 

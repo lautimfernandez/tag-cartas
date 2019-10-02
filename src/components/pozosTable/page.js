@@ -37,7 +37,7 @@ export default function Page(props) {
     return aux;
   }
 
-  return(
+  return Object.keys(cartas).length>0 ? (
 
     <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
@@ -50,33 +50,11 @@ export default function Page(props) {
         </Grid>
       </Grid>
       </Grid>
-  );
+  ) 
+  : ( <div id="spinner">
+        <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+        </div>
+    </div>);
 
-
-
-  /*
-  return (
-    <Paper className={classes.root}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Id Pozo</TableCell>
-            <TableCell align="left">Nombre Pozo</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {pozos.map(p => (
-            <TableRow key={p.id}>
-              <TableCell component="th" scope="row">
-                <Link to={"/pozos/"+p.id}>
-                {p.id}
-                </Link>
-              </TableCell>
-              <TableCell align="left">{p.nombre}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
-  );*/
 }
