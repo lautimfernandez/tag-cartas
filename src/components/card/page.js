@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './styles.css';
+import { makeStyles } from "@material-ui/core/styles";
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import {cartaFondo, cartaSuperficie} from "../../cartaXY";
@@ -11,16 +12,83 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Avatar from '@material-ui/core/Avatar';
+import { red , yellow, green} from "@material-ui/core/colors";
 
+const useStyles = makeStyles(theme => ({
+    problemColor: {
+      backgroundColor: red[400],
+      width:'25px',
+      height:'25px'
+    },
+    withoutProblemColor:{
+      backgroundColor: green[400],
+      width:'25px',
+      height:'25px'
+    },
+    futureProblemColor:{
+      backgroundColor : yellow[400],
+      width:'25px',
+      height:'25px'
+    }
+  }));
+
+  const obtenerDiagnostico = (diagnose) =>{
+    switch(diagnose){
+      case("noProblem"):
+        return "Sin problemas"
+      case(""):
+        return "Sin diagnostico"
+      default:{
+        return diagnose.split(",").map(d => translate(d)).join(" | ");
+      }
+    }
+  }
+
+  
+const translate = (diagnose) =>{
+    switch(diagnose){
+      case("gasInterference"):
+        return "Interferncia de gas"
+      case("fluidStroke"):
+        return "Golpe de fluido"
+      case("bombStroke"):
+        return "Golpe de bomba"
+      case("flowingWell"):
+        return "Pozo fluyente"
+      case("fishingRodRods"):
+        return "Pesca de varillas de bombeo"
+    }
+  }
+  
+  const obtenerColor = (diagnose,porcentaje,classes) =>{
+    if(diagnose==="Sin problemas" || diagnose==="Sin diagnostico"){
+      if(porcentaje<20){
+        return classes.withoutProblemColor
+      }
+      else{
+        return classes.futureProblemColor
+      }
+    }
+    else{
+      return classes.problemColor
+    }
+  } 
+  
+  
+
+  
 
 function Page(props) {
-   
+    const classes = useStyles();
     const {carta} = props;
     const c = carta ? carta : {};
-    const diagnose = c.diagnose ? c.diagnose : "Sin problemas";
-    const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
-    const porcentaje = c.diagnose ? "80%" : "100%";
-    
+    let diagnose, fecha, porcentaje;
+    if(Object.keys(carta).length>0) {
+    diagnose = obtenerDiagnostico(c.diagnose);
+    fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
+    porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? Math.random()*100 : 100;
+    }
+
     return Object.keys(carta).length>0 ?
         
     (
@@ -44,7 +112,7 @@ function Page(props) {
                         <CardContent className="header">
                             <CardHeader
                                 avatar={
-                                    <Avatar aria-label="recipe" className={diagnose==="Sin problemas" ? "withoutProblemColor" : "problemColor"}>
+                                    <Avatar aria-label="recipe" className={obtenerColor(diagnose,porcentaje,classes)}>
                                     </Avatar>}
                                 title={<Typography variant="h5"  component="p" alignContent='right' textAlign='right'>
                                 {"Carta " + c.cardNumber}</Typography>}
@@ -58,7 +126,7 @@ function Page(props) {
                             </Typography>
 
                             <Typography variant="body2"  component="p">
-                            {"Probabilidad: " + porcentaje }
+                            {"Probabilidad: " + porcentaje.toFixed(2) + "%"}
                             </Typography>
 
                             <Typography variant="body2"  component="p">
