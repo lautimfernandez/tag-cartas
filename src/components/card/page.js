@@ -44,17 +44,15 @@ const translate = (diagnose) =>{
 }
   
 const obtenerColor = (diagnose,porcentaje) =>{
-  if(diagnose==="Sin problemas" || diagnose==="Sin diagnostico"){
-    if(porcentaje<20){
+  if(diagnose==="Sin problemas"){
+    if(porcentaje>60){
       return "withoutProblemColor"
-    }
-    else 
-    {
+    } else {
       return "futureProblemColor"
     }
-  }
-  else
-  {
+  } else if(diagnose==="Sin diagnostico") {
+    return "undiagnosedColor"
+  } else {
     return "problemColor"
   }
 }

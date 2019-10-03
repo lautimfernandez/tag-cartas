@@ -1,0 +1,57 @@
+#spinner {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 1000;
+    height: 31px;
+    width: 31px;
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    text-align: left;
+    justify-content: right;
+    background-color: #E9E9E9;
+}
+
+.media {
+    justify-content: center;
+    align-content: center; 
+    display: list-item;
+}
+
+.info-container {
+    margin-left: auto;
+    height: 200px;
+    width: 350px;
+    float: right;
+    color: black;
+}
+
+#problemColor {
+    background-color: red;
+    width: 25px;
+    height: 25px;
+}
+
+#withoutProblemColor {
+    background-color: #84c456;
+    width: 25px;
+    height: 25px;
+}
+
+#futureProblemColor {
+    background-color: yellow;
+    width: 25px;
+    height: 25px;
+}
+
+#undiagnosedColor {
+    background-color: gray;
+    width: 25px;
+    height: 25px;
+}

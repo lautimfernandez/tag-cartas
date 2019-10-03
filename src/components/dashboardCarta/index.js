@@ -1,50 +1,12 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
+import "./styles.css";
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red , yellow, green} from "@material-ui/core/colors";
 import { withRouter, Link} from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
-import Grid from '@material-ui/core/Grid';
-
-const useStyles = makeStyles(theme => ({
-  card: {
-    maxWidth: 250
-  },
-  media: {
-    textAlign: 'center',
-    justify: 'center',
-    alignContent: 'center'//,
-    //paddingTop: "5%" 
-  },
-  header: {
-    textAlign: 'left', 
-    justify: 'right',
-    backgroundColor: '#E9E9E9'
-  },
-  problemColor: {
-    backgroundColor: red[400],
-    width:'25px',
-    height:'25px'
-  },
-  withoutProblemColor:{
-    backgroundColor: green[400],
-    width:'25px',
-    height:'25px'
-  },
-  futureProblemColor:{
-    backgroundColor : yellow[400],
-    width:'25px',
-    height:'25px'
-  }
-}));
 
 
 const obtenerDiagnostico = (diagnose) =>{
@@ -71,25 +33,26 @@ const translate = (diagnose) =>{
       return "Pozo fluyente"
     case("fishingRodRods"):
       return "Pesca de varillas de bombeo"
+    default: 
+      return ""
   }
 }
 
-const obtenerColor = (diagnose,porcentaje,classes) =>{
-  if(diagnose==="Sin problemas" || diagnose==="Sin diagnostico"){
-    if(porcentaje<20){
-      return classes.withoutProblemColor
+const obtenerColor = (diagnose,porcentaje) =>{
+  if(diagnose==="Sin problemas"){
+    if(porcentaje>60){
+      return "withoutProblemColor"
+    } else {
+      return "futureProblemColor"
     }
-    else{
-      return classes.futureProblemColor
-    }
-  }
-  else{
-    return classes.problemColor
+  } else if(diagnose==="Sin diagnostico") {
+    return "undiagnosedColor"
+  } else {
+    return "problemColor"
   }
 } 
 
 function DashboardCarta(props) {
-  const classes = useStyles();
   const {pozo, carta} = props;
   const c = carta ? carta : {};
   const diagnose = obtenerDiagnostico(c.diagnose);
@@ -99,20 +62,19 @@ function DashboardCarta(props) {
     
   return (
     <Link to={"/pozos/"+pozo+"/cartas/"+c.cardNumber} style={{ textDecoration: 'none' }}>
-    <Card className={classes.card}>
+    <Card className="card">
       <CardActionArea>
-      <CardContent className={classes.header}>
+      <CardContent className="header">
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={obtenerColor(diagnose,porcentaje,classes)}>
+          <Avatar aria-label="recipe" id={obtenerColor(diagnose,porcentaje)}>
           </Avatar>}
         title={<Typography variant="h5"  component="p" alignContent='right' textAlign='right'>
           {"Carta " + c.cardNumber}</Typography>}
       />
       </CardContent>
 
-      <CardContent 
-      className={classes.media} >
+      <CardContent className="media" >
         
         <Typography variant="body2"  component="p">
           {"Diagnóstico: " + diagnose }
