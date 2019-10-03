@@ -40,11 +40,9 @@ const translate = (diagnose) =>{
 
 const obtenerColor = (diagnose,porcentaje) =>{
   if(diagnose==="Sin problemas"){
-    if(porcentaje>60){
+    
       return "withoutProblemColor"
-    } else {
-      return "futureProblemColor"
-    }
+   
   } else if(diagnose==="Sin diagnostico") {
     return "undiagnosedColor"
   } else {
@@ -57,7 +55,7 @@ function DashboardCarta(props) {
   const c = carta ? carta : {};
   const diagnose = obtenerDiagnostico(c.diagnose);
   const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
-  const porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/2173 : 100;
+  const porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/6519 : 100;
   
     
   return (
@@ -79,13 +77,9 @@ function DashboardCarta(props) {
         <Typography variant="body2"  component="p">
           {"Diagnóstico: " + diagnose }
         </Typography>
-
+        
         <Typography variant="body2"  component="p">
-          {"Probabilidad: " + porcentaje.toFixed(2) + "%"}
-        </Typography>
-
-        <Typography variant="body2"  component="p">
-          {"Última actualización: "+ fecha}
+          {"Fecha: "+ fecha}
         </Typography>
       </CardContent>
         </CardActionArea>

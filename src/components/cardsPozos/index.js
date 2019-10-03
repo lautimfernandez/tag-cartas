@@ -66,7 +66,7 @@ const translate = (diagnose) =>{
 
 const obtenerColor = (diagnose,porcentaje,classes) =>{
   if(diagnose==="Sin problemas"){
-    if(porcentaje>60){
+    if(porcentaje<35){
       return classes.withoutProblemColor
     }
     else{
@@ -87,7 +87,7 @@ function CardsPozos(props) {
   const c = carta ? carta : {};
   const diagnose = obtenerDiagnostico(c.diagnose);
   const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
-  const porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/2173 : 100;
+  const porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/6519 : 100;
  
     
   return (
