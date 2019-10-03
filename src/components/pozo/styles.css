@@ -73,7 +73,6 @@
 .header {
     text-align: left;
     justify-content: right;
-    background-color: #E9E9E9;
 }
 
 .media {
@@ -84,7 +83,7 @@
 
 #info-container-pozo {
     margin-left: auto;
-    height: 360px;
+    height: 430px;
     width: 360px;
     float: right;
     color: black;
@@ -107,4 +106,22 @@
         height: 100%;
         width: 500px;
     }
+}
+
+#problemColor {
+    background-color: red;
+    width: 25px;
+    height: 25px;
+}
+
+#withoutProblemColor {
+    background-color: #84c456;
+    width: 25px;
+    height: 25px;
+}
+
+#futureProblemColor {
+    background-color: yellow;
+    width: 25px;
+    height: 25px;
 }
