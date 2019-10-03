@@ -62,7 +62,7 @@ const translate = (diagnose) =>{
   
   const obtenerColor = (diagnose,porcentaje,classes) =>{
     if(diagnose==="Sin problemas" || diagnose==="Sin diagnostico"){
-      if(porcentaje<20){
+      if(porcentaje<30){
         return classes.withoutProblemColor
       }
       else{
@@ -86,7 +86,7 @@ function Page(props) {
     if(Object.keys(carta).length>0) {
     diagnose = obtenerDiagnostico(c.diagnose);
     fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
-    porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? Math.random()*100 : 100;
+    porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/2173 : 100;
     }
 
     return Object.keys(carta).length>0 ?
