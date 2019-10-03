@@ -83,7 +83,7 @@ function Page(props) {
               </span>
           </div> 
 
-          <div className="info-container">
+          <div id="info-container-carta">
               <Card className="card">
                   <CardActionArea>
                       <CardContent className="header">
@@ -115,7 +115,7 @@ function Page(props) {
               </Card>
           </div>
       
-          <div className="papers-container" >
+          <div id="papers-container-carta" >
 
               <Paper elevation={0} className="paper-container">
 

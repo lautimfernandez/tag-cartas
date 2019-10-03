@@ -24,7 +24,7 @@
     margin-right: auto;
     height: 100%;
     width: 500px;
-    margin-left: 270px;
+    margin-left: 200px;
 }
 
 .title {
@@ -91,21 +91,20 @@
     margin-right: 240px;
 }
 
-.problemColor {
-    background-color: red;
-    width: 25px;
-    height: 25px;
-}
+@media screen and (max-width: 1220px) {
+    #info-container-pozo {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        height: 360px;
+        width: 360px;
+    }
 
-.withoutProblemColor {
-    background-color: #84c456;
-    width: 25px;
-    height: 25px;
+    #papers-container-pozo {
+        margin-right: auto;
+        margin-left: auto;
+        padding: 20px 0px 20px 0px;
+        height: 100%;
+        width: 500px;
+    }
 }
-
-.futureProblemColor {
-    background-color: yellow;
-    width: 25px;
-    height: 25px;
-}
-

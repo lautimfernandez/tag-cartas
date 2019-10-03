@@ -21,7 +21,7 @@
     text-align:center;
 }
 
-.papers-container {
+#papers-container-carta {
     margin-right: auto;
     height: 100%;
     width: 530px;
@@ -69,7 +69,7 @@
     display: list-item;
 }
 
-.info-container {
+#info-container-carta {
     margin-left: auto;
     height: 200px;
     width: 350px;
@@ -96,8 +96,8 @@
 }
 
 
-@media screen and (max-width: 1000px) {
-    .info-container {
+@media screen and (max-width: 1020px) {
+    #info-container-carta {
         float: none;
         margin-left: auto;
         margin-right: auto;
@@ -105,7 +105,7 @@
         width: 350px;
     }
 
-    .papers-container {
+    #papers-container-carta {
         margin-right: auto;
         margin-left: auto;
         height: 100%;
