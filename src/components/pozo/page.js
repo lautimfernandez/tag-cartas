@@ -37,7 +37,7 @@ function Page(props) {
 
             <div id="info-container-pozo">
                 <Card className="card">
-                    <CardActionArea>
+                   
                         <CardContent className="header">
                             <CardHeader
                                 /*avatar={
@@ -78,7 +78,7 @@ function Page(props) {
                             </Typography>
 
                         </CardContent>
-                    </CardActionArea>
+                  
                 </Card>
 
                 <button className="botonCartas" >

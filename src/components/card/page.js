@@ -85,7 +85,7 @@ function Page(props) {
 
           <div id="info-container-carta">
               <Card className="card">
-                  <CardActionArea>
+                  
                       <CardContent className="header">
                           <CardHeader
                               avatar={
@@ -111,7 +111,7 @@ function Page(props) {
                           </Typography>
 
                       </CardContent>
-                  </CardActionArea>
+                  
               </Card>
           </div>
       
