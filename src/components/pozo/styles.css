@@ -20,10 +20,11 @@
     text-align:center;
 }
 
-.papers-container {
+#papers-container-pozo {
     margin-right: auto;
     height: 100%;
     width: 500px;
+    margin-left: 270px;
 }
 
 .title {
@@ -43,38 +44,68 @@
     width: 31px;
 }
 
-.title {
-    padding-bottom: 20px;
-    text-align: center;
-    font-size: 25px;
-    font-family: barlow,sans-serif; 
-    letter-spacing: 1.5px;
-}
-
-.info-container {
-    margin-left: auto;
-    height: 200px;
-    width: 350px;
-    vertical-align: middle;
-    float: right;
-}
-
 .botonCartas {
     background-color: white; 
-    border: #64B5A4;
+    border: black;
     color: black;
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     float: right;
+    margin-top: 15px
   }
-  .botonCartas:hover {
+
+.botonCartas:hover {
     background-color: #64B5A4; /* Green */
     color: white;
     font-family: barlow,sans-serif;
   } 
 
-  .botonTexto {
+.botonTexto {
     font-size: 16px;
     font-family: barlow,sans-serif;
   }
+
+.card {
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    text-align: left;
+    justify-content: right;
+    background-color: #E9E9E9;
+}
+
+.media {
+    justify-content: center;
+    align-content: center; 
+    display: list-item;
+}
+
+#info-container-pozo {
+    margin-left: auto;
+    height: 360px;
+    width: 360px;
+    float: right;
+    color: black;
+    margin-right: 240px;
+}
+
+.problemColor {
+    background-color: red;
+    width: 25px;
+    height: 25px;
+}
+
+.withoutProblemColor {
+    background-color: #84c456;
+    width: 25px;
+    height: 25px;
+}
+
+.futureProblemColor {
+    background-color: yellow;
+    width: 25px;
+    height: 25px;
+}
+

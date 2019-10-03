@@ -1,4 +1,4 @@
-import React, { Fragment, Typography } from 'react';
+import React, { Fragment } from 'react';
 import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './styles.css';
@@ -6,6 +6,12 @@ import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import { cartaFondo, cartaSuperficie } from "../../cartaXY";
 import { Link } from 'react-router-dom';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+
 
 function Page(props) {
 
@@ -17,33 +23,72 @@ function Page(props) {
 
     const numeroCarta = cartasPozo.length ? JSON.parse(cartasPozo[0].cardNumber) : "";
 
-    const wellLengths = well ? well.wellLengthInFile.join(",") : "";
+    const wellLengths = well ? well.wellLengthInFile.join(" m, ") : "";
     const race = well ? well.race : "";
-    const diameters = well ? well.wellDiameters.join(",") : "";
+    const diameters = well ? well.wellDiameters.join(" m, ") : "";
 
-    return Object.keys(pozoId).length>0 ? (
+    return Object.keys(wells).length>0 ? (
         <Fragment>
             <CssBaseline />
 
-            <button className="botonCartas" >
-                <Link className="botonTexto" to={"/pozos/"+ pozoId + "/cartas" }>Ver Cartas</Link>
-            </button>
-
-            <div>
-                {well ? well.wellLengthInFile[0] : ''}
-            </div>
 
             <div className='title' id='titlePozo'>
                 POZO {pozoId} </div>
 
+            <div id="info-container-pozo">
+                <Card className="card">
+                    <CardActionArea>
+                        <CardContent className="header">
+                            <CardHeader
+                                /*avatar={
+                                    <Avatar aria-label="recipe" className={obtenerColor(diagnose,porcentaje,classes)}>
+                                    </Avatar>}*/
+                                title={<Typography variant="h5"  component="p" alignContent='right' textAlign='right'>
+                                {"Información"}
+                                </Typography>}
+                            />
+                        </CardContent>
 
-            <div className="info-container" >
-              Longitudes de tramos [m]: {wellLengths} <br/>
-              Diámetros de tramos: [m]: {diameters} <br/>
-              Carrera: {race} <br/>
+                        <CardContent className="media">
+
+                            <Typography variant="body2"  component="p">
+                            {"Longitudes de tramos:"}
+                            </Typography>
+                          
+                            {well.wellLengthInFile.map(x =>
+                             <Typography variant="body2"  component="p">
+                             {"⇒ " + x +" m"}
+                             </Typography>)}
+                             
+                             <br></br>
+
+                            <Typography variant="body2"  component="p">
+                            {"Diámetros de tramos: "}
+                            </Typography>
+
+                            {well.wellDiameters.map(x =>
+                             <Typography variant="body2"  component="p">
+                             {"⇒ " + x +" m"}
+                             </Typography>)}
+
+                             <br></br>
+
+                            <Typography variant="body2"  component="p">
+                            {"Carrera: "+ race}
+                            </Typography>
+
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+
+                <button className="botonCartas" >
+                <Link className="botonTexto" to={"/pozos/"+ pozoId + "/cartas" }>Ver Cartas</Link>
+
+            </button>
+
             </div>
 
-            <div className="papers-container">
+            <div id="papers-container-pozo">
 
                 <Paper elevation={0} className="paper-container">
 
