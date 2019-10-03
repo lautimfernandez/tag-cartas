@@ -32,6 +32,7 @@
     align-self: center;
     margin: auto;
     width: 100%;
+    display:table;
 }
 
 .title {
@@ -76,20 +77,39 @@
     color: black;
 }
 
-.problemColor {
+#problemColor {
     background-color: red;
     width: 25px;
     height: 25px;
 }
 
-.withoutProblemColor {
+#withoutProblemColor {
     background-color: #84c456;
     width: 25px;
     height: 25px;
 }
 
-.futureProblemColor {
+#futureProblemColor {
     background-color: yellow;
     width: 25px;
     height: 25px;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .info-container {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
+        width: 350px;
+    }
+
+    .papers-container {
+        margin-right: auto;
+        margin-left: auto;
+        height: 100%;
+        width: 530px;
+        padding: 20px 0px 20px 0px;
+    }
 }

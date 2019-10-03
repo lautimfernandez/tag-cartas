@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './styles.css';
-import { makeStyles } from "@material-ui/core/styles";
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import {cartaFondo, cartaSuperficie} from "../../cartaXY";
@@ -12,199 +11,193 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Avatar from '@material-ui/core/Avatar';
-import { red , yellow, green} from "@material-ui/core/colors";
 
-const useStyles = makeStyles(theme => ({
-    problemColor: {
-      backgroundColor: red[400],
-      width:'25px',
-      height:'25px'
-    },
-    withoutProblemColor:{
-      backgroundColor: green[400],
-      width:'25px',
-      height:'25px'
-    },
-    futureProblemColor:{
-      backgroundColor : yellow[400],
-      width:'25px',
-      height:'25px'
-    }
-  }));
 
-  const obtenerDiagnostico = (diagnose) =>{
-    switch(diagnose){
-      case("noProblem"):
-        return "Sin problemas"
-      case(""):
-        return "Sin diagnostico"
-      default:{
-        return diagnose.split(",").map(d => translate(d)).join(" | ");
-      }
+const obtenerDiagnostico = (diagnose) =>{
+  switch(diagnose){
+    case("noProblem"):
+      return "Sin problemas"
+    case(""):
+      return "Sin diagnostico"
+    default:{
+      return diagnose.split(",").map(d => translate(d)).join(" | ");
     }
   }
+}
 
   
 const translate = (diagnose) =>{
-    switch(diagnose){
-      case("gasInterference"):
-        return "Interferncia de gas"
-      case("fluidStroke"):
-        return "Golpe de fluido"
-      case("bombStroke"):
-        return "Golpe de bomba"
-      case("flowingWell"):
-        return "Pozo fluyente"
-      case("fishingRodRods"):
-        return "Pesca de varillas de bombeo"
+  switch(diagnose){
+    case("gasInterference"):
+      return "Interferncia de gas"
+    case("fluidStroke"):
+      return "Golpe de fluido"
+    case("bombStroke"):
+      return "Golpe de bomba"
+    case("flowingWell"):
+      return "Pozo fluyente"
+    case("fishingRodRods"):
+      return "Pesca de varillas de bombeo"
+    default:
+      return ""
+  }
+}
+  
+const obtenerColor = (diagnose,porcentaje) =>{
+  if(diagnose==="Sin problemas" || diagnose==="Sin diagnostico"){
+    if(porcentaje<20){
+      return "withoutProblemColor"
+    }
+    else 
+    {
+      return "futureProblemColor"
     }
   }
-  
-  const obtenerColor = (diagnose,porcentaje,classes) =>{
-    if(diagnose==="Sin problemas" || diagnose==="Sin diagnostico"){
-      if(porcentaje<20){
-        return classes.withoutProblemColor
-      }
-      else{
-        return classes.futureProblemColor
-      }
-    }
-    else{
-      return classes.problemColor
-    }
-  } 
-  
-  
-
-  
+  else
+  {
+    return "problemColor"
+  }
+}
 
 function Page(props) {
-    const classes = useStyles();
-    const {carta} = props;
-    const c = carta ? carta : {};
-    let diagnose, fecha, porcentaje;
-    if(Object.keys(carta).length>0) {
+  const {carta} = props;
+  const c = carta ? carta : {};
+  let diagnose, fecha, porcentaje;
+
+  if(Object.keys(carta).length>0) {
     diagnose = obtenerDiagnostico(c.diagnose);
     fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
     porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? Math.random()*100 : 100;
-    }
+  }
 
-    return Object.keys(carta).length>0 ?
-        
-    (
-                
-    <Fragment>
-    <CssBaseline />        
-     
-    <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: 100 + '%'}}>
-     
-        <div className="container">
+  return Object.keys(carta).length>0 ? (
+              
+  <Fragment>
+  <CssBaseline />        
+    
+  <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: 100 + '%'}}>
+    
+      <div className="container">
 
-            <div className='title'>
-            <span>
-            POZO  {carta.well}
-                </span>
-            </div> 
+          <div className='title'>
+          <span>
+          POZO  {carta.well}
+              </span>
+          </div> 
 
-            <div className="info-container">
-                <Card className="card">
-                    <CardActionArea>
-                        <CardContent className="header">
-                            <CardHeader
-                                avatar={
-                                    <Avatar aria-label="recipe" className={obtenerColor(diagnose,porcentaje,classes)}>
-                                    </Avatar>}
-                                title={<Typography variant="h5"  component="p" alignContent='right' textAlign='right'>
-                                {"Carta " + c.cardNumber}</Typography>}
-                            />
-                        </CardContent>
+          <div className="info-container">
+              <Card className="card">
+                  <CardActionArea>
+                      <CardContent className="header">
+                          <CardHeader
+                              avatar={
+                                  <Avatar aria-label="recipe" id={obtenerColor(diagnose,porcentaje)}>
+                                  </Avatar>}
+                              title={<Typography variant="h5"  component="p" alignContent='right' textAlign='right'>
+                              {"Carta " + c.cardNumber}</Typography>}
+                          />
+                      </CardContent>
 
-                        <CardContent className="media">
-                            
-                            <Typography variant="body2"  component="p">
-                            {"Diagnóstico: " + diagnose }
-                            </Typography>
+                      <CardContent className="media">
+                          
+                          <Typography variant="body2"  component="p">
+                          {"Diagnóstico: " + diagnose }
+                          </Typography>
 
-                            <Typography variant="body2"  component="p">
-                            {"Probabilidad: " + porcentaje.toFixed(2) + "%"}
-                            </Typography>
+                          <Typography variant="body2"  component="p">
+                          {"Probabilidad: " + porcentaje.toFixed(2) + "%"}
+                          </Typography>
 
-                            <Typography variant="body2"  component="p">
-                            {"Última actualización: "+ fecha}
-                            </Typography>
+                          <Typography variant="body2"  component="p">
+                          {"Última actualización: "+ fecha}
+                          </Typography>
 
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
-            </div>
-        
-            <div className="papers-container" >
+                      </CardContent>
+                  </CardActionArea>
+              </Card>
+          </div>
+      
+          <div className="papers-container" >
 
-                <Paper elevation={0} className="paper-container">
+              <Paper elevation={0} className="paper-container">
 
-                    <Highchart options={({
-                        title: {
-                            style: {
-                                fontSize: 15 + 'px',
-                                fontFamily: 'barlow,sans-serif'
-                            },
-                            text: "CARTA DE FONDO " + carta.cardNumber,
-                        },
-                        colors: ['#64B5A4'],
-                        chart: {
-                            type: 'scatter',
-                            style: {
-                                fontFamily: 'barlow,sans-serif'
+                  <Highchart options={({
+                      title: {
+                          style: {
+                              fontSize: 15 + 'px',
+                              fontFamily: 'barlow,sans-serif'
+                          },
+                          text: "CARTA DE FONDO ",
+                      },
+                      colors: ['#64B5A4'],
+                      chart: {
+                          type: 'scatter',
+                          style: {
+                              fontFamily: 'barlow,sans-serif'
+                          }
+                      },
+                      responsive: {
+                        rules: [{
+                          condition: {
+                            callback: function() {
+                              return false
+                            } 
+                          },
+                          chartOptions: {
+                            legend: {
+                              enabled: false
                             }
-                        },
-                        plotOptions:
-                            { series: { lineWidth: 1.5 } },
-                        series:
-                            [{
-                                data: cartaFondo(carta),
-                                name: 'Carta'
-                            }],
-                        updateArgs: [true, true, true]
-                    })
-                    } />
+                          }
+                        }]
+                      },
+                      plotOptions:
+                          { series: { lineWidth: 1.5 } },
+                      series:
+                          [{
+                              data: cartaFondo(carta),
+                              name: 'Carta'
+                          }],
+                      updateArgs: [true, true, true]
+                  })
+                  } />
 
-                </Paper>
+              </Paper>
 
-                <br />
-                <Paper elevation={0} className="paper-container">
+              <br />
+              <Paper elevation={0} className="paper-container">
 
-                    <Highchart oneToOne="false" options={({
-                        title: {
-                            style: {
-                                fontSize: 15 + 'px',
-                                fontFamily: 'barlow,sans-serif'
-                            },
-                            text: "CARTA DE SUPERFICIE " + carta.cardNumber,
-                        },
-                        colors: ['#E78B50'],
-                        chart: {
-                            type: 'scatter',
-                            style: {
-                                fontFamily: 'barlow,sans-serif'
-                            }
-                        },
-                        plotOptions:
-                            { series: { lineWidth: 1.5 } },
-                        series:
-                            [{
-                                data: cartaSuperficie(carta),
-                                name: 'Carta'
-                            }]
-                    })
-                    } />
+                  <Highchart oneToOne="false" options={({
+                      title: {
+                          style: {
+                              fontSize: 15 + 'px',
+                              fontFamily: 'barlow,sans-serif'
+                          },
+                          text: "CARTA DE SUPERFICIE",
+                      },
+                      colors: ['#E78B50'],
+                      chart: {
+                          type: 'scatter',
+                          style: {
+                              fontFamily: 'barlow,sans-serif'
+                          }
+                      },
+                      plotOptions:
+                          { series: { lineWidth: 1.5 } },
+                      series:
+                          [{
+                              data: cartaSuperficie(carta),
+                              name: 'Carta'
+                          }]
+                  })
+                  } />
 
-                </Paper>
+              </Paper>
 
-            </div>
-        
-        </div>           
-       
-    </div>
+          </div>
+      
+      </div>           
+      
+  </div>
 </Fragment>
     )
 : ( <div id="spinner">
