@@ -14,7 +14,7 @@ export default function Page(props) {
 
   return Object.keys(cartas).length>0 ? (
 
-    <Grid container id="root-pozos" spacing={2}>
+    <Grid container id="root-pozos" alignItems="stretch" alignContent="stretch" spacing={2}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={3}>
           {pozos.map(p => (
