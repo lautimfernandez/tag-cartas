@@ -6,12 +6,10 @@ import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import { cartaFondo, cartaSuperficie } from "../../cartaXY";
 import { Link } from 'react-router-dom';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import { red , yellow, green, grey} from "@material-ui/core/colors";
 import Avatar from '@material-ui/core/Avatar';
 
 const obtenerDiagnostico = (diagnose) =>{
@@ -69,13 +67,11 @@ function Page(props) {
 
     const numeroCarta = cartasPozo.length ? JSON.parse(cartasPozo[0].cardNumber) : "";
 
-    const wellLengths = well ? well.wellLengthInFile.join(" m, ") : "";
     const race = well ? well.race : "";
-    const diameters = well ? well.wellDiameters.join(" m, ") : "";
     const {carta} = props;
     const c = carta ? carta : {};
     
-    let diagnose, fecha, porcentaje;
+    let diagnose, porcentaje;
 
     if(Object.keys(pumpCard).length>0) {
       diagnose = obtenerDiagnostico(cartasPozo[0].diagnose);

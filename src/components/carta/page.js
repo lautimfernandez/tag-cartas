@@ -8,13 +8,11 @@ import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import Checkboxes from "../checkboxes";
 import {cartaFondo, cartaSuperficie} from "../../cartaXY";
-import { charts } from 'highcharts';
 
 function Page(props) {
     
-   const { cartas, updateState,pozoId} = props;
-  
-   
+   const { cartas, updateState} = props;
+ 
    const undiagnosedCards = cartas.filter(c => (c.diagnose ===""));
    
     

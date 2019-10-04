@@ -6,14 +6,12 @@ import Pozo from "./components/pozo";
 import Carta from "./components/carta";
 import Card from "./components/card";
 import DashboardCartas from "./components/dashboardCartas";
-
-
 import Navbar from './components/layouts/navbar';
 
 // New - import the React Router components, and the Profile page component
 
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 import store from './redux/store';
 import PrivateRoute from "./components/privateRoute";
 

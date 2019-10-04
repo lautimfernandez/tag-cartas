@@ -1,4 +1,3 @@
-import pozos from "../../../data/pozos";
 import {getCartaByIdPozo} from "../../../services/cartasService"
 export const type = 'getLastCards';
 
