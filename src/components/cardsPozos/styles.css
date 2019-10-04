@@ -1,0 +1,35 @@
+#spinner {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 1000;
+    height: 31px;
+    width: 31px;
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+}
+
+.media {
+    justify-content: center;
+    align-content: center; 
+    display: list-item;
+}
+
+#problemColor-pozo {
+    background-color: red;
+}
+
+#withoutProblemColor-pozo {
+    background-color: #84c456;
+}
+
+#futureProblemColor-pozo {
+    background-color: yellow;
+}
+
+#undiagnosedColor-pozo {
+    background-color: gray;
+}

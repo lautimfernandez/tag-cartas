@@ -1,39 +1,15 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red , yellow, green, grey} from "@material-ui/core/colors";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { withRouter, Link } from 'react-router-dom';
+import './styles.css';
 
-const useStyles = makeStyles(theme => ({
-  card: {
-    maxWidth: 400,
-    maxHeight : 500
-  },
-  media: {
-    textAlign: 'center',
-    justify: 'center',
-    alignContent: 'center',
-    paddingTop: "10%" // 16:9
-  },
-  problemColor: {
-    backgroundColor: red[400]
-  },
-  withoutProblemColor:{
-    backgroundColor: green[400]
-  },
-  futureProblemColor:{
-    backgroundColor : yellow[400]
-  },
-  undiagnosedColor:{
-    backgroundColor: grey[400]
-  }
-}));
+
 
 const obtenerDiagnostico = (diagnose) =>{
   switch(diagnose){
@@ -64,25 +40,24 @@ const translate = (diagnose) =>{
   }
 }
 
-const obtenerColor = (diagnose,porcentaje,classes) =>{
+const obtenerColor = (diagnose,porcentaje) =>{
   if(diagnose==="Sin problemas"){
     if(porcentaje<35){
-      return classes.withoutProblemColor
+      return "withoutProblemColor-pozo"
     }
     else{
-      return classes.futureProblemColor
+      return "futureProblemColor-pozo"
     }
   } else if ( diagnose==="Sin diagnostico"){
-    return classes.undiagnosedColor
+    return "undiagnosedColor-pozo"
   }
   else{
-    return classes.problemColor
+    return "problemColor-pozo"
   }
 } 
 
 
 function CardsPozos(props) {
-  const classes = useStyles();
   const {pozo, carta} = props;
   const c = carta ? carta : {};
   const diagnose = obtenerDiagnostico(c.diagnose);
@@ -92,10 +67,10 @@ function CardsPozos(props) {
     
   return (
     <Link to={"/pozos/"+pozo.id} style={{ textDecoration: 'none' }}>
-    <Card className={classes.card}>
+    <Card className="card">
       <CardActionArea >
       <CardHeader
-        className={obtenerColor(diagnose,porcentaje,classes)}
+        id={obtenerColor(diagnose,porcentaje)}
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
@@ -104,7 +79,7 @@ function CardsPozos(props) {
         subheader={"Última actualización: "+ fecha}
       />
       <CardContent 
-      className={classes.media} >
+      className="media" >
       <CardHeader 
       textAlign= 'center'
       titleTypographyProps={{ variant:'h2' }}
@@ -112,7 +87,7 @@ function CardsPozos(props) {
       />
       </CardContent>
       <CardContent 
-      className={classes.media} >
+      className="media" >
         
         <Typography variant="subtitle1"  component="p">
           {"Diagnóstico: " + diagnose }
