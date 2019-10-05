@@ -1,3 +1,7 @@
+.container {
+    padding-top: 25px;
+}
+
 #spinner {
     position: fixed;
     left: 50%;
@@ -19,6 +23,7 @@
     justify-content: center;
     align-content: center; 
     display: list-item;
+    padding-top: 0px;
 }
 
 #problemColor-pozo {
@@ -35,4 +40,17 @@
 
 #undiagnosedColor-pozo {
     background-color: gray;
+}
+
+.Dashboard-subtitles {
+    font-family: barrow, sans-serif;
+    font-size: 13px;
+    opacity: .9;
+}
+
+.Dashboard-titles {
+    font-family: barrow, sans-serif;
+    font-size: 30px;
+    opacity: .9;
+    text-align: center;
 }
