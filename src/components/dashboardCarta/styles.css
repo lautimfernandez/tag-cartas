@@ -7,16 +7,20 @@
     width: 31px;
 }
 
-.card {
+#card-carta {
     height: 100%;
     width: 100%;
+    align-items: stretch;
+    width: 280px;
 }
 
-.header {
+#header-carta {
     text-align: left;
     justify-content: right;
-    background-color: #E9E9E9;
+    background-color: rgb(216, 213, 213);
+    height:90px;
 }
+
 
 .media {
     justify-content: center;

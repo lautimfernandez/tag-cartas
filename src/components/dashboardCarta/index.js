@@ -60,9 +60,9 @@ function DashboardCarta(props) {
     
   return (
     <Link to={"/pozos/"+pozo+"/cartas/"+c.cardNumber} style={{ textDecoration: 'none' }}>
-    <Card className="card">
+    <Card id="card-carta">
       <CardActionArea>
-      <CardContent className="header">
+      <CardContent id="header-carta">
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" id={obtenerColor(diagnose,porcentaje)}>
