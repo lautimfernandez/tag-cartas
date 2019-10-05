@@ -60,7 +60,8 @@ const obtenerDiagnostico = (diagnose) =>{
 function Page(props) {
 
     const { cartasPozo, pozoId, wells } = props;
-    const well = wells.find(w => w.number == pozoId);
+    const aWell = wells.find(w => w.number == pozoId);
+    const well = aWell ? aWell : {};
     const pumpCard = cartasPozo.length ? cartaFondo(cartasPozo[0]) : {};
     const surfaceCard = cartasPozo.length ? cartaSuperficie(cartasPozo[0]) : {};
     const last5Cards = cartasPozo.length ? cartasPozo.slice(0, 5) : [];
@@ -78,7 +79,7 @@ function Page(props) {
       porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/2173 : 100;
     }
     
-    return Object.keys(pumpCard).length>0 ? (
+    return (Object.keys(well).length>0 & Object.keys(pumpCard).length>0) ? (
         <Fragment>
             <CssBaseline />
 
