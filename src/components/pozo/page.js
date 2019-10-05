@@ -87,7 +87,7 @@ function Page(props) {
                 POZO {pozoId} </div>
 
             <div id="info-container-pozo">
-                <Card className="card">
+                <Card id="card">
                    
                         <CardContent className="header">
                             <CardHeader 
@@ -144,10 +144,14 @@ function Page(props) {
                   
                 </Card>
 
-                <button className="botonCartas" >
-                <Link className="botonTexto" to={"/pozos/"+ pozoId + "/cartas" }>Ver Cartas</Link>
+            <br></br>
 
-            </button>
+            <Link to={"/pozos/"+ pozoId + "/cartas" }>
+                <button type="button" class="btn btn-outline-info">
+                    Ver Cartas
+                </button>
+            </Link>
+            
 
             </div>
 

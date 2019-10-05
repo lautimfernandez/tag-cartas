@@ -44,28 +44,8 @@
     width: 31px;
 }
 
-.botonCartas {
-    background-color: white; 
-    border: black;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    float: right;
-    margin-top: 15px
-  }
 
-.botonCartas:hover {
-    background-color: #64B5A4; /* Green */
-    color: white;
-    font-family: barlow,sans-serif;
-  } 
-
-.botonTexto {
-    font-size: 16px;
-    font-family: barlow,sans-serif;
-  }
-
-.card {
+#card {
     height: 100%;
     width: 100%;
 }
@@ -90,21 +70,36 @@
     margin-right: 240px;
 }
 
+.btn-outline-info {
+    float: right;
+    color: #17726A;
+    border-color: #17726A;
+}
+.btn-outline-info:hover{
+    background-color: #17726A
+}
+
 @media screen and (max-width: 1220px) {
     #info-container-pozo {
         float: none;
         margin-left: auto;
         margin-right: auto;
-        height: 360px;
+        height: 430px;
         width: 360px;
     }
 
     #papers-container-pozo {
         margin-right: auto;
         margin-left: auto;
-        padding: 20px 0px 20px 0px;
+        padding: 80px 0px 20px 0px;
         height: 100%;
         width: 500px;
+    }
+
+    .btn-outline-info {
+        float: middle;
+        color: #17726A;
+        border-color: #17726A;
     }
 }
 
