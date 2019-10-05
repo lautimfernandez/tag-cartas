@@ -67,7 +67,7 @@ function CardsPozos(props) {
     
   return (
     <Link to={"/pozos/"+pozo.id} style={{ textDecoration: 'none' }}>
-    <Card className="card">
+    <Card id="card-pozo">
       <CardActionArea >
       <CardHeader
         id={obtenerColor(diagnose,porcentaje)}
