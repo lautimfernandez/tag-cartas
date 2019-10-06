@@ -118,7 +118,7 @@ function Page(props) {
                           },
                           text: "CARTA DE FONDO ",
                       },
-                      colors: ['#64B5A4'],
+                      colors: ['#E78B50'],
                       chart: {
                           type: 'scatter',
                           style: {
@@ -163,7 +163,7 @@ function Page(props) {
                           },
                           text: "CARTA DE SUPERFICIE",
                       },
-                      colors: ['#E78B50'],
+                      colors: ['#17726A'],
                       chart: {
                           type: 'scatter',
                           style: {

@@ -7,10 +7,7 @@ import Highchart from "../highchart";
 import { cartaFondo, cartaSuperficie } from "../../cartaXY";
 import { Link } from 'react-router-dom';
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Avatar from '@material-ui/core/Avatar';
 import '../general-styles.css';
 
 const obtenerDiagnostico = (diagnose) =>{
@@ -135,7 +132,7 @@ function Page(props) {
                             </div>
 
                             <br></br>
-                            
+
                             <div className="Dashboard-subtitles">
                             Porcentaje: {porcentaje}%
                             </div>
@@ -167,7 +164,7 @@ function Page(props) {
                             },
                             text: "CARTA DE FONDO " + numeroCarta,
                         },
-                        colors: ['#64B5A4'],
+                        colors: ['#E78B50'],
                         chart: {
                             type: 'scatter',
                             style: {
@@ -198,7 +195,7 @@ function Page(props) {
                             },
                             text: "CARTA DE SUPERFICIE " + numeroCarta,
                         },
-                        colors: ['#E78B50'],
+                        colors: ['#17726A'],
                         chart: {
                             type: 'scatter',
                             style: {
