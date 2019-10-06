@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { withRouter, Link} from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
+import '../general-styles.css';
 
 
 const obtenerDiagnostico = (diagnose) =>{
@@ -62,27 +63,27 @@ function DashboardCarta(props) {
     <Link to={"/pozos/"+pozo+"/cartas/"+c.cardNumber} style={{ textDecoration: 'none' }}>
     <Card id="card-carta">
       <CardActionArea>
-      <CardContent id="header-carta">
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" id={obtenerColor(diagnose,porcentaje)}>
-          </Avatar>}
-        title={<Typography variant="h5"  component="p" alignContent='right' textAlign='right'>
-          {"Carta " + c.cardNumber}</Typography>}
-      />
-      </CardContent>
+        <CardContent 
+            className={obtenerColor(diagnose,porcentaje)}
+          />
 
-      <CardContent className="media" >
-        
-        <Typography variant="body2"  component="p">
-          {"Diagnóstico: " + diagnose }
-        </Typography>
-        
-        <Typography variant="body2"  component="p">
-          {"Fecha: "+ fecha}
-        </Typography>
-      </CardContent>
-        </CardActionArea>
+        <CardContent className="media" >
+
+          <div className="Dashboard-titles">
+          Carta {c.cardNumber}
+          </div>
+          
+          <div class="dropdown-divider"></div>
+
+          <div className="Dashboard-subtitles">
+            Diagnóstico: {diagnose}
+          </div>
+          
+          <div className="Dashboard-subtitles">
+            Fecha: {fecha}
+          </div>
+        </CardContent>
+      </CardActionArea>
     </Card>
     </Link>
   );

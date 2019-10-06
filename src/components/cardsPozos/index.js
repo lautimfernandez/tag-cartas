@@ -5,6 +5,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import { withRouter, Link } from 'react-router-dom';
 import './styles.css';
+import '../general-styles.css'
 
 
 
@@ -40,16 +41,16 @@ const translate = (diagnose) =>{
 const obtenerColor = (diagnose,porcentaje) =>{
   if(diagnose==="Sin problemas"){
     if(porcentaje<35){
-      return "withoutProblemColor-pozo"
+      return "withoutProblemColor"
     }
     else{
-      return "futureProblemColor-pozo"
+      return "futureProblemColor"
     }
   } else if ( diagnose==="Sin diagnostico"){
-    return "undiagnosedColor-pozo"
+    return "undiagnosedColor"
   }
   else{
-    return "problemColor-pozo"
+    return "problemColor"
   }
 } 
 
@@ -69,7 +70,7 @@ function CardsPozos(props) {
         <Card id="card-pozo">
           <CardActionArea >
             <CardHeader
-              id={obtenerColor(diagnose,porcentaje)}
+              className={obtenerColor(diagnose,porcentaje)}
               
             />
             <CardContent className="media" >

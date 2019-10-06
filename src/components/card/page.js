@@ -2,15 +2,12 @@ import React, { Fragment } from 'react';
 import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './styles.css';
+import '../general-styles.css';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import {cartaFondo, cartaSuperficie} from "../../cartaXY";
-import CardActionArea from '@material-ui/core/CardActionArea';
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Avatar from '@material-ui/core/Avatar';
 
 
 const obtenerDiagnostico = (diagnose) =>{
@@ -84,25 +81,25 @@ function Page(props) {
           <div id="info-container-carta">
               <Card className="card">
                   
-                      <CardContent className="header">
-                          <CardHeader
-                              avatar={
-                                  <Avatar aria-label="recipe" id={obtenerColor(diagnose,porcentaje)}>
-                                  </Avatar>}
-                              title={<Typography variant="h5"  component="p" alignContent='right' textAlign='right'>
-                              {"Carta " + c.cardNumber}</Typography>}
+                      <CardContent 
+                      className={obtenerColor(diagnose,porcentaje)}
                           />
-                      </CardContent>
 
                       <CardContent className="media">
                           
-                          <Typography variant="body2"  component="p">
-                          {"Diagnóstico: " + diagnose }
-                          </Typography>
-                          
-                          <Typography variant="body2"  component="p">
-                          {"Fecha: "+ fecha}
-                          </Typography>
+                        <div className="Dashboard-titles">
+                        Carta {c.cardNumber}
+                        </div>
+                        
+                        <div class="dropdown-divider"></div>
+
+                        <div className="Dashboard-subtitles">
+                          Diagnóstico: {diagnose}
+                        </div>
+                        
+                        <div className="Dashboard-subtitles">
+                          Fecha: {fecha}
+                        </div>
 
                       </CardContent>
                   

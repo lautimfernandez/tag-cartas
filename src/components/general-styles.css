@@ -1,0 +1,28 @@
+.problemColor {
+    background-color: #B72A00;
+}
+
+.withoutProblemColor {
+    background-color: #64B5A4;
+}
+
+.futureProblemColor {
+    background-color: #E9B65B;
+}
+
+.undiagnosedColor {
+    background-color: gray;
+}
+
+.Dashboard-subtitles {
+    font-family: barlow, sans-serif;
+    font-size: 13px;
+    opacity: .9;
+}
+
+.Dashboard-titles {
+    font-family: barrow, sans-serif;
+    font-size: 30px;
+    opacity: .9;
+    text-align: center;
+}

@@ -26,31 +26,3 @@
     padding-top: 0px;
 }
 
-#problemColor-pozo {
-    background-color: red;
-}
-
-#withoutProblemColor-pozo {
-    background-color: #84c456;
-}
-
-#futureProblemColor-pozo {
-    background-color: yellow;
-}
-
-#undiagnosedColor-pozo {
-    background-color: gray;
-}
-
-.Dashboard-subtitles {
-    font-family: barrow, sans-serif;
-    font-size: 13px;
-    opacity: .9;
-}
-
-.Dashboard-titles {
-    font-family: barrow, sans-serif;
-    font-size: 30px;
-    opacity: .9;
-    text-align: center;
-}

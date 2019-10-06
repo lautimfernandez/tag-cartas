@@ -35,27 +35,3 @@
     float: right;
     color: black;
 }
-
-#problemColor {
-    background-color: red;
-    width: 25px;
-    height: 25px;
-}
-
-#withoutProblemColor {
-    background-color: #84c456;
-    width: 25px;
-    height: 25px;
-}
-
-#futureProblemColor {
-    background-color: yellow;
-    width: 25px;
-    height: 25px;
-}
-
-#undiagnosedColor {
-    background-color: gray;
-    width: 25px;
-    height: 25px;
-}

@@ -11,6 +11,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Avatar from '@material-ui/core/Avatar';
+import '../general-styles.css';
 
 const obtenerDiagnostico = (diagnose) =>{
     switch(diagnose){
@@ -90,56 +91,54 @@ function Page(props) {
             <div id="info-container-pozo">
                 <Card id="card">
                    
-                        <CardContent className="header">
-                            <CardHeader 
-                            avatar={
-                            <Avatar aria-label="recipe" id={obtenerColor(diagnose,porcentaje)}>
-                            </Avatar>}
-                                /*avatar={
-                                    <Avatar aria-label="recipe" className={obtenerColor(diagnose,porcentaje,classes)}>
-                                    </Avatar>}*/
-                                title={<Typography variant="h5" component="p" alignContent='right' textAlign='right'>
-                                {"Información"}
-                                </Typography>}
+                        <CardContent 
+                        className={obtenerColor(diagnose,porcentaje)}
                             />
-                        </CardContent>
 
                         <CardContent className="media">
+                            <div className="Dashboard-titles">
+                            Información
+                            </div>
 
-                            <Typography variant="body2"  component="p">
-                            {"Longitudes de tramos:"}
-                            </Typography>
+                            <div class="dropdown-divider"></div>
+
+                            <div className="Dashboard-subtitles">
+                            Longitudes de tramos: 
+                            </div>
                           
                             {well.wellLengthInFile.map(x =>
-                             <Typography variant="body2"  component="p">
+                             <div className="Dashboard-subtitles">
                              {"⇒ " + x +" m"}
-                             </Typography>)}
+                             </div>)}
                              
                              <br></br>
 
-                            <Typography variant="body2"  component="p">
-                            {"Diámetros de tramos: "}
-                            </Typography>
+                            <div className="Dashboard-subtitles">
+                            Diámetros de tramos:
+                            </div>
 
                             {well.wellDiameters.map(x =>
-                             <Typography variant="body2"  component="p">
+                             <div className="Dashboard-subtitles">
                              {"⇒ " + x +" m"}
-                             </Typography>)}
+                             </div>)}
 
                              <br></br>
 
-                            <Typography variant="body2"  component="p">
-                            {"Carrera: "+ race}
-                            </Typography>
+                            <div className="Dashboard-subtitles">
+                            Carrera: {race}
+                            </div>
                             
                             <br></br>
 
-                            <Typography variant="body2"  component="p">
-                            {"Diagnóstico: "+ diagnose}
-                            </Typography>
-                            <Typography variant="body2"  component="p">
-                            {"Porcentaje: "+ porcentaje + "%"}
-                            </Typography>
+                            <div className="Dashboard-subtitles">
+                            Diagnóstico: {diagnose}
+                            </div>
+
+                            <br></br>
+                            
+                            <div className="Dashboard-subtitles">
+                            Porcentaje: {porcentaje}%
+                            </div>
 
                         </CardContent>
                   
