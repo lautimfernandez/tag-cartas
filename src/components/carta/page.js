@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import './styles.css';
+import '../general-styles.css';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
@@ -20,83 +21,92 @@ function Page(props) {
     <Fragment>
         <CssBaseline />        
          
-
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '175vh'}}>
-            
-
             
                 <Slider className="slider">             
            
-                    {undiagnosedCards.map((carta,index) => (
+                    {undiagnosedCards.map((carta) => (
                         
                         <div align="center">
                         <div className='title'>
                         POZO {JSON.parse(carta.well)} - CARTA {JSON.parse(carta.cardNumber)} 
                         </div> 
 
-                        <div className="sub-title" > 
-                            <h5>
+                        <div className="sub-title-date" > 
+                            <div>
                             FECHA {JSON.stringify(carta.date).slice(9,11)}/{JSON.stringify(carta.date).slice(6,8)}/{JSON.stringify(carta.date).slice(1,5)}
-                            </h5>
+                            </div>
                         </div>
 
-                        <Paper elevation={0} className="paper-container"> 
-                            {carta ?
-                                <Highchart options={({
-                                        title: {
-                                            style: {
-                                                fontSize: 15+'px',
-                                                fontFamily: 'barlow,sans-serif'
-                                            },
-                                            text: 'CARTA DE FONDO'
-                                        },
-                                        chart: {
-                                            type: 'scatter',
-                                            style: {
-                                                fontFamily: 'barlow,sans-serif'
-                                            }
-                                        },   
-                                        plotOptions:
-                                        {   series: {lineWidth: 3}},                        
-                                        series: [{data : cartaFondo(carta)}]
-                                        }
-                                    )}
-                                />
-                                :
-                                <CircularProgress className='item-loader'/>
-                            } 
-                             
-                            </Paper> 
-                            <br/>
-
+                        <div className="papers-container-diag">
                             <Paper elevation={0} className="paper-container"> 
-                            {carta ?
-                                <Highchart options={({
-                                        title: {
-                                            style: {
-                                                fontSize: 15+'px',
-                                                fontFamily: 'barlow,sans-serif'
+                                {carta ?
+                                    <Highchart options={({
+                                            title: {
+                                                style: {
+                                                    fontSize: 15+'px',
+                                                    fontFamily: 'barlow,sans-serif'
+                                                },
+                                                text: 'CARTA DE FONDO'
                                             },
-                                            text: 'CARTA DE SUPERFICIE' 
-                                        },
-                                        chart: {
-                                            type: 'scatter',
-                                            style: {
-                                                fontFamily: 'barlow,sans-serif'
+                                            colors: ['#E78B50'],
+                                            chart: {
+                                                type: 'scatter',
+                                                style: {
+                                                    fontFamily: 'barlow,sans-serif'
+                                                }
+                                            },   
+                                            plotOptions:
+                                                { series: {lineWidth: 1.5}},                        
+                                            series: 
+                                                [{
+                                                    data: cartaFondo(carta),
+                                                    name: 'Carta'
+                                                }]
                                             }
-                                        },   
-                                        plotOptions:
-                                        {   series: {lineWidth: 3}},                        
-                                        series: [{data : cartaSuperficie(carta)}]
-                                        }
-                                    )}
-                                />
-                                : 
-                                <CircularProgress className='item-loader'/>
-                            } 
-                            </Paper>
+                                        )}
+                                    />
+                                    :
+                                    <CircularProgress className='item-loader'/>
+                                } 
+                                
+                                </Paper> 
+                                <br/>
 
-                            <div className="checks" align="center">
+                                <Paper elevation={0} className="paper-container"> 
+                                {carta ?
+                                    <Highchart options={({
+                                            title: {
+                                                style: {
+                                                    fontSize: 15+'px',
+                                                    fontFamily: 'barlow,sans-serif'
+                                                },
+                                                text: 'CARTA DE SUPERFICIE' 
+                                            },
+                                            colors: ['#17726A'],
+                                            chart: {
+                                                type: 'scatter',
+                                                style: {
+                                                    fontFamily: 'barlow,sans-serif'
+                                                }
+                                            },   
+                                            plotOptions:
+                                                {series: {lineWidth: 1.5}},                        
+                                            series: 
+                                                [{
+                                                    data: cartaSuperficie(carta),
+                                                    name: 'Carta'
+                                                }]
+                                            }
+                                        )}
+                                    />
+                                    : 
+                                    <CircularProgress className='item-loader'/>
+                                } 
+                                </Paper>
+                            </div>
+
+                            <div className="checks" >
                             <Checkboxes carta={carta} updateState={updateState} />
                             </div>
                         
@@ -111,8 +121,3 @@ function Page(props) {
 }
 
 export default Page;
-/*
-<div classname="botones" align="center">
-                       
-                    
-                </div>*/

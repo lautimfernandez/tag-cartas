@@ -116,6 +116,8 @@ export default function CheckboxLabels(props) {
         }
         label="Pesca de varillas de bombeo"
       />
+      <br></br>
+      
       <Button color="primary" onClick={()=> {updateState(carta,state,nombre); 
                                               resetState()}}>Actualizar</Button>    
     </FormGroup>
