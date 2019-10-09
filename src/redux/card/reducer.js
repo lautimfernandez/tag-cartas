@@ -1,4 +1,4 @@
-import {type as getCartaType} from "../carta/actions/getCarta";
+import {type as getCartaType} from "../card/actions/getCarta";
 
 const initialState = { 
     carta : {} 

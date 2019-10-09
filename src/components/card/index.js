@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Page from "./page";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import getCarta from "../../redux/carta/actions/getCarta"
+import getCarta from "../../redux/card/actions/getCarta"
 
 class Card extends Component{
 
