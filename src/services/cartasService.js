@@ -39,4 +39,15 @@ const getCartaEspecificaByIdPozo = (pozoId,cartaId) =>
           return response.data
         }
 )
-export {getCartasService, updateCartas,getCartaByIdPozo, getCartasByIdPozoService, getCartaEspecificaByIdPozo};
+const getLastUndiagnosedCard = (limit = 1) =>
+  axios.get('https://dynacards.herokuapp.com/cards', {
+    params: { //cambiar el endpoint por el que me traiga la ult  undiagnosed
+      limit
+    }
+  })
+    .then(response => {
+
+      return response.data.card
+    })
+
+export { getCartasService, updateCartas, getCartaByIdPozo, getCartasByIdPozoService, getCartaEspecificaByIdPozo, getLastUndiagnosedCard };
