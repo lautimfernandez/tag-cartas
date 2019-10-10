@@ -12,6 +12,7 @@
     "highcharts-react-official": "^2.2.2",
     "html-react-parser": "0.0.4",
     "jquery": "^3.4.1",
+    "lodash.debounce": "^4.0.8",
     "plotly.js": "^1.49.4",
     "popper.js": "^1.15.0",
     "react": "^16.9.0",

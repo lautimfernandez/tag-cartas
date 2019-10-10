@@ -20,9 +20,10 @@ const getCartaByIdPozo = (pozoId, limit = 50) =>
           return response.data.cards
         })
 
-const getCartasByIdPozoService = (pozoId) =>
+const getCartasByIdPozoService = (pozoId, page) =>
   axios.get('https://dynacards.herokuapp.com/cards', {params : {
-    well : pozoId
+    well: pozoId,
+    page: page
     }
   })
   .then(response => {

@@ -18,33 +18,36 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function Page(props) {
-const classes = useStyles();
-const {pozo, cartas} = props;
+  const classes = useStyles();
+  const { pozo, cartas } = props;
 
-return Object.keys(cartas).length>0 ? (
-  <div>
-    <div className="title"> 
-    CARTAS POZO {pozo}
-    </div>
+  return Object.keys(cartas).length > 0 ? (
 
-    <Grid container className={classes.root} spacing={2} >
-      
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={3}>
-          {cartas.map(c => (
-            <Grid key={c.id} item>
-              <DashboardCarta pozo={pozo} carta={c}/>
-            </Grid>
-          ))}
+    <div>
+      <div className="title">
+        CARTAS POZO {pozo}
+      </div>
+
+      <Grid container className={classes.root} spacing={2} >
+
+        <Grid item xs={12}>
+          <Grid container justify="center" spacing={3}>
+            {cartas.map(c => (
+              <Grid key={c.id} item>
+                <DashboardCarta pozo={pozo} carta={c} />
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-      </Grid>
       </Grid>
     </div>
   )
-  : ( <div id="spinner">
-        <div class="spinner-border text-primary" role="status">
+    : (<div id="spinner">
+      <div class="spinner-border text-primary" role="status">
         <span class="sr-only">Loading...</span>
-        </div>
+      </div>
     </div>);
+
 }
