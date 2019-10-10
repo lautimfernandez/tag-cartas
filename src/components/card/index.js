@@ -11,8 +11,14 @@ class Card extends Component{
         const pozoId = this.props.match.params.pozoId;
         const cartaId = this.props.match.params.cartaId;
         getCarta(pozoId, cartaId);
+        window.onpopstate = this.onBackButtonEvent;
     }
 
+    onBackButtonEvent = (e) => {
+        e.preventDefault();
+        this.props.history.goBack()
+      }
+      
     render(){
         const {carta} = this.props;
         return(

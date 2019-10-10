@@ -23,7 +23,14 @@ class DashboardCartas extends Component {
                 loadMoreCardsByIdPozo(pozo, this.timesReload + 1, this.props.cartas);
             }
         }, 100);
+        window.onpopstate = this.onBackButtonEvent;
     }
+
+    onBackButtonEvent = (e) => {
+        e.preventDefault();
+        this.props.history.goBack()
+      }
+      
 
     render() {
         const pozo = this.props.match.params.pozoId;

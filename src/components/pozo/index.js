@@ -12,7 +12,14 @@ class Pozo extends Component{
         const {getCartasPozo, getWells} = this.props;
         getCartasPozo(this.props.match.params.pozoId);
         getWells();
+        window.onpopstate = this.onBackButtonEvent;
     }
+
+    onBackButtonEvent = (e) => {
+        e.preventDefault();
+        this.props.history.goBack()
+      }
+      
     
     render(){
         
