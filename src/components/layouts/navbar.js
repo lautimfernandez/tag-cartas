@@ -61,10 +61,7 @@ const NavBar = () => {
 
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
           aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/profile">Perfil</a>
-          <a class="dropdown-item" href={isAuthenticated && 
-              <button onClick={() => logout()}>Cerrar sesión</button>}>Cerrar sesión
-          </a>
+         {isAuthenticated && <button onClick={() => logout()}>Cerrar sesión</button>}
         </div>
         
       </li>

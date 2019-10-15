@@ -28,10 +28,7 @@ function App() {
                 <PrivateRoute path="/pozos/:pozoId/cartas" component={DashboardCartas} /> 
                 <PrivateRoute path="/diagnose" component={Diagnose} />
                 <PrivateRoute exact path="/pozos/:pozoId" component={Pozo} />
-                <PrivateRoute path="/pozos" component={PozosTable} />
-
-                <PrivateRoute path="/" exact />
-                
+                <PrivateRoute path="/pozos" component={PozosTable} />                
                 <Redirect from="/" to="/pozos" />
             </Switch>
         </BrowserRouter>
