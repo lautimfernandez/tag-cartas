@@ -2,6 +2,7 @@ import { type as getCartasType } from "../cartas/actions/getCartas";
 import { type as getCartasByIdPozoType } from "../cartas/actions/getCartasByIdPozo";
 import { type as loadMoreCardsByIdPozoType } from "../cartas/actions/loadMoreCards";
 import { type as updateStateType } from "../cartas/actions/updateState";
+import { type as cleanupType } from "../cleanup";
 
 const initialState = {
     cartas: [],
@@ -50,6 +51,13 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 moreCards: (action.moreCards),
                 cartas: (action.oldCards).concat(action.moreCards)
+            }
+        }
+        case (cleanupType): {
+            return {
+                ...state,
+                cartas: [],
+                moreCartas: []
             }
         }
         default:
