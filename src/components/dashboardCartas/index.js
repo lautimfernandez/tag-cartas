@@ -24,7 +24,7 @@ class DashboardCartas extends Component {
                 loadMoreCardsByIdPozo(pozo, this.timesReload + 1, this.props.cartas);
             }
         }, 100);
-        window.onpopstate = this.onBackButtonEvent;
+        //window.onpopstate = this.onBackButtonEvent;
     }
 
     componentWillUnmount() {

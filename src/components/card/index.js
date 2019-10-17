@@ -12,7 +12,7 @@ class Card extends Component{
         const pozoId = this.props.match.params.pozoId;
         const cartaId = this.props.match.params.cartaId;
         getCarta(pozoId, cartaId);
-        window.onpopstate = this.onBackButtonEvent;
+        //window.onpopstate = this.onBackButtonEvent;
     }
 
     componentWillUnmount() {
