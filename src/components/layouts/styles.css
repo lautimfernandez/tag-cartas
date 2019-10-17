@@ -40,9 +40,10 @@
     font-size: 11px;
     letter-spacing: 1px;
     opacity: .4;
+    cursor: pointer;
 }
 
-  #spinner{
+#spinner {
     position: fixed;
     left: 50%;
     top: 50%;
