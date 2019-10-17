@@ -5,6 +5,7 @@ import './styles.css';
 import '../general-styles.css';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
+import { Link } from 'react-router-dom';
 import {cartaFondo, cartaSuperficie} from "../../cartaXY";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -104,7 +105,21 @@ function Page(props) {
                       </CardContent>
                   
               </Card>
+              <br></br>
+          
+          <Link to={"/pozos/"+ carta.well + "/cartas" }>
+                <button type="button" class="btn btn-outline-info">
+                    Volver a Cartas
+                </button>
+            </Link>
+            
+            <Link to={"/pozos/"+ carta.well }>
+                <button type="button" class="btn btn-outline-info">
+                    Volver a Pozo
+                </button>
+            </Link>
           </div>
+          
       
           <div id="papers-container-carta" >
 
