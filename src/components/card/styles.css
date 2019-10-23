@@ -70,6 +70,14 @@
     color: black;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-space {
+    margin:10px;
+}
 @media screen and (max-width: 1020px) {
     #info-container-carta {
         float: none;
@@ -77,6 +85,7 @@
         margin-right: auto;
         height: 200px;
         width: 350px;
+        justify-items: center;
     }
 
     #papers-container-carta {
@@ -84,6 +93,6 @@
         margin-left: auto;
         height: 100%;
         width: 530px;
-        padding: 20px 0px 20px 0px;
+        padding: 90px 0px 20px 0px;
     }
 }

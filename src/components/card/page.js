@@ -6,47 +6,47 @@ import '../general-styles.css';
 import 'react-animated-slider/build/horizontal.css';
 import Highchart from "../highchart";
 import { Link } from 'react-router-dom';
-import {cartaFondo, cartaSuperficie} from "../../cartaXY";
+import { cartaFondo, cartaSuperficie } from "../../cartaXY";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
 
-const obtenerDiagnostico = (diagnose) =>{
-  switch(diagnose){
-    case("noProblem"):
+const obtenerDiagnostico = (diagnose) => {
+  switch (diagnose) {
+    case ("noProblem"):
       return "Sin problemas"
-    case(""):
+    case (""):
       return "Sin diagnostico"
-    default:{
+    default: {
       return diagnose.split(",").map(d => translate(d)).join(" | ");
     }
   }
 }
 
-  
-const translate = (diagnose) =>{
-  switch(diagnose){
-    case("gasInterference"):
+
+const translate = (diagnose) => {
+  switch (diagnose) {
+    case ("gasInterference"):
       return "Interferncia de gas"
-    case("fluidStroke"):
+    case ("fluidStroke"):
       return "Golpe de fluido"
-    case("bombStroke"):
+    case ("bombStroke"):
       return "Golpe de bomba"
-    case("flowingWell"):
+    case ("flowingWell"):
       return "Pozo fluyente"
-    case("fishingRodRods"):
+    case ("fishingRodRods"):
       return "Pesca de varillas de bombeo"
     default:
       return ""
   }
 }
-  
-const obtenerColor = (diagnose,porcentaje) =>{
-  if(diagnose==="Sin problemas"){
-    
-      return "withoutProblemColor"
-    
-  } else if(diagnose==="Sin diagnostico") {
+
+const obtenerColor = (diagnose, porcentaje) => {
+  if (diagnose === "Sin problemas") {
+
+    return "withoutProblemColor"
+
+  } else if (diagnose === "Sin diagnostico") {
     return "undiagnosedColor"
   } else {
     return "problemColor"
@@ -54,160 +54,163 @@ const obtenerColor = (diagnose,porcentaje) =>{
 }
 
 function Page(props) {
-  const {carta} = props;
+  const { carta } = props;
   const c = carta ? carta : {};
   let diagnose, fecha, porcentaje;
 
-  if(Object.keys(carta).length>0) {
+  if (Object.keys(carta).length > 0) {
     diagnose = obtenerDiagnostico(c.diagnose);
-    fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
-    porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/6519 : 100;
-    }
+    fecha = c.date ? JSON.stringify(c.date).slice(9, 11) + "/" + JSON.stringify(c.date).slice(6, 8) + "/" + JSON.stringify(c.date).slice(1, 5) : "";
+    porcentaje = diagnose === "Sin problemas" || diagnose === "Sin diagnostico" ? c.id * 100 / 6519 : 100;
+  }
 
-  return Object.keys(carta).length>0 ? (
-              
-  <Fragment>
-  <CssBaseline />        
-    
-  <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: 100 + '%'}}>
-    
-      <div className="container">
+  return Object.keys(carta).length > 0 ? (
+
+    <Fragment>
+      <CssBaseline />
+
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 100 + '%' }}>
+
+        <div className="container">
 
           <div className='title'>
-          <span>
-          POZO  {carta.well}
-              </span>
-          </div> 
+            <span>
+              POZO  {carta.well}
+            </span>
+          </div>
 
           <div id="info-container-carta">
-              <Card className="card">
-                  
-                      <CardContent 
-                      className={obtenerColor(diagnose,porcentaje)}
-                          />
+            <Card className="card">
 
-                      <CardContent className="media">
-                          
-                        <div className="Dashboard-titles">
-                        Carta {c.cardNumber}
-                        </div>
-                        
-                        <div class="dropdown-divider"></div>
+              <CardContent
+                className={obtenerColor(diagnose, porcentaje)}
+              />
 
-                        <div className="Dashboard-subtitles">
-                          Diagnóstico: {diagnose}
-                        </div>
-                        
-                        <div className="Dashboard-subtitles">
-                          Fecha: {fecha}
-                        </div>
+              <CardContent className="media">
 
-                      </CardContent>
-                  
-              </Card>
-              <br></br>
-          
-          <Link to={"/pozos/"+ carta.well + "/cartas" }>
-                <button type="button" class="btn btn-outline-info">
-                    Volver a Cartas
+                <div className="Dashboard-titles">
+                  Carta {c.cardNumber}
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <div className="Dashboard-subtitles">
+                  Diagnóstico: {diagnose}
+                </div>
+
+                <div className="Dashboard-subtitles">
+                  Fecha: {fecha}
+                </div>
+
+              </CardContent>
+
+            </Card>
+            <br></br>
+
+            <div className="buttons">
+              <Link to={"/pozos/" + carta.well + "/cartas"}>
+                <button type="button" class="btn btn-outline-info btn-space">
+                  Volver a Cartas
                 </button>
-            </Link>
-            
-            <Link to={"/pozos/"+ carta.well }>
-                <button type="button" class="btn btn-outline-info">
-                    Volver a Pozo
+              </Link>
+
+              <Link to={"/pozos/" + carta.well}>
+                <button type="button" class="btn btn-outline-info btn-space">
+                  Volver a Pozo
                 </button>
-            </Link>
+              </Link>
+            </div>
+
           </div>
-          
-      
+
+
           <div id="papers-container-carta" >
 
-              <Paper elevation={0} className="paper-container">
+            <Paper elevation={0} className="paper-container">
 
-                  <Highchart options={({
-                      title: {
-                          style: {
-                              fontSize: 15 + 'px',
-                              fontFamily: 'barlow,sans-serif'
-                          },
-                          text: "CARTA DE FONDO ",
-                      },
-                      colors: ['#E78B50'],
-                      chart: {
-                          type: 'scatter',
-                          style: {
-                              fontFamily: 'barlow,sans-serif'
-                          }
-                      },
-                      responsive: {
-                        rules: [{
-                          condition: {
-                            callback: function() {
-                              return false
-                            } 
-                          },
-                          chartOptions: {
-                            legend: {
-                              enabled: false
-                            }
-                          }
-                        }]
-                      },
-                      plotOptions:
-                          { series: { lineWidth: 1.5 } },
-                      series:
-                          [{
-                              data: cartaFondo(carta),
-                              name: 'Carta'
-                          }],
-                      updateArgs: [true, true, true]
-                  })
-                  } />
+              <Highchart options={({
+                title: {
+                  style: {
+                    fontSize: 15 + 'px',
+                    fontFamily: 'barlow,sans-serif'
+                  },
+                  text: "CARTA DE FONDO ",
+                },
+                colors: ['#E78B50'],
+                chart: {
+                  type: 'scatter',
+                  style: {
+                    fontFamily: 'barlow,sans-serif'
+                  }
+                },
+                responsive: {
+                  rules: [{
+                    condition: {
+                      callback: function () {
+                        return false
+                      }
+                    },
+                    chartOptions: {
+                      legend: {
+                        enabled: false
+                      }
+                    }
+                  }]
+                },
+                plotOptions:
+                  { series: { lineWidth: 1.5 } },
+                series:
+                  [{
+                    data: cartaFondo(carta),
+                    name: 'Carta'
+                  }],
+                updateArgs: [true, true, true]
+              })
+              } />
 
-              </Paper>
+            </Paper>
 
-              <br />
-              <Paper elevation={0} className="paper-container">
+            <br />
+            <Paper elevation={0} className="paper-container">
 
-                  <Highchart oneToOne="false" options={({
-                      title: {
-                          style: {
-                              fontSize: 15 + 'px',
-                              fontFamily: 'barlow,sans-serif'
-                          },
-                          text: "CARTA DE SUPERFICIE",
-                      },
-                      colors: ['#17726A'],
-                      chart: {
-                          type: 'scatter',
-                          style: {
-                              fontFamily: 'barlow,sans-serif'
-                          }
-                      },
-                      plotOptions:
-                          { series: { lineWidth: 1.5 } },
-                      series:
-                          [{
-                              data: cartaSuperficie(carta),
-                              name: 'Carta'
-                          }]
-                  })
-                  } />
+              <Highchart oneToOne="false" options={({
+                title: {
+                  style: {
+                    fontSize: 15 + 'px',
+                    fontFamily: 'barlow,sans-serif'
+                  },
+                  text: "CARTA DE SUPERFICIE",
+                },
+                colors: ['#17726A'],
+                chart: {
+                  type: 'scatter',
+                  style: {
+                    fontFamily: 'barlow,sans-serif'
+                  }
+                },
+                plotOptions:
+                  { series: { lineWidth: 1.5 } },
+                series:
+                  [{
+                    data: cartaSuperficie(carta),
+                    name: 'Carta'
+                  }]
+              })
+              } />
 
-              </Paper>
+            </Paper>
 
           </div>
-      
-      </div>           
-      
-  </div>
-</Fragment>
-    )
-: ( <div id="spinner">
-        <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
+
         </div>
+
+      </div>
+    </Fragment>
+  )
+    : (<div id="spinner">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>)
 }
 

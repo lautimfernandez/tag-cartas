@@ -10,50 +10,50 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import '../general-styles.css';
 
-const obtenerDiagnostico = (diagnose) =>{
-    switch(diagnose){
-      case("noProblem"):
-        return "Sin problemas"
-      case(""):
-        return "Sin diagnostico"
-      default:{
-        return diagnose.split(",").map(d => translate(d)).join(" | ");
-      }
+const obtenerDiagnostico = (diagnose) => {
+    switch (diagnose) {
+        case ("noProblem"):
+            return "Sin problemas"
+        case (""):
+            return "Sin diagnostico"
+        default: {
+            return diagnose.split(",").map(d => translate(d)).join(" | ");
+        }
     }
-  }
-  
-    
-  const translate = (diagnose) =>{
-    switch(diagnose){
-      case("gasInterference"):
-        return "Interferncia de gas"
-      case("fluidStroke"):
-        return "Golpe de fluido"
-      case("bombStroke"):
-        return "Golpe de bomba"
-      case("flowingWell"):
-        return "Pozo fluyente"
-      case("fishingRodRods"):
-        return "Pesca de varillas de bombeo"
-      default:
-        return ""
+}
+
+
+const translate = (diagnose) => {
+    switch (diagnose) {
+        case ("gasInterference"):
+            return "Interferncia de gas"
+        case ("fluidStroke"):
+            return "Golpe de fluido"
+        case ("bombStroke"):
+            return "Golpe de bomba"
+        case ("flowingWell"):
+            return "Pozo fluyente"
+        case ("fishingRodRods"):
+            return "Pesca de varillas de bombeo"
+        default:
+            return ""
     }
-  }
-    
-  const obtenerColor = (diagnose,porcentaje) =>{
-    if(diagnose==="Sin problemas"){
-      if(porcentaje>60){
-        return "withoutProblemColor"
-      } else {
-        return "futureProblemColor"
-      }
-    } else if(diagnose==="Sin diagnostico") {
-      return "undiagnosedColor"
+}
+
+const obtenerColor = (diagnose, porcentaje) => {
+    if (diagnose === "Sin problemas") {
+        if (porcentaje > 60) {
+            return "withoutProblemColor"
+        } else {
+            return "futureProblemColor"
+        }
+    } else if (diagnose === "Sin diagnostico") {
+        return "undiagnosedColor"
     } else {
-      return "problemColor"
+        return "problemColor"
     }
-  }
-  
+}
+
 
 function Page(props) {
 
@@ -67,17 +67,17 @@ function Page(props) {
     const numeroCarta = cartasPozo.length ? JSON.parse(cartasPozo[0].cardNumber) : "";
 
     const race = well ? well.race : "";
-    const {carta} = props;
+    const { carta } = props;
     const c = carta ? carta : {};
-    
+
     let diagnose, porcentaje;
 
-    if(Object.keys(pumpCard).length>0) {
-      diagnose = obtenerDiagnostico(cartasPozo[0].diagnose);
-      porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/2173 : 100;
+    if (Object.keys(pumpCard).length > 0) {
+        diagnose = obtenerDiagnostico(cartasPozo[0].diagnose);
+        porcentaje = diagnose === "Sin problemas" || diagnose === "Sin diagnostico" ? c.id * 100 / 2173 : 100;
     }
-    
-    return (Object.keys(well).length>0 & Object.keys(pumpCard).length>0) ? (
+
+    return (Object.keys(well).length > 0 & Object.keys(pumpCard).length > 0) ? (
         <Fragment>
             <CssBaseline />
 
@@ -87,68 +87,69 @@ function Page(props) {
 
             <div id="info-container-pozo">
                 <Card id="card">
-                   
-                        <CardContent 
-                        className={obtenerColor(diagnose,porcentaje)}
-                            />
 
-                        <CardContent className="media">
-                            <div className="Dashboard-titles">
+                    <CardContent
+                        className={obtenerColor(diagnose, porcentaje)}
+                    />
+
+                    <CardContent className="media">
+                        <div className="Dashboard-titles">
                             Información
                             </div>
 
-                            <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div>
 
-                            <div className="Dashboard-subtitles">
-                            Longitudes de tramos: 
+                        <div className="Dashboard-subtitles">
+                            Longitudes de tramos:
                             </div>
-                          
-                            {well.wellLengthInFile.map(x =>
-                             <div className="Dashboard-subtitles">
-                             {"⇒ " + x +" m"}
-                             </div>)}
-                             
-                             <br></br>
 
+                        {well.wellLengthInFile.map(x =>
                             <div className="Dashboard-subtitles">
+                                {"⇒ " + x + " m"}
+                            </div>)}
+
+                        <br></br>
+
+                        <div className="Dashboard-subtitles">
                             Diámetros de tramos:
                             </div>
 
-                            {well.wellDiameters.map(x =>
-                             <div className="Dashboard-subtitles">
-                             {"⇒ " + x +" m"}
-                             </div>)}
-
-                             <br></br>
-
+                        {well.wellDiameters.map(x =>
                             <div className="Dashboard-subtitles">
+                                {"⇒ " + x + " m"}
+                            </div>)}
+
+                        <br></br>
+
+                        <div className="Dashboard-subtitles">
                             Carrera: {race}
-                            </div>
-                            
-                            <br></br>
+                        </div>
 
-                            <div className="Dashboard-subtitles">
+                        <br></br>
+
+                        <div className="Dashboard-subtitles">
                             Diagnóstico: {diagnose}
-                            </div>
+                        </div>
 
-                            <br></br>
+                        <br></br>
 
-                            <div className="Dashboard-subtitles">
+                        <div className="Dashboard-subtitles">
                             Porcentaje: {porcentaje}%
-                            </div>
+                        </div>
 
-                        </CardContent>
-                  
+                    </CardContent>
+
                 </Card>
 
-            <br></br>
+                <br></br>
 
-            <Link to={"/pozos/"+ pozoId + "/cartas" }>
-                <button type="button" class="btn btn-outline-info">
-                    Ver Cartas
-                </button>
-            </Link>
-            
+                <div className="button">
+                    <Link to={"/pozos/" + pozoId + "/cartas"}>
+                        <button type="button" class="btn btn-outline-info">
+                            Ver Cartas
+                        </button>
+                    </Link>
+                </div>
 
             </div>
 
@@ -253,15 +254,15 @@ function Page(props) {
                 </Paper>
             </div>
         </Fragment>
-    ) 
-    : 
-    ( 
-    <div id="spinner">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    );
+    )
+        :
+        (
+            <div id="spinner">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        );
 }
 
 export default Page;

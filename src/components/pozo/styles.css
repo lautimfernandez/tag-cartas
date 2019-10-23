@@ -62,13 +62,9 @@
     margin-right: 240px;
 }
 
-.btn-outline-info {
-    float: right;
-    color: #17726A;
-    border-color: #17726A;
-}
-.btn-outline-info:hover{
-    background-color: #17726A
+.button {
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1220px) {
@@ -92,6 +88,11 @@
         float: middle;
         color: #17726A;
         border-color: #17726A;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
     }
 }
 
