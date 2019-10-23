@@ -56,12 +56,13 @@ const obtenerColor = (diagnose, porcentaje) => {
 function Page(props) {
   const { carta } = props;
   const c = carta ? carta : {};
-  let diagnose, fecha, porcentaje;
+  let diagnose, fecha, porcentaje, time;
 
   if (Object.keys(carta).length > 0) {
     diagnose = obtenerDiagnostico(c.diagnose);
     fecha = c.date ? JSON.stringify(c.date).slice(9, 11) + "/" + JSON.stringify(c.date).slice(6, 8) + "/" + JSON.stringify(c.date).slice(1, 5) : "";
     porcentaje = diagnose === "Sin problemas" || diagnose === "Sin diagnostico" ? c.id * 100 / 6519 : 100;
+    time = c.date ? JSON.stringify(c.date).slice(12, 17) : "";
   }
 
   return Object.keys(carta).length > 0 ? (
@@ -100,6 +101,10 @@ function Page(props) {
 
                 <div className="Dashboard-subtitles">
                   Fecha: {fecha}
+                </div>
+
+                <div className="Dashboard-subtitles">
+                  Hora: {time}
                 </div>
 
               </CardContent>
