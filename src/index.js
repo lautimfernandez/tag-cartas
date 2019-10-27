@@ -24,7 +24,7 @@ const Root = (
     <Auth0Provider
     domain={config.domain}
     client_id={config.clientId}
-    redirect_uri={process.env.REDIRECT_URL || "http://localhost:3000/pozos"}
+    redirect_uri={process.env.REDIRECT_URL || "http://localhost:3000"}
     onRedirectCallback={onRedirectCallback}
 >
     <App />

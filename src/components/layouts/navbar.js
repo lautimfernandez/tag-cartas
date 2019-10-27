@@ -12,8 +12,8 @@ const NavBar = () => {
  if (loading || !user) {
    return (
     <div id="spinner">
-      <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
+      <div className="spinner-border text-primary" role="status">
+        <span className="sr-only">Loading...</span>
       </div>
     </div>
    );
@@ -35,7 +35,7 @@ const NavBar = () => {
       }
     </div>
       
-  <Link to={"/pozos"} className="navbar-brand" >
+  <Link to={"/"} className="navbar-brand" >
     <img className="logo" src="https://drive.google.com/uc?export=view&id=1yWcxc3ZUZVeRFtVmZirHkvpKBoaM5Pd3" height="40" alt="DYNACARDS" /> 
   </Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,19 +51,19 @@ const NavBar = () => {
         <Link className="nav-link" to={"/diagnose"}>DIAGNOSTICAR</Link>
       </li>
 
-      <li class="nav-item avatar dropdown"> 
+      <li className="nav-item avatar dropdown"> 
 
-        <a class="nav-link dropdown-toggle" href="/profile"  id="navbarDropdownMenuLink" data-toggle="dropdown"
+        <a className="nav-link dropdown-toggle" href="/profile"  id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-        <img src={user.picture} height="40" class="rounded-circle z-depth-0"
+        <img src={user.picture} height="40" className="rounded-circle z-depth-0"
           alt="avatar"/>
         </a>
 
-        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+        <div className="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
           aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/profile">Perfil</a>
+          <a className="dropdown-item" href="/profile">Perfil</a>
           
-          {isAuthenticated && <div class="dropdown-item" onClick={() => logout()}>Cerrar sesión</div>}
+          {isAuthenticated && <div className="dropdown-item" onClick={() => logout()}>Cerrar sesión</div>}
           
         </div>
         

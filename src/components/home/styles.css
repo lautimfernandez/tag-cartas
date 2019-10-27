@@ -1,0 +1,20 @@
+.btn-outline {
+    margin-top: 80px;
+    color: rgb(11, 27, 24);
+    border-color: rgb(11, 27, 24);
+    border-width: 2px;
+    font-weight: 1000;
+}
+
+.btn-outline:hover{
+    background-color: #64B5A4;
+    border-width: 1px;
+}
+
+.home-container {
+    display: flex;
+    justify-content: center;
+    height: 700px;
+    background-image: url('../../data/images/Background.jpg');
+    background-size: cover; /* Resize the background image to cover the entire container */
+}

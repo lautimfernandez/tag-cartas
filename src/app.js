@@ -7,6 +7,7 @@ import Diagnose from "./components/diagnose";
 import Card from "./components/card";
 import DashboardCartas from "./components/dashboardCartas";
 import Navbar from './components/layouts/navbar';
+import Home from './components/home';
 
 // New - import the React Router components, and the Profile page component
 
@@ -28,8 +29,9 @@ function App() {
                 <PrivateRoute path="/pozos/:pozoId/cartas" component={DashboardCartas} /> 
                 <PrivateRoute path="/diagnose" component={Diagnose} />
                 <PrivateRoute exact path="/pozos/:pozoId" component={Pozo} />
-                <PrivateRoute path="/pozos" component={PozosTable} />                
-                <Redirect from="/" to="/pozos" />
+                <PrivateRoute path="/pozos" component={PozosTable} />
+                <PrivateRoute path="/" component={Home} />         
+                <Redirect from="/" to="/" />
             </Switch>
         </BrowserRouter>
     </Provider>
