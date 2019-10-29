@@ -15,6 +15,9 @@
     font-family: Barlow, sans-serif; 
     opacity: .8;
 }
+.hide{
+    display:none;  
+}
 
 .logo {
     vertical-align: middle;
@@ -41,6 +44,14 @@
     letter-spacing: 1px;
     opacity: .4;
     cursor: pointer;
+}
+
+#invisible{
+    display:none;  
+}
+
+#visible{
+    display: inline;
 }
 
 #spinner {

@@ -5,6 +5,7 @@ import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
 import App from "./app";
 import { register } from './serviceWorker';
+import Home from './components/home';
 
 
 //import Footer from './components/layouts/footer';
@@ -24,11 +25,12 @@ const Root = (
     <Auth0Provider
     domain={config.domain}
     client_id={config.clientId}
-    redirect_uri={process.env.REDIRECT_URL || "http://localhost:3000"}
+    redirect_uri={process.env.REDIRECT_URL || "http://localhost:3000/pozos"} //CUIDADO CON EL LOCALHOST
     onRedirectCallback={onRedirectCallback}
 >
     <App />
     </Auth0Provider>
+    
 );
 
 register();

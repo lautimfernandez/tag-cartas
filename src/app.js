@@ -8,11 +8,12 @@ import Card from "./components/card";
 import DashboardCartas from "./components/dashboardCartas";
 import Navbar from './components/layouts/navbar';
 import Home from './components/home';
+import NavbarHome from './components/layouts/navbarhome';
 
 // New - import the React Router components, and the Profile page component
 
 import { Provider } from 'react-redux';
-import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Switch, Route } from 'react-router-dom';
 import store from './redux/store';
 import PrivateRoute from "./components/privateRoute";
 
@@ -30,7 +31,7 @@ function App() {
                 <PrivateRoute path="/diagnose" component={Diagnose} />
                 <PrivateRoute exact path="/pozos/:pozoId" component={Pozo} />
                 <PrivateRoute path="/pozos" component={PozosTable} />
-                <PrivateRoute path="/" component={Home} />         
+                <Route path="/" component={Home} />         
                 <Redirect from="/" to="/" />
             </Switch>
         </BrowserRouter>
