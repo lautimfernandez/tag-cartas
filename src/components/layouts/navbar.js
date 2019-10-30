@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout, loading, user } = useAuth0();
+  const { isAuthenticated, logout, user } = useAuth0();
   const getVisible = ()=>{
     if(isAuthenticated)
       return "visible"

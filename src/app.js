@@ -8,7 +8,6 @@ import Card from "./components/card";
 import DashboardCartas from "./components/dashboardCartas";
 import Navbar from './components/layouts/navbar';
 import Home from './components/home';
-import NavbarHome from './components/layouts/navbarhome';
 
 // New - import the React Router components, and the Profile page component
 
