@@ -7,7 +7,7 @@ function Page() {
         <div className="home-container">
             <div className="container-alpedo">
             <div className="banner-panel">
-                <div className="title-home">Nuestro producto</div>
+                <div className="title-home">DYNACARDS</div>
                 <br />
                 <div className="dropdown-divider"></div>
                 <br />
@@ -16,14 +16,32 @@ function Page() {
                 </div>
             </div>
             <br />
+            
             <div className="grid">
-                <div className="columna">Seguí tus pozos en tiempo real</div>
-                
-                <div className="columna">Detectá problemas justo a tiempo</div>
+              
+                <div className="columna">
+                    <img src="https://img.icons8.com/ios-glyphs/452/realtime-protection.png" width="200" height="200" alt="tiemporeal"/>
+                    <div className="texto">
+                        <p>Seguí tus pozos en tiempo real</p>
+                    </div>
+                </div>
+            
+                <div className="columna">
+                    <img src="https://icons-for-free.com/iconfiles/png/512/attention+problem+warning+icon-1320196391449088273.png" width="200" height="200" alt="problema"/>
+                    <div className="texto">
+                        <p>Detectá problemas justo a tiempo</p>
+                    </div>
+                </div>
                
-                <div id="last-column">Predecí para salvar tu futuro</div>
+                <div id="last-column">
+                    <img src="https://static.thenounproject.com/png/332096-200.png" width="200" height="200" alt="predecir"/>
+                    <div className="texto">   
+                        <p>Predecí para salvar tu futuro</p>
+                    </div>     
+                </div>
+            </div> 
             </div>
-            </div>
+           
         </div>
     )
 

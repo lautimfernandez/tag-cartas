@@ -5,7 +5,7 @@ import { Auth0Provider } from "./react-auth0-wrapper";
 import config from "./auth_config.json";
 import App from "./app";
 import { register } from './serviceWorker';
-import Home from './components/home';
+
 
 
 //import Footer from './components/layouts/footer';
