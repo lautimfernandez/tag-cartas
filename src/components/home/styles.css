@@ -19,7 +19,7 @@
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     height: 25%;
-    width: 35%;
+    width: 39%;
     margin-top: 120px;
     margin-right: auto;
     margin-left: auto;
@@ -85,8 +85,12 @@
     margin-left: auto;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1020px) {
   .column {
     width: 100%;
    }
+
+   .title-home {
+    font-size: 40px;
+    }
 }
