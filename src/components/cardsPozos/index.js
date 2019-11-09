@@ -78,7 +78,7 @@ function CardsPozos(props) {
               POZO {pozo.id}
               </div>
 
-              <div class="dropdown-divider"></div>
+              <div className="dropdown-divider"></div>
 
               <div className="Dashboard-subtitles">
                 Diagnóstico: {diagnose}

@@ -27,8 +27,8 @@ export default function Page(props) {
       </Grid>
   ) 
   : ( <div id="spinner">
-        <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
+        <div className="spinner-border text-primary" role="status">
+        <span className="sr-only">Loading...</span>
         </div>
     </div>);
 
