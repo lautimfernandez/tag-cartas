@@ -13,31 +13,31 @@ import CardContent from "@material-ui/core/CardContent";
 
 const obtenerDiagnostico = (diagnose) => {
   switch (diagnose) {
-    case ("noProblem"):
-      return "Sin problemas"
-    case (""):
-      return "Sin diagnostico"
-    default: {
-      return diagnose.split(",").map(d => translate(d)).join(" | ");
-    }
+      case ("noProblem"):
+          return "Sin problemas"
+      case (""):
+          return "Sin diagnostico"
+      default: {
+          return diagnose.split(",").map(d => translate(d)).join(" | ");
+      }
   }
 }
 
 
 const translate = (diagnose) => {
   switch (diagnose) {
-    case ("gasInterference"):
-      return "Interferncia de gas"
-    case ("fluidStroke"):
-      return "Golpe de fluido"
-    case ("bombStroke"):
-      return "Golpe de bomba"
-    case ("flowingWell"):
-      return "Pozo fluyente"
-    case ("fishingRodRods"):
-      return "Pesca de varillas de bombeo"
-    default:
-      return ""
+      case ("gasInterference"):
+          return "Interferncia de gas"
+      case ("fluidStroke"):
+          return "Golpe de fluido"
+      case ("bombStroke"):
+          return "Golpe de bomba"
+      case ("flowingWell"):
+          return "Pozo fluyente"
+      case ("fishingRodRods"):
+          return "Pesca de varillas de bombeo"
+      default:
+          return diagnose
   }
 }
 

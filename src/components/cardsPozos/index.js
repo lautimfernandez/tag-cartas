@@ -14,7 +14,7 @@ const obtenerDiagnostico = (diagnose) =>{
     case("noProblem"):
       return "Sin problemas"
     case(""):
-      return "Sin diagnostico"
+      return "Sin diagnóstico"
     default:{
       return diagnose.split(",").map(d => translate(d)).join(" | ");
     }
@@ -34,7 +34,7 @@ const translate = (diagnose) =>{
     case("fishingRodRods"):
       return "Pesca de varillas de bombeo"
     default:
-      return ""
+      return diagnose
   }
 }
 

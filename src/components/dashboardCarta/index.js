@@ -32,7 +32,7 @@ const translate = (diagnose) =>{
     case("fishingRodRods"):
       return "Pesca de varillas de bombeo"
     default: 
-      return ""
+      return diagnose
   }
 }
 
@@ -53,6 +53,7 @@ function DashboardCarta(props) {
   const c = carta ? carta : {};
   const diagnose = obtenerDiagnostico(c.diagnose);
   const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
+  const time = c.date ? JSON.stringify(c.date).slice(12, 17) : "";
   const porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/6519 : 100;
   
     
@@ -67,7 +68,7 @@ function DashboardCarta(props) {
         <CardContent className="media" >
 
           <div className="Dashboard-titles">
-          Carta {c.cardNumber}
+            Carta {c.cardNumber}
           </div>
           
           <div class="dropdown-divider"></div>
@@ -78,6 +79,10 @@ function DashboardCarta(props) {
           
           <div className="Dashboard-subtitles">
             Fecha: {fecha}
+          </div>
+
+          <div className="Dashboard-subtitles">
+            Hora: {time}
           </div>
         </CardContent>
       </CardActionArea>

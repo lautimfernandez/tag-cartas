@@ -36,7 +36,7 @@ const translate = (diagnose) => {
         case ("fishingRodRods"):
             return "Pesca de varillas de bombeo"
         default:
-            return ""
+            return diagnose
     }
 }
 
