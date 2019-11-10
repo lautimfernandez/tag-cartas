@@ -20,21 +20,21 @@ function Page() {
                 <div className="grid">
 
                     <div className="columna">
-                        <img src="https://img.icons8.com/ios-glyphs/452/realtime-protection.png" width="200" height="200" alt="tiemporeal" />
+                        <img src="https://drive.google.com/uc?id=1cdmSDD1zIdLEUZkDLTquyMtwaVC6NWSn" width="200" height="200" alt="tiemporeal" />
                         <div className="texto">
                             <p>Seguí tus pozos en tiempo real</p>
                         </div>
                     </div>
 
                     <div className="columna">
-                        <img src="https://icons-for-free.com/iconfiles/png/512/attention+problem+warning+icon-1320196391449088273.png" width="200" height="200" alt="problema" />
+                        <img src="https://drive.google.com/uc?id=16dN8IUrSDWy9BNlr0_D0gBAfgq5YD-Jc" width="200" height="200" alt="problema" />
                         <div className="texto">
                             <p>Detectá problemas justo a tiempo</p>
                         </div>
                     </div>
 
                     <div id="last-column">
-                        <img src="https://static.thenounproject.com/png/332096-200.png" width="200" height="200" alt="predecir" />
+                        <img src="https://drive.google.com/uc?id=1WQBX8ihU3-mJxhV6Xo96A5_n1iNW7IHj" width="200" height="200" alt="predecir" />
                         <div className="texto">
                             <p>Predecí para salvar tu futuro</p>
                         </div>
