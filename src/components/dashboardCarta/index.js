@@ -38,13 +38,20 @@ const translate = (diagnose) =>{
 
 const obtenerColor = (diagnose,porcentaje) =>{
   if(diagnose==="Sin problemas"){
-    
+    if(porcentaje>80){
       return "withoutProblemColor"
-   
-  } else if(diagnose==="Sin diagnostico") {
+    }
+    else{
+      return "futureProblemColor"
+    }
+  } else if ( diagnose==="Sin diagnostico"){
     return "undiagnosedColor"
-  } else {
-    return "problemColor"
+  }
+  else{
+    if(porcentaje>80)
+      return "problemColor"
+    else
+      return "futureProblemColor"
   }
 } 
 
@@ -54,7 +61,7 @@ function DashboardCarta(props) {
   const diagnose = obtenerDiagnostico(c.diagnose);
   const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
   const time = c.date ? JSON.stringify(c.date).slice(12, 17) : "";
-  const porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/6519 : 100;
+  const porcentaje = c.percentage;
   
     
   return (

@@ -40,7 +40,7 @@ const translate = (diagnose) =>{
 
 const obtenerColor = (diagnose,porcentaje) =>{
   if(diagnose==="Sin problemas"){
-    if(porcentaje<35){
+    if(porcentaje>80){
       return "withoutProblemColor"
     }
     else{
@@ -50,7 +50,10 @@ const obtenerColor = (diagnose,porcentaje) =>{
     return "undiagnosedColor"
   }
   else{
-    return "problemColor"
+    if(porcentaje>80)
+      return "problemColor"
+    else
+      return "futureProblemColor"
   }
 } 
 
@@ -60,8 +63,8 @@ function CardsPozos(props) {
   const c = carta ? carta : {};
   const diagnose = obtenerDiagnostico(c.diagnose);
   const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
-  const porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/6519 : 100;
- 
+  //const porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/6519 : 100;
+  const porcentaje = c.percentage; 
     
   return (
     <div className="container"> 
@@ -83,13 +86,13 @@ function CardsPozos(props) {
               <div className="Dashboard-subtitles">
                 Diagnóstico: {diagnose}
               </div>
-
-              <div className="Dashboard-subtitles" >
-                Probabilidad de futuro problema: {porcentaje.toFixed(2)}%
-              </div>
               
               <div className="Dashboard-subtitles" >
               Última actualización: {fecha}
+              </div>
+
+              <div className="Dashboard-subtitles" > 
+                { diagnose === "Sin problemas" ? "Probabilidad de futuro problema: " +  (100 - porcentaje) : "Porcentaje de exactitud: " + porcentaje}%
               </div>
               
             </CardContent>

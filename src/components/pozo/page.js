@@ -56,7 +56,7 @@ const obtenerColor = (diagnose, porcentaje) => {
 
 
 function Page(props) {
-
+  
     const { cartasPozo, pozoId, wells } = props;
     const aWell = wells.find(w => w.number == pozoId);
     const well = aWell ? aWell : {};
@@ -71,10 +71,10 @@ function Page(props) {
     const c = carta ? carta : {};
 
     let diagnose, porcentaje;
-
     if (Object.keys(pumpCard).length > 0) {
         diagnose = obtenerDiagnostico(cartasPozo[0].diagnose);
-        porcentaje = diagnose === "Sin problemas" || diagnose === "Sin diagnostico" ? c.id * 100 / 2173 : 100;
+        porcentaje = cartasPozo[0].percentage;
+        //porcentaje = diagnose === "Sin problemas" || diagnose === "Sin diagnostico" ? c.id * 100 / 2173 : 100;
     }
 
     return (Object.keys(well).length > 0 & Object.keys(pumpCard).length > 0) ? (
@@ -134,7 +134,7 @@ function Page(props) {
                         <br></br>
 
                         <div className="Dashboard-subtitles">
-                            Porcentaje: {porcentaje}%
+                            Porcentaje de exactitud: {porcentaje}%
                         </div>
 
                     </CardContent>

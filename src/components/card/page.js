@@ -41,17 +41,24 @@ const translate = (diagnose) => {
   }
 }
 
-const obtenerColor = (diagnose, porcentaje) => {
-  if (diagnose === "Sin problemas") {
-
-    return "withoutProblemColor"
-
-  } else if (diagnose === "Sin diagnostico") {
+const obtenerColor = (diagnose,porcentaje) =>{
+  if(diagnose==="Sin problemas"){
+    if(porcentaje>80){
+      return "withoutProblemColor"
+    }
+    else{
+      return "futureProblemColor"
+    }
+  } else if ( diagnose==="Sin diagnostico"){
     return "undiagnosedColor"
-  } else {
-    return "problemColor"
   }
-}
+  else{
+    if(porcentaje>80)
+      return "problemColor"
+    else
+      return "futureProblemColor"
+  }
+} 
 
 function Page(props) {
   const { carta } = props;
@@ -61,7 +68,8 @@ function Page(props) {
   if (Object.keys(carta).length > 0) {
     diagnose = obtenerDiagnostico(c.diagnose);
     fecha = c.date ? JSON.stringify(c.date).slice(9, 11) + "/" + JSON.stringify(c.date).slice(6, 8) + "/" + JSON.stringify(c.date).slice(1, 5) : "";
-    porcentaje = diagnose === "Sin problemas" || diagnose === "Sin diagnostico" ? c.id * 100 / 6519 : 100;
+    porcentaje = c.percentage;
+    //porcentaje = diagnose === "Sin problemas" || diagnose === "Sin diagnostico" ? c.id * 100 / 6519 : 100;
     time = c.date ? JSON.stringify(c.date).slice(12, 17) : "";
   }
 
@@ -106,6 +114,11 @@ function Page(props) {
                 <div className="Dashboard-subtitles">
                   Hora: {time}
                 </div>
+
+                <div className="Dashboard-subtitles">
+                  Porcentaje de exactitud: {porcentaje}
+                </div>
+
 
               </CardContent>
 
