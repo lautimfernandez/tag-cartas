@@ -218,7 +218,7 @@ function Page(props) {
                 <br />
 
                 <div className='title' id='titlePozo'>
-                    ULTIMAS 5 CARTAS </div>
+                    ÚLTIMAS 5 CARTAS </div>
 
                 <Paper elevation={0} className="paper-container">
 
