@@ -116,7 +116,7 @@ function Page(props) {
                 </div>
 
                 <div className="Dashboard-subtitles">
-                  Porcentaje de exactitud: {porcentaje}
+                  Porcentaje de exactitud: {porcentaje}%
                 </div>
 
 
