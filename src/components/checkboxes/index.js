@@ -118,7 +118,7 @@ export default function CheckboxLabels(props) {
       />
       <br></br>
       
-      <Button color="primary" onClick={()=> {updateState(carta,state,nombre); 
+      <Button color="primary" disabled onClick={()=> {updateState(carta,state,nombre); 
                                               resetState()}}>Actualizar</Button>    
     </FormGroup>
     

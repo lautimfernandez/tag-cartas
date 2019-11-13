@@ -14,8 +14,8 @@ class Carta extends Component{
     }
     
     render(){
-        
-       const pozoId = this.props.match.params.pozoId;
+   
+     
         
         const{ cartas, updateState} = this.props;
         
@@ -23,7 +23,7 @@ class Carta extends Component{
             <Page 
                 cartas={cartas}
                 updateState={updateState}
-                pozoId={pozoId}
+            
             />
         );
     }

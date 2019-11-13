@@ -14,9 +14,9 @@ function Page(props) {
     
    const { cartas, updateState} = props;
  
-   const undiagnosedCards = cartas.filter(c => (c.diagnose ===""));
+   const undiagnosedCards = cartas;
    
-    
+
     return (
     <Fragment>
         <CssBaseline />        
