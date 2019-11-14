@@ -62,6 +62,7 @@ function CardsPozos(props) {
   const {pozo, carta} = props;
   const c = carta ? carta : {};
   const diagnose = obtenerDiagnostico(c.diagnose);
+  const time = c.date ? JSON.stringify(c.date).slice(12, 17) : "";
   const fecha = c.date ? JSON.stringify(c.date).slice(9,11)+"/"+JSON.stringify(c.date).slice(6,8)+"/"+JSON.stringify(c.date).slice(1,5) : "";
   //const porcentaje = diagnose==="Sin problemas"  || diagnose ==="Sin diagnostico" ? c.id*100/6519 : 100;
   const porcentaje = c.percentage; 
@@ -88,7 +89,7 @@ function CardsPozos(props) {
               </div>
               
               <div className="Dashboard-subtitles" >
-              Última actualización: {fecha}
+              Última actualización: {fecha} {time}
               </div>
 
               <div className="Dashboard-subtitles" > 

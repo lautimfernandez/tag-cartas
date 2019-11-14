@@ -56,7 +56,7 @@ const obtenerColor = (diagnose, porcentaje) => {
 
 
 function Page(props) {
-  
+
     const { cartasPozo, pozoId, wells } = props;
     const aWell = wells.find(w => w.number == pozoId);
     const well = aWell ? aWell : {};
@@ -67,14 +67,15 @@ function Page(props) {
     const numeroCarta = cartasPozo.length ? JSON.parse(cartasPozo[0].cardNumber) : "";
 
     const race = well ? well.race : "";
-    const { carta } = props;
-    const c = carta ? carta : {};
+
+    const c = cartasPozo.length ? cartasPozo[0] : {};
+    const fecha = c.date ? JSON.stringify(c.date).slice(9, 11) + "/" + JSON.stringify(c.date).slice(6, 8) + "/" + JSON.stringify(c.date).slice(1, 5) : "";
+    const time = c.date ? JSON.stringify(c.date).slice(12, 17) : "";
 
     let diagnose, porcentaje;
     if (Object.keys(pumpCard).length > 0) {
         diagnose = obtenerDiagnostico(cartasPozo[0].diagnose);
         porcentaje = cartasPozo[0].percentage;
-        //porcentaje = diagnose === "Sin problemas" || diagnose === "Sin diagnostico" ? c.id * 100 / 2173 : 100;
     }
 
     return (Object.keys(well).length > 0 & Object.keys(pumpCard).length > 0) ? (
@@ -123,6 +124,12 @@ function Page(props) {
 
                         <div className="Dashboard-subtitles">
                             Carrera: {race}
+                        </div>
+
+                        <br></br>
+
+                        <div className="Dashboard-subtitles" >
+                            Última actualización: {fecha} {time}
                         </div>
 
                         <br></br>
