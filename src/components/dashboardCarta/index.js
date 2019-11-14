@@ -85,12 +85,9 @@ function DashboardCarta(props) {
           </div>
           
           <div className="Dashboard-subtitles">
-            Fecha: {fecha}
+            Fecha: {fecha} {time}
           </div>
 
-          <div className="Dashboard-subtitles">
-            Hora: {time}
-          </div>
         </CardContent>
       </CardActionArea>
     </Card>
